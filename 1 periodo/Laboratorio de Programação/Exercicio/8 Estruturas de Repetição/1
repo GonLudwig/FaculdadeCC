@@ -1,0 +1,5 @@
+01 – (Exercício teórico) Diferencie as estruturas de repetição While, do While e For.
+
+While vai repetir o laço enquanto sua condição não for atendida.
+do while repeti o laço uma vez e somente testa se a condição para para o laço foi atendida no final para ai sim repetir
+for repete o laço de forma pre definida na sua condição.

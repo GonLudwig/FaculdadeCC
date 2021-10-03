@@ -1,0 +1,13 @@
+02 – (Exercício teórico) Quais as diferenças de uso das funções scanf, gets e fgets para
+leitura de strings?
+
+SCANF para leitura de string em tem um pequeno problema que ele para de fazer a leitura
+do stdin depois que você digite algum tipo de tabulação, sendo assim ele não conseque ler
+frases somente palavras.
+
+GETS ele ja diferentemente do scanf ele conseque ler uma frases porque e so para a leitura do
+stdin quando o enter for digitado.
+
+FGETS ele e igual o gets, mas adiciona a questão de poder limitar a quantidade de caracteres.
+Porque no gets você pode escrever uma frase maior do que a determinada pela variavel e vai 
+gerar um estouro no buffer.

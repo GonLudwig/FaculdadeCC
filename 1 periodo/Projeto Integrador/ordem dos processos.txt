@@ -1,0 +1,6 @@
+1 - criar tela de inicio
+2 - criar a logica do jogo
+3 - criar as configurações do jogo
+4 - criar Contador de movimentos/calcular quantidade de movimentos minimos
+5 - criar funcionlidade de reiniciar o jogo
+6 - criar funcionalidade de sair do jogo.

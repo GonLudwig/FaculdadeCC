@@ -1,0 +1,4 @@
+Qual a diferença de leitura com %c ou %s utilizando o scanf?
+
+o %c serve unicamente para a leitura de somente um caracter.
+o %s serve para leituras de mais de um caracter.

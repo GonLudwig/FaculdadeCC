@@ -1,0 +1,6 @@
+02 – (Exercício teórico) Exemplifique situações em que é mais apropriado utilizar as
+seguintes estruturas de repetição While, do While e For.
+
+for e para quando você sabe quantas vezes você quer que o laço se repita
+while e quando você quer que o laço se repita interderminadas vezes ate atender uma condição.
+e o do while e quando você quer que ele repita uma primeira vez antes de repetir interderminadas vezes ate atender uma condição.

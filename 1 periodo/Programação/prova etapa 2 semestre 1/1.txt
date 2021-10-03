@@ -1,0 +1,9 @@
+1)
+A) Errado, porque no ato de definir o vetor você deve especificar qual tipo de valor ele deve receber, se vai ser tipo INT, FLoat, Char.
+
+B) errado, na hora da definição do vetor ele so aceitar numero inteiro maiores que zero, pois não existe quantidade "quebrada" de valores que ele pode armazenar. 
+No caso ele não vai armazer um valor e meio, ou e um ou e dois ou e nenhum valor.
+
+c) Esta Certo.
+
+D) Esta certa.

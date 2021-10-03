@@ -1,0 +1,9 @@
+a) Um vetor armazena um único tipo de dados.
+R: Verdadeiro.
+b) Na definição de um vetor o tipo é opcional.
+R: Falso, você tem que determinar qual e o tipo do vetor.
+c) A lista de inicialização de um vetor pode possuir mais inicializadores do que o número de
+elementos do vetor.
+R: Você ate conseque colocar mas so vai ser armazenador em memoria os dados colodados ate o numero de elementos determinado.
+d) É possível alterar os valores de um vetor por meio de outras funções.
+R: Verdadeiro.
