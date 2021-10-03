@@ -7,7 +7,7 @@ struct pessoa {
 
 struct aviao {
     struct pessoa passageiro[10];
-    int qtd;
+    int qtdPassageiro;
     int numPoltronas;
     int codIdent;
     char origem[100];
@@ -16,18 +16,38 @@ struct aviao {
 };
 
 struct inicioLista {
+    int codIdent;
     VOO *inicio;
     VOO *fim;
 };
 
-VOO *criarVoo(char *ori, char *dest) {
+VOO *criarVoo(char *ori, char *dest, int ident) {
     VOO *viajem = (VOO *) calloc(1, sizeof(VOO));
 
     viajem->numPoltronas = 10;
-    viajem->codIdent++;
+    viajem->codIdent = ident;
     strcpy(viajem->origem, ori);
     strcpy(viajem->destino, dest);
     viajem->proximo = NULL;
+
+    while (choice != 0) {
+        puts("1 - Adicionar Passageiro:");
+        puts("0 - Fechar Voo:");
+        scanf("%d", &choice);
+        switch (choice) {
+            case 1:
+                puts("Digite o nome do Passageiro:");
+                fflush(stdin);
+                gets(passageiro);
+                puts("Digite o numero do Passaporte");
+                viajem->passageiro[i] = cadastrarPassageiro(passageiro, passP);
+            break;
+        
+        default:
+            break;
+        }
+    }
+    
 
     return viajem;
 }
@@ -37,18 +57,21 @@ INICIOL *criarLista() {
 
     lista->inicio = NULL;
     lista->fim = NULL;
+    lista->codIdent = 0;
 
     return lista;
 }
 
 void inserirInicioLista(INICIOL *lista, char *ori, char *dest ){
-    VOO *viajem = criarVoo(ori, dest);
+    lista->codIdent++;
+    VOO *viajem = criarVoo(ori, dest, lista->codIdent);
     viajem->proximo = lista->inicio;
     lista->inicio = viajem;
 }
 
 void inserirFinalLista(INICIOL *lista, char *ori, char *dest) {
-    VOO *viajem = criarVoo(ori, dest);
+    lista->codIdent++;
+    VOO *viajem = criarVoo(ori, dest, lista->codIdent);
 
     if(lista->inicio == NULL) {
         lista->inicio = viajem;
@@ -76,6 +99,7 @@ void exibirVoo(INICIOL *lista){
         printf("Local de origem: %s\n", viajem->origem);
         printf("Local de destino: %s\n", viajem->destino);
 //        exibirPassageiro(viajem->passageiro, viajem->qtd);
+        viajem = viajem->proximo;
     }
 
 }
