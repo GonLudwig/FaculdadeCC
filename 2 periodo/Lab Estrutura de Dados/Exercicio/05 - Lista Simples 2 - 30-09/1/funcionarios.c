@@ -5,7 +5,7 @@ LISTAFUNC *criarlista() {
 
     lista->qtd = 0;
 
-    return lista;
+    return lista; 
 }
 
 int inserirLista(LISTAFUNC *lista, char *nome, float nov, float dez, float jan ) {

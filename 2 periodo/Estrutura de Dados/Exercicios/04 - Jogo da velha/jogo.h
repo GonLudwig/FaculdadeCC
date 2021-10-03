@@ -12,15 +12,16 @@ typedef struct velha {
 
 VELHA *iniciarJogo();
 
-PESSOA *criarPessoa(char p1[]);
+PESSOA *criarPessoa(char *p1);
 
-int preencherVelhaJogar1(VELHA *jogoVelha, int numP1);
-int preencherVelhaJogador2(VELHA *jogoVelha, int numP2);
+int preencherVelhaJogador1(VELHA *jogoVelha, char numP1);
+
+int preencherVelhaJogador2(VELHA *jogoVelha, char numP2);
 
 int vencedor(VELHA *jogoVelha, PESSOA *p1, PESSOA *p2);
 
 void exibirVelha(VELHA *jogoVelha, PESSOA *p1, PESSOA *p2);
 
-void liberarJogo(VELHA *jogoVelha);
+void liberarJogo();
 
-void liberarPessoa(PESSOA *p);
+void liberarPessoa();
