@@ -56,7 +56,7 @@ void maiorVendedor(LISTAFUNC *lista) {
     }
 
     printf("O maior Vendedor foi %s\n", lista->colaborador[indiceMaior].nome);
-    printf("Sua pontuação total foi de %d", maiorVenda);
+    printf("Sua pontuacao total foi de %d\n", lista->colaborador[indiceMaior].tPontos);
 }
 
 int totalVenda(LISTAFUNC *lista){

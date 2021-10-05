@@ -57,7 +57,7 @@ void exibirMes(ListLoteria *mega){
         for (j=0;j<6;j++) {
             printf(" %d ", mega->soteiroMes[i][j]);
         }
-        printf(" 2 Seguencia da semana:");
+        printf("\n 2 Seguencia da semana:");
         for (j=6;j<12;j++) {
             printf(" %d ", mega->soteiroMes[i][j]);
         }

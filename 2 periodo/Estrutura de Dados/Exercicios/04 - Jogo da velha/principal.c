@@ -6,7 +6,7 @@ int main(){
     int ganhador = 0;
     int repetida = 0;
 	
-	VELHA *jogoVelha;
+	VELHA *jogoVelha = iniciarJogo();
     PESSOA *p1;
     PESSOA *p2;
 
@@ -17,8 +17,6 @@ int main(){
     printf("Qual e o nome do jogador 2: ");
     gets(jogador);
     p2 = criarPessoa(jogador);
-    
-    jogoVelha = iniciarJogo();
     
     while (ganhador == 0) {
 
@@ -48,6 +46,31 @@ int main(){
             }
 
             ganhador = vencedor(jogoVelha, p1, p2);
-        } 
+        }
+        
+        
+        if(ganhador == 1){
+        	printf("Deseja jogar novamente?\n1- Jogar novamente  -  0- Sair\n");
+			scanf("%d", &escolha);
+			while(escolha != 1 && escolha != 0){
+				printf("Digite uma escolha valida\n");
+				printf("Deseja jogar novamente?\n1- Jogar novamente  -  0- Sair\n");
+				scanf("%d", &escolha);
+			}
+		
+			switch(escolha){
+				case 1:
+					jogoVelha = iniciarJogo();
+					ganhador = 0;
+					break;
+				default:
+					printf("Obrigado por jogar!");
+					break;				
+			}
+		}
     }
+    
+    liberarJogo(jogoVelha);
+    liberarPessoa(p1);
+    liberarPessoa(p2);
 }

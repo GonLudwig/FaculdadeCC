@@ -39,76 +39,64 @@ int preencherVelhaJogador2(VELHA *jogoVelha, char numP2){
 };
 
 int vencedor(VELHA *jogoVelha, PESSOA *p1, PESSOA *p2){
+	int velha = 0;
+	int i;
+	
+	for(i=0;i<9;i++){
+		if(jogoVelha->jogo[i] == 'X' || jogoVelha->jogo[i] == 'O'){
+			velha++;
+		}
+	}
+	
+	
+	
 	if(jogoVelha->jogo[0] == 'X' && jogoVelha->jogo[1] == 'X' && jogoVelha->jogo[2] == 'X'){
 		printf("Jogador %s ganhou!!!\n", p1->nome);
 		return 1;
-	}
-
-	if(jogoVelha->jogo[0] == 'O' && jogoVelha->jogo[1] == 'O' && jogoVelha->jogo[2] == 'O'){
+	} else if(jogoVelha->jogo[0] == 'O' && jogoVelha->jogo[1] == 'O' && jogoVelha->jogo[2] == 'O'){
 		printf("Jogador %s ganhou!!!\n", p2->nome);
+		return 1;
+	} else if(jogoVelha->jogo[3] == 'X' && jogoVelha->jogo[4] == 'X' && jogoVelha->jogo[5] == 'X'){
+		printf("Jogador %s ganhou!!!\n", p1->nome);
+		return 1;
+	}else if(jogoVelha->jogo[3] == 'O' && jogoVelha->jogo[4] == 'O' && jogoVelha->jogo[5] == 'O') {
+		printf("Jogador %s ganhou!!!\n", p2->nome);
+		return 1;
+	}else if(jogoVelha->jogo[6] == 'X' && jogoVelha->jogo[7] == 'X' && jogoVelha->jogo[8] == 'X'){
+		printf("Jogador %s ganhou!!!\n", p1->nome);
+		return 1;
+	}else if(jogoVelha->jogo[6] == 'O' && jogoVelha->jogo[7] == 'O' && jogoVelha->jogo[8] == 'O'){
+		printf("Jogador %s ganhou!!!\n", p2->nome);
+		return 1;
+	}else if(jogoVelha->jogo[0] == 'X' && jogoVelha->jogo[3] == 'X' && jogoVelha->jogo[6] == 'X'){
+		printf("Jogador %s ganhou!!!\n", p1->nome);
+		return 1;
+	}else if(jogoVelha->jogo[0] == 'O' && jogoVelha->jogo[3] == 'O' && jogoVelha->jogo[6] == 'O') {
+		printf("Jogador %s ganhou!!!\n", p2->nome);
+		return 1;
+	}else if(jogoVelha->jogo[2] == 'X' && jogoVelha->jogo[5] == 'X' && jogoVelha->jogo[8] == 'X'){
+		printf("Jogador %s ganhou!!!\n", p1->nome);
+		return 1;
+	}else if(jogoVelha->jogo[2] == 'O' && jogoVelha->jogo[5] == 'O' && jogoVelha->jogo[8] == 'O'){
+		printf("Jogador %s ganhou!!!\n", p2->nome);
+		return 1;
+	}else if(jogoVelha->jogo[0] == 'X' && jogoVelha->jogo[4] == 'X' && jogoVelha->jogo[8] == 'X'){
+		printf("Jogador %s ganhou!!!\n", p1->nome);
+		return 1;
+	}else if(jogoVelha->jogo[0] == 'O' && jogoVelha->jogo[4] == 'O' && jogoVelha->jogo[8] == 'O'){
+		printf("Jogador %s ganhou!!!\n", p2->nome);
+		return 1;
+	}else if(jogoVelha->jogo[2] == 'X' && jogoVelha->jogo[4] == 'X' && jogoVelha->jogo[6] == 'X'){
+		printf("Jogador %s ganhou!!!\n", p1->nome);
+		return 1;
+	}else if(jogoVelha->jogo[2] == 'O' && jogoVelha->jogo[4] == 'O' && jogoVelha->jogo[6] == 'O'){
+		printf("Jogador %s ganhou!!!\n", p2->nome);
+		return 1;
+	} else if (velha == 9){
+		printf("Deu velha!\n");
 		return 1;
 	}
 	
-	if(jogoVelha->jogo[3] == 'X' && jogoVelha->jogo[4] == 'X' && jogoVelha->jogo[5] == 'X'){
-		printf("Jogador %s ganhou!!!\n", p1->nome);
-		return 1;
-	}
-
-	if(jogoVelha->jogo[3] == 'O' && jogoVelha->jogo[4] == 'O' && jogoVelha->jogo[5] == 'O') {
-		printf("Jogador %s ganhou!!!\n", p2->nome);
-		return 1;
-	}
-	
-	if(jogoVelha->jogo[6] == 'X' && jogoVelha->jogo[7] == 'X' && jogoVelha->jogo[8] == 'X'){
-		printf("Jogador %s ganhou!!!\n", p1->nome);
-		return 1;
-	}
-
-	if(jogoVelha->jogo[6] == 'O' && jogoVelha->jogo[7] == 'O' && jogoVelha->jogo[8] == 'O'){
-		printf("Jogador %s ganhou!!!\n", p2->nome);
-		return 1;
-	}
-	
-	if(jogoVelha->jogo[0] == 'X' && jogoVelha->jogo[3] == 'X' && jogoVelha->jogo[6] == 'X'){
-		printf("Jogador %s ganhou!!!\n", p1->nome);
-		return 1;
-	}
-	
-	if(jogoVelha->jogo[0] == 'O' && jogoVelha->jogo[3] == 'O' && jogoVelha->jogo[6] == 'O') {
-		printf("Jogador %s ganhou!!!\n", p2->nome);
-		return 1;
-	}
-	
-	if(jogoVelha->jogo[2] == 'X' && jogoVelha->jogo[5] == 'X' && jogoVelha->jogo[8] == 'X'){
-		printf("Jogador %s ganhou!!!\n", p1->nome);
-		return 1;
-	}
-
-	if(jogoVelha->jogo[2] == 'O' && jogoVelha->jogo[5] == 'O' && jogoVelha->jogo[8] == 'O'){
-		printf("Jogador %s ganhou!!!\n", p2->nome);
-		return 1;
-	}
-
-	if(jogoVelha->jogo[0] == 'X' && jogoVelha->jogo[4] == 'X' && jogoVelha->jogo[8] == 'X'){
-		printf("Jogador %s ganhou!!!\n", p1->nome);
-		return 1;
-	}
-
-	if(jogoVelha->jogo[0] == 'O' && jogoVelha->jogo[4] == 'O' && jogoVelha->jogo[8] == 'O'){
-		printf("Jogador %s ganhou!!!\n", p2->nome);
-		return 1;
-	}
-
-		if(jogoVelha->jogo[2] == 'X' && jogoVelha->jogo[4] == 'X' && jogoVelha->jogo[6] == 'X'){
-		printf("Jogador %s ganhou!!!\n", p1->nome);
-		return 1;
-	}
-
-	if(jogoVelha->jogo[2] == 'O' && jogoVelha->jogo[4] == 'O' && jogoVelha->jogo[6] == 'O'){
-		printf("Jogador %s ganhou!!!\n", p2->nome);
-		return 1;
-	}
-
 	return 0;
 };
 

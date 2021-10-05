@@ -21,9 +21,15 @@ struct inicioLista {
     VOO *fim;
 };
 
+
 VOO *criarVoo(char *ori, char *dest, int ident) {
     VOO *viajem = (VOO *) calloc(1, sizeof(VOO));
+    int choice = 1;
+    int passP;
+    int i=0;
+    char passageiros[100];
 
+    viajem->qtdPassageiro = 0;
     viajem->numPoltronas = 10;
     viajem->codIdent = ident;
     strcpy(viajem->origem, ori);
@@ -38,13 +44,16 @@ VOO *criarVoo(char *ori, char *dest, int ident) {
             case 1:
                 puts("Digite o nome do Passageiro:");
                 fflush(stdin);
-                gets(passageiro);
+                gets(passageiros);
                 puts("Digite o numero do Passaporte");
-                viajem->passageiro[i] = cadastrarPassageiro(passageiro, passP);
-            break;
-        
-        default:
-            break;
+                scanf("%d", &passP);
+                strcpy(viajem->passageiro[i].nome, passageiros);
+                viajem->passageiro[i].passaporte = passP;
+                viajem->qtdPassageiro++;
+                i++;
+                break; 
+            default:
+                break;
         }
     }
     
@@ -82,23 +91,21 @@ void inserirFinalLista(INICIOL *lista, char *ori, char *dest) {
     }
 }
 
-void exibirPassageiro(struct pessoa *passageiros, int qtd) {
-    int i;
-    for(i=0;i< qtd;i++){
-        printf("Passageiro %d\n", qtd+1);
-        printf("Nome: %s\n", passageiros->nome);
-        printf("Passaporte: %d\n", passageiros->passaporte);
-    }
-}
 
 void exibirVoo(INICIOL *lista){
     VOO *viajem = lista->inicio;
+    int i;
 
     while(viajem != NULL) {
         printf("Codigo Identificacao: %d\n", viajem->codIdent);
         printf("Local de origem: %s\n", viajem->origem);
         printf("Local de destino: %s\n", viajem->destino);
-//        exibirPassageiro(viajem->passageiro, viajem->qtd);
+        for(i=0;i<viajem->qtdPassageiro;i++){
+            printf("Passageiro %d\n", i+1);
+            printf("Nome: %s\n", viajem->passageiro[i].nome);
+            printf("Passaporte: %d\n", viajem->passageiro[i].passaporte);
+
+        }
         viajem = viajem->proximo;
     }
 
