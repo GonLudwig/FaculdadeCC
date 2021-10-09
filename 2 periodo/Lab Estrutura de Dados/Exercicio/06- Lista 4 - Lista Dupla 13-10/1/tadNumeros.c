@@ -1,4 +1,4 @@
-#include "TadListEnc.h"
+#include "tadNumeros.h"
 
 struct numero {
     int num;
@@ -47,14 +47,21 @@ void adicionarInicioLista(ListaNum *lista, int num){
 
 void adicionarFimLista(ListaNum *lista, int num){
     NUM *numero = criarNum(num);
-    numero->proximo = lista->fim;
+    numero->anterior = lista->fim; 
 
+    if(lista->tamanho == 0){
+        lista->inicio = numero;
+    } else{
+        lista->fim->proximo = numero;
+    }
+
+    lista->fim = numero;
+    lista->tamanho++;
 }
 
 void exibirListaInv(ListaNum *lista) {
     NUM *numero = lista->inicio;
 
-    puts("Lista invertida");
     while(numero != NULL){
         printf(" %d ", numero->num);
         numero = numero->proximo;
