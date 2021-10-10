@@ -85,6 +85,9 @@ void escolherSerie(Catalogo *lista){
             scanf("%d", &escolha);
             switch (escolha){
                 case 1:
+                    if (franquia->epiAssistidos == franquia->episodios){
+                        franquia->epiAssistidos = 0;
+                    }
                     for (i=franquia->epiAssistidos;i<=franquia->episodios || escolha2 != 0;){
                         printf("Voce ja assistiu %d episodeos desta serie\n", i);
                         printf("Digite 1 - Para assistir o %d\n", i+1);
@@ -101,6 +104,7 @@ void escolherSerie(Catalogo *lista){
                                 break;
                         }
                     }
+                    assistirSerie(franquia, i);
                     break;
                 case 2:
                     franquia = franquia->proximo;
@@ -116,7 +120,12 @@ void escolherSerie(Catalogo *lista){
                     break;
             }
         }
-        
-
     }
+}
+
+void liberarLista(Catalogo **lista){
+    Catalogo *l = *lista;
+
+    SERIE *percorer = l->fim;
+    SERIE *aux = NULL;
 }
