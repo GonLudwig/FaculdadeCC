@@ -28,6 +28,8 @@ X = 2.300 / 43 = 53,49 (arredondado para cima)*/
 
 int main () {
     int escolha = 1;
+    int codSerie, tempSerie, epiSerie;
+    char nomeSerie [100];
 
     Catalogo *catalo = criarCatalogo();
 
@@ -37,7 +39,26 @@ int main () {
     puts("Digite 0 - Sair.");
     while (escolha != 0){
         scanf("%d", &escolha);
-        0
+        switch (escolha){
+            case 1:
+                puts("Digite o nome da serie:");
+                fflush(nomeSerie);
+                gets(nomeSerie);
+                puts("Digite o codigo da serie:");
+                scanf("%d", &codSerie);
+                puts("Digite o numero de episodios totais:");
+                scanf("%d", &epiSerie);
+                puts("Digite o numero de temporadas:");
+                scanf("%d", &tempSerie);
+                adicionarSerie(catalo, codSerie, nomeSerie, tempSerie, epiSerie);
+                break;
+            case 2:
+                escolherSerie(catalo);
+                break;
+            default:
+                liberarLista(catalo);
+                break;
+        }
     }
     
 }
