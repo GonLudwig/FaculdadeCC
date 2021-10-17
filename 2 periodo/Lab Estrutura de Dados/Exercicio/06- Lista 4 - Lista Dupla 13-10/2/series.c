@@ -23,3 +23,21 @@ percentual de episódios assistidos igual a 53,49%, pois:
 23 está para X logo,
 43X = 2.300
 X = 2.300 / 43 = 53,49 (arredondado para cima)*/
+
+#include "tadSeries.h"
+
+int main () {
+    int escolha = 1;
+
+    Catalogo *catalo = criarCatalogo();
+
+    puts("Olá, Bem-vindo a StarlingFlix!");
+    puts("Digite 1 - Adicionar seire ao catalogo.");
+    puts("Digite 2 - Exibir/Escolher serie.");
+    puts("Digite 0 - Sair.");
+    while (escolha != 0){
+        scanf("%d", &escolha);
+        0
+    }
+    
+}

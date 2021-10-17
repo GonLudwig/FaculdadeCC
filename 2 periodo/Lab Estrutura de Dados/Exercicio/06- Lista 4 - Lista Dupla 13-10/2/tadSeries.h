@@ -10,3 +10,4 @@ Catalogo *criarCatalogo();
 SERIE *criarSerie(int codS, char *nomeS, int tempS, int epiS);
 void adicionarSerie(Catalogo *lista, int codS, char *nomeS, int tempS, int epiS);
 void escolherSerie(Catalogo *lista);
+void liberarLista(Catalogo **lista);
