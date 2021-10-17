@@ -29,9 +29,9 @@ X = 2.300 / 43 = 53,49 (arredondado para cima)*/
 int main () {
     int escolha = 1;
     int codSerie, tempSerie, epiSerie;
-    char nomeSerie [100];
+    char nomeSerie[100];
 
-    Catalogo *catalo = criarCatalogo();
+    Catalogo *catalogo = criarCatalogo();
 
     puts("Olá, Bem-vindo a StarlingFlix!");
     puts("Digite 1 - Adicionar seire ao catalogo.");
@@ -50,15 +50,16 @@ int main () {
                 scanf("%d", &epiSerie);
                 puts("Digite o numero de temporadas:");
                 scanf("%d", &tempSerie);
-                adicionarSerie(catalo, codSerie, nomeSerie, tempSerie, epiSerie);
+                adicionarSerie(catalogo, codSerie, nomeSerie, tempSerie, epiSerie);
                 break;
             case 2:
-                escolherSerie(catalo);
+                escolherSerie(catalogo);
                 break;
             default:
-                liberarLista(catalo);
+                puts("Obrigado pela preferencia.");
                 break;
         }
     }
     
+    liberarLista(catalogo);
 }

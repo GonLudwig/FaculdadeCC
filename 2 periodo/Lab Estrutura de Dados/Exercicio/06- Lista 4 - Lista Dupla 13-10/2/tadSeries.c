@@ -80,50 +80,49 @@ void escolherSerie(Catalogo *lista){
         puts("Digite 2 - Proxima");
         puts("Digite 3 - Voltar");
         puts("Digite 0 - Fechar StarlingFlix");
-        while (escolha != 0) {
-            scanf("%d", &escolha);
-            switch (escolha){
-                case 1:
-                    if (franquia->epiAssistidos == franquia->episodios){
-                        franquia->epiAssistidos = 0;
+        scanf("%d", &escolha);
+
+        switch (escolha){
+            case 1:
+                if (franquia->epiAssistidos == franquia->episodios){
+                    franquia->epiAssistidos = 0;
+                }
+                for (i=franquia->epiAssistidos;i<=franquia->episodios || escolha2 != 0;){
+                    printf("Voce ja assistiu %d episodeos desta serie\n", i);
+                    printf("Digite 1 - Para assistir o %d episodio.\n", i+1);
+                    puts("Digite 0 - Para parar de assistir:");
+                    scanf("%d", &escolha2);
+                    switch (escolha2) {
+                        case 1:
+                            i++;
+                            break;
+                        case 0:
+                            puts("Te esperamo mais tarde!!! ;D");
+                        default:
+                            puts("Opcao invalida! Tente novamente!");
+                            printf("Digite 1 - Para assistir o %d\n", i+1);
+                            puts("Digite 0 - Para parar de assistir:");
+                            break;
                     }
-                    for (i=franquia->epiAssistidos;i<=franquia->episodios || escolha2 != 0;){
-                        printf("Voce ja assistiu %d episodeos desta serie\n", i);
-                        printf("Digite 1 - Para assistir o %d episodio.\n", i+1);
-                        puts("Digite 0 - Para parar de assistir:");
-                        scanf("%d", &escolha2);
-                        switch (escolha2) {
-                            case 1:
-                                i++;
-                                break;
-                            case 0:
-                                puts("Te esperamo mais tarde!!! ;D");
-                            default:
-                                puts("Opcao invalida! Tente novamente!");
-                                printf("Digite 1 - Para assistir o %d\n", i+1);
-                                puts("Digite 0 - Para parar de assistir:");
-                                break;
-                        }
-                    }
-                    assistirSerie(franquia, i);
-                    break;
-                case 2:
-                    franquia = franquia->proximo;
-                    break;
-                case 3:
-                    franquia = franquia->anterior;
-                    break;
-                case 0:
-                    puts("Obrigado pela preferencia!!!");
-                    break;
-                default:
-                    puts("Opcao invalida! Tente novamente!");
-                    puts("Digite 1 - Assistir esta serie.");
-                    puts("Digite 2 - Proxima");
-                    puts("Digite 3 - Voltar");
-                    puts("Digite 0 - Fechar StarlingFlix");
-                    break;
-            }
+                }
+                assistirSerie(franquia, i);
+                break;
+            case 2:
+                franquia = franquia->proximo;
+                break;
+            case 3:
+                franquia = franquia->anterior;
+                break;
+            case 0:
+                puts("Obrigado pela preferencia!!!");
+                break;
+            default:
+                puts("Opcao invalida! Tente novamente!");
+                puts("Digite 1 - Assistir esta serie.");
+                puts("Digite 2 - Proxima");
+                puts("Digite 3 - Voltar");
+                puts("Digite 0 - Fechar StarlingFlix");
+                break;
         }
     }
 }
