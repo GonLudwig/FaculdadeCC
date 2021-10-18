@@ -33,16 +33,16 @@ int main () {
 
     Catalogo *catalogo = criarCatalogo();
 
-    puts("Olá, Bem-vindo a StarlingFlix!");
-    puts("Digite 1 - Adicionar seire ao catalogo.");
-    puts("Digite 2 - Exibir/Escolher serie.");
-    puts("Digite 0 - Sair.");
+    puts("Ola, Bem-vindo a StarlingFlix!");
     while (escolha != 0){
+    	puts("Digite 1 - Adicionar seire ao catalogo.");
+        puts("Digite 2 - Exibir/Escolher serie.");
+        puts("Digite 0 - Sair.");
         scanf("%d", &escolha);
         switch (escolha){
             case 1:
                 puts("Digite o nome da serie:");
-                fflush(nomeSerie);
+                fflush(stdin);
                 gets(nomeSerie);
                 puts("Digite o codigo da serie:");
                 scanf("%d", &codSerie);
@@ -61,5 +61,5 @@ int main () {
         }
     }
     
-    liberarLista(catalogo);
+    liberarLista(&catalogo);
 }

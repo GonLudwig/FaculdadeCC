@@ -74,7 +74,7 @@ void escolherSerie(Catalogo *lista){
         printf("Nome Serie: %s\n", franquia->titulo);
         printf("Numero de Temporadas: %d\n", franquia->temporadas);
         printf("Numero total de episodios: %d\n", franquia->episodios);
-        printf("Episodios assistidos: %d", franquia->epiAssistidos);
+        printf("Episodios assistidos: %d\n", franquia->epiAssistidos);
         printf("Porcetagem Epidios Assistidos: %.2f\n", franquia->porcAssistido);
         puts("Digite 1 - Assistir esta serie.");
         puts("Digite 2 - Proxima");
@@ -84,24 +84,29 @@ void escolherSerie(Catalogo *lista){
 
         switch (escolha){
             case 1:
+                i = franquia->epiAssistidos;
                 if (franquia->epiAssistidos == franquia->episodios){
                     franquia->epiAssistidos = 0;
                 }
-                for (i=franquia->epiAssistidos;i<=franquia->episodios || escolha2 != 0;){
-                    printf("Voce ja assistiu %d episodeos desta serie\n", i);
-                    printf("Digite 1 - Para assistir o %d episodio.\n", i+1);
-                    puts("Digite 0 - Para parar de assistir:");
-                    scanf("%d", &escolha2);
+                while (escolha2 != 0 ){
+                    if (i == franquia->episodios){
+                        escolha2 = 0;
+                        puts("Voce ja assitiu toda a serie!");
+                    } else{
+                        printf("Voce ja assistiu %d episodeos desta serie\n", i);
+                        printf("Digite 1 - Para assistir o %d episodio.\n", i+1);
+                        puts("Digite 0 - Para parar de assistir:");
+                        scanf("%d", &escolha2);
+                    }
                     switch (escolha2) {
                         case 1:
                             i++;
                             break;
                         case 0:
                             puts("Te esperamo mais tarde!!! ;D");
+                            break;
                         default:
                             puts("Opcao invalida! Tente novamente!");
-                            printf("Digite 1 - Para assistir o %d\n", i+1);
-                            puts("Digite 0 - Para parar de assistir:");
                             break;
                     }
                 }
@@ -118,10 +123,6 @@ void escolherSerie(Catalogo *lista){
                 break;
             default:
                 puts("Opcao invalida! Tente novamente!");
-                puts("Digite 1 - Assistir esta serie.");
-                puts("Digite 2 - Proxima");
-                puts("Digite 3 - Voltar");
-                puts("Digite 0 - Fechar StarlingFlix");
                 break;
         }
     }
