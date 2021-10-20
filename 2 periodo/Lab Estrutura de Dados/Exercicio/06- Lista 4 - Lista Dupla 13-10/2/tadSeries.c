@@ -131,6 +131,14 @@ void escolherSerie(Catalogo *lista){
 void liberarLista(Catalogo **lista){
     Catalogo *l = *lista;
 
-    SERIE *percorer = l->fim;
+    SERIE *percorer = l->inicio;
     SERIE *aux = NULL;
+    while (percorer != NULL){
+        aux = percorer;
+        percorer = percorer->proximo;
+        free(aux);
+    }
+    
+    free(l);
+    *lista = NULL;
 }
