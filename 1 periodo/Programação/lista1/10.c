@@ -12,12 +12,12 @@ int main () {
     printf("Qual e o custo de fabricacao do veiculo?");
     scanf("%f", &custoFabri);
     
+    precoConsu = custoFabri + (custoFabri * 0.05);
+
     if (custoFabri > 25000) {
         precoConsu = custoFabri + (custoFabri * 0.15) + (custoFabri * 0.2);
     } else if (custoFabri >= 18000 && custoFabri <= 25000) {
         precoConsu = custoFabri + (custoFabri * 0.10) + (custoFabri * 0.15);
-    } else {
-        precoConsu = custoFabri + (custoFabri * 0.05);
     }
 
     printf("O preco do veiculo e: %.2f", precoConsu);
