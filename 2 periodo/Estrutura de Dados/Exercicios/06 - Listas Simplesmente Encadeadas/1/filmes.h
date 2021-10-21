@@ -7,7 +7,7 @@ typedef struct listaFilme LFILME;
 
 LFILME *criarlista();
 
-LFILME *criarFilme(char *nFilme, char *nDiretor, int time);
+FILME *criarFilme(char *nFilme, char *nDiretor, int time);
 
 void adicionarFilme(LFILME *lista, char *nFilme, char *nDiretor, int time);
 void exibirMaiorDuracao(LFILME *lista);
