@@ -23,19 +23,19 @@ LVIDEO *criarlista(){
     return lista;
 }
 
-VIDEO *criarVideo(char *nVideo, int vis){
+VIDEO *criarVideo(char *nVideo){
     VIDEO *vid = (VIDEO*) calloc(1, sizeof(VIDEO));
 
     strcpy(vid->nome, nVideo);
-    vid->visualizacao = vis;
+    vid->visualizacao = 0;
     vid->proximo = NULL;
     vid->cod = 0;
 
     return vid;
 }
 
-void adicionarVideo(LVIDEO *lista, char *nVideo, int vis){
-    VIDEO *vid = criarExercicio(nVideo, vis);
+void adicionarVideo(LVIDEO *lista, char *nVideo){
+    VIDEO *vid = criarVideo(nVideo);
 
     if(lista->inicio == NULL){
         lista->inicio = vid;
@@ -49,24 +49,50 @@ void adicionarVideo(LVIDEO *lista, char *nVideo, int vis){
 
 void verVideo(LVIDEO *lista){
     VIDEO *list = lista->inicio;
+    int escolha;
+
 
     while (list != NULL){
-        if (list->visualizacao > maior){
-            maior = list->visualizacao;
-            mFilme = list->cod;
+        printf("Nome: %s\n", list->nome);
+        printf("Visualizacoes: %d\n", list->visualizacao);
+        puts("Digite 1 - Ver o proximo video");
+        puts("Digite 2 - Assistir este video");
+        puts("Digite 0 - Sair");
+        scanf("%d", &escolha);
+        switch (escolha){
+            case 1:
+                if(list == lista->fim){
+                    puts("Este e o ultimo video");
+                    puts("Digite 1 - Voltar ao inicio");
+                    puts("Digite 0 - Sair");
+                    scanf("%d", &escolha);
+                    switch (escolha){
+                        case 1:
+                            list = lista->inicio;
+                            break;
+                        case 0:
+                            list = list->proximo;
+                            break;
+                        default:
+                            puts("Escolha Invalida!!!");
+                            break;
+                    }
+                }else{
+                    list = list->proximo;
+                }
+                break;
+            case 2:
+                list->visualizacao++;
+                break;
+            case 0:
+                list = NULL;
+                break;
+            default:
+                puts("Escolha Invalida!!!");
+                break;
         }
-        list = list->proximo;
     }
 
-    list = lista->inicio;
-    while (list != NULL){
-        if(list->cod == mFilme){
-            puts("O Filme com maior duracao foi:");
-            printf("Nome: %s\n", list->nome);
-            printf("Duracao: %d\n", list->visualizacao);
-        }
-        list = list->proximo;
-    }
 }
 
 void liberarLista(LVIDEO **lista){
