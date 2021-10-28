@@ -59,11 +59,37 @@ void adicionarFimLista(ListaNum *lista, int num){
     lista->tamanho++;
 }
 
-void exibirListaInv(ListaNum *lista) {
+ListaNum *listaImpar(ListaNum *listaOriginal){
+    ListaNum *listaImpar = criarLista();
+
+    NUM *aux = listaOriginal->inicio;
+    while (aux != NULL){
+        if (aux->num % 2){
+            adicionarFimLista(listaImpar, aux->num);
+        }
+        aux = aux->proximo;
+    }
+    return listaImpar;
+}
+
+ListaNum *listaPar(ListaNum *listaOriginal){
+    ListaNum *listaPar = criarLista();
+
+    NUM *aux = listaOriginal->inicio;
+    while (aux != NULL){
+        if (aux->num % 2 == 0){
+            adicionarFimLista(listaPar, aux->num);
+        }
+        aux = aux->proximo;
+    }
+    return listaPar;
+}
+
+void exibirLista(ListaNum *lista) {
     NUM *numero = lista->inicio;
 
     while(numero != NULL){
-        printf(" %d ", numero->num);
+        printf(" - %d", numero->num);
         numero = numero->proximo;
     }
     puts("");

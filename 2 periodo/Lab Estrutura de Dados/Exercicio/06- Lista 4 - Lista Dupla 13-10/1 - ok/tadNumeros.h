@@ -12,6 +12,10 @@ void adicionarInicioLista(ListaNum *lista, int num);
 
 void adicionarFimLista(ListaNum *lista, int num);
 
-void exibirListaInv(ListaNum *lista);
+ListaNum *listaImpar(ListaNum *listaOriginal);
+
+ListaNum *listaPar(ListaNum *listaOriginal);
+
+void exibirLista(ListaNum *lista);
 
 void liberarLista(ListaNum **lista);
