@@ -30,19 +30,17 @@ int main() {
                     listaI = listaImpar(lista);
                     puts("Numeros sendo adicionados a lista par!!!");
                     listaP = listaPar(lista);
-
                     printf("Numeros Impares");
                     exibirLista(listaI);
                     printf("Numeros Pares");
                     exibirLista(listaP);
-                    
-                    free(listaI);
-                    free(listaP);
+                    liberarLista(&listaI);
+                    liberarLista(&listaP);
                 }
                 break;
             case 0:
                 puts("Obrigado por utilizar o programa!!!");
-                free(lista);
+                liberarLista(&lista);
                 break;
             default:
                 puts("Escolha invalida, tente uma escolha valida!");
