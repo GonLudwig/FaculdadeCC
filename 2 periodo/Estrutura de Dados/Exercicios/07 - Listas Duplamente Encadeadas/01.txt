@@ -1,0 +1,28 @@
+Pensando que estamos usando o conceito de duas estruturas de dados.
+uma para os dados especificos de cada item e outra para a lista.
+
+a)  - Criar uma alocação dinamica da Estruta do item e inserir os valores nesta estrutura.
+    - Adicionar o ponteiro do fim ao ponteiro anterior da Estrutura do item.
+    - Verificar se a Estruta a ser inserida e a primeira.
+        - Se for a primeira o ponteiro do inicio da lista, recebe o ponteiro do Item.
+        - Se não for o ponteiro do proximo do fim da lista, recebe o item.
+    - O fim da lista recebe o item.
+    - Somar mais um ao tamanho da lista.
+
+b)  - Criar uma alocação dinamica da Estruta do item e inserir os valores nesta estrutura.
+    - Adicionar o ponteiro do inicio ao ponteiro proximo da Estrutura do item.
+    - Verificar se a Estruta a ser inserida e a primeira.
+        - Se for a primeira o ponteiro do fim da lista, recebe o ponteiro do Item.
+        - Se não for o ponteiro do anterior do inicio da lista, recebe o item.
+    - O inicio da lista recebe o item.
+    - Somar mais um ao tamanho da lista.
+
+c)  - Criar um variavel do tipo do item que recebe o inicio da lista.
+    - Enquanto a variavel do tipo do item for diferente de nulo, ela vai:
+        - Imprimir os itens da lista;
+        - A variavel vai receber o ponteiro do proximo item;
+
+d)  - Criar um variavel do tipo do item que recebe o fim da lista.
+    - Enquanto a variavel do tipo do item for diferente de nulo, ela vai:
+        - Imprimir os itens da lista;
+        - A variavel vai receber o ponteiro do anterior item;
