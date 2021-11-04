@@ -16,3 +16,42 @@ Se estiver exibindo o primeiro episódio, não deve oferecer a opção de
 ir para o episódio anterior. Se estiver exibindo o último episódio, não deve oferecer opção
 de ir para o próximo episódio.
 A exibição sempre deve ser iniciada pelo primeiro episódio.*/
+#include "tadNetflix.h"
+
+int main() {
+    int escolha = 1;
+    char titulo[50];
+    tipoLista *lista = criarSerie();
+
+    while (escolha != 0) {
+        puts("Bem Vindo ao novo sistema do NetFlix!");
+        puts("Digite 1 - Adicionar Episodio.");
+        puts("Digite 2 - Excluir Ultimo Episodio.");
+        puts("Digite 3 - Exibir Serie.");
+        puts("Digite 0 - Sair.");
+        scanf("%d", &escolha);
+        switch (escolha){
+        case 1:
+            puts("Digite o titulo do episodio.");
+            __fpurge(stdin);
+            gets(titulo);
+            adicionarEpisodio(lista, titulo);
+            break;
+        case 2:
+            excluirUltimoEpisodio(lista);
+            break;
+        case 3:
+            exibirSerie(lista);
+            break;
+        case 0:
+            puts("Adeus ate a proxima!");
+            break;       
+        default:
+            puts("Escolha Invalida!");
+            break;
+        }
+    }
+    
+    liberarLista(&lista);
+    return 0;
+}
