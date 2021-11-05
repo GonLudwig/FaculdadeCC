@@ -65,15 +65,15 @@ void adicionarPilha(PSITES *lista, char *dominio){
     lista->qtd++;
     conversorString(dominio);
     SITES *url = criarSites(lista->qtd, dominio);
-    url->anterior = lista->fim;
+    url->proximo = lista->inicio;
 
     if(lista->inicio == NULL){
-        lista->inicio = url;
+        lista->fim = url;
     } else {
-        lista->fim->proximo = url;
+        lista->inicio->anterior = url;
     }
 
-    lista->fim = url;
+    lista->inicio = url;
 }
 
 void adicionarLista(LSITES *lista, char *dominio){
@@ -92,28 +92,28 @@ void adicionarLista(LSITES *lista, char *dominio){
 }
 
 void verificarPilha(LSITES *lista, PSITES *pilha, char *vereficacao){
-    SITES *url = lista->inicio;
-    SITES *pUrl = pilha->fim;
+    SITES *sUrl = lista->inicio;
+    SITES *pUrl = pilha->inicio;
     conversorString(vereficacao);
 
     if(pUrl == NULL){
         puts("Não existe URL na prilha!");
     } else {
-        printf("URL da pilha: %s\n", pUrl->url);
+        printf("URL na pilha: %s\n", pUrl->url);
     }
 
     if(strcmp(vereficacao, pilha->fim->url) == 0){
-        pilha->fim = pilha->fim->anterior;
+        pilha->inicio = pilha->inicio->proximo;
         free(pUrl);
-        pilha->fim->proximo = NULL;
+        pilha->inicio->anterior = NULL;
         puts("Site no topo da pilha");
     } else {
-        while (url != NULL){
-            if(strcmp(vereficacao, url->url) == 0){
+        while (sUrl != NULL){
+            if(strcmp(vereficacao, sUrl->url) == 0){
                 adicionarPilha(pilha, vereficacao);
                 puts("Url encontrada na lista e adicionada na pilha!");
             }
-            url = url->proximo;
+            sUrl = sUrl->proximo;
         }   
     }
 }

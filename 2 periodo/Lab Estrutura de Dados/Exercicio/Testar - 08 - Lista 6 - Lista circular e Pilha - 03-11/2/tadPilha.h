@@ -7,7 +7,7 @@ typedef struct listaSite LSITES;
 typedef struct pilhaSite PSITES;
 
 LSITES *criarListaSites();
+PSITES *criarPilhaSites();
 void adicionarLista(LSITES *lista, char *dominio);
-void exibirUrl(LSITES *lista);
+void verificarPilha(LSITES *lista, PSITES *pilha, char *vereficacao);
 void liberarLista(LSITES **lista);
-void conversorString(char *caracteres) // teste
