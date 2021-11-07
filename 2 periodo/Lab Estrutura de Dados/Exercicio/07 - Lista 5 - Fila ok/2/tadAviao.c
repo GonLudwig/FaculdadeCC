@@ -48,7 +48,7 @@ void adicionarFila(FVOO *fila, char *name, int idVoo){
 }
 
 void autorizarDecolagem(FVOO *fila){
-    if (fila != NULL){
+    if (fila->fim != NULL){
         VOO *aux = fila->fim;
         if (fila->fim == fila->inicio){
             fila->inicio = NULL;

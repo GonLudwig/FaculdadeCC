@@ -48,7 +48,7 @@ void adicionarFila(FPROSS *fila, char *name, int idPross){
 }
 
 void executarProcesso(FPROSS *fila){
-    if (fila != NULL){
+    if (fila->fim != NULL){
         PROSS *aux = fila->fim;
         if (fila->fim == fila->inicio){
             fila->inicio = NULL;
