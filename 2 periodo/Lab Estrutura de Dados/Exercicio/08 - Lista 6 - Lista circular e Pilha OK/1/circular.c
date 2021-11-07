@@ -18,8 +18,8 @@ int main (){
         switch (escolha){
             case 1:
                 puts("Digite a URL que deseja adicionar!");
-                fflush(stdin);
-                gets(url);
+                __fpurge(stdin);
+                fgets(url, 200, stdin);
                 adicionarLista(lista, url);
                 break;
             case 2:

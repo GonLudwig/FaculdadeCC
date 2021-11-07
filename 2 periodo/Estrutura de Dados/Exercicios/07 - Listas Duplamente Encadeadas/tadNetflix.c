@@ -13,10 +13,10 @@ struct lista {
     int quantidade;
 };
 
-tipoItem *criarEpisodio(tipoLista *lista, char *titulo) {
+tipoItem *criarEpisodio(tipoLista *lista, char *titulo, int qtd){
     tipoItem *episodio = (tipoItem*) calloc(1, sizeof(tipoItem));
 
-    episodio->numeroEpisodio = lista->quantidade;
+    episodio->numeroEpisodio = qtd;
     strcpy(episodio->titulo, titulo);
     episodio->anterior = NULL;
     episodio->proximo = NULL;
@@ -36,7 +36,7 @@ tipoLista *criarSerie(){
 
 void adicionarEpisodio(tipoLista *lista, char *titulo){
     lista->quantidade++;
-    tipoItem *episodio = criarEpisodio(lista, titulo);
+    tipoItem *episodio = criarEpisodio(lista, titulo, lista->quantidade);
     episodio->anterior = lista->ultimo;
 
     if (lista->quantidade == 1){
@@ -65,9 +65,9 @@ void exibirSerie(tipoLista *lista){
     tipoItem *aux = lista->primeiro;
 
     while(aux != NULL){
-        printf("Episodio %d:\n", aux->numeroEpisodio);
-        printf("Titulo: %s\n", aux->titulo);
         while (escolha != 0){
+            printf("Episodio %d:\n", aux->numeroEpisodio);
+            printf("Titulo: %s\n", aux->titulo);
             if (aux->numeroEpisodio < lista->quantidade){
                 puts("Digite 1 - Proximo episodio.");
             }

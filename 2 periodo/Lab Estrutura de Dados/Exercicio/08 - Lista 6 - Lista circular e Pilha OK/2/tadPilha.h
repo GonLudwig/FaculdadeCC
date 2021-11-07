@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 typedef struct site SITES;
 typedef struct listaSite LSITES;
@@ -11,3 +12,4 @@ PSITES *criarPilhaSites();
 void adicionarLista(LSITES *lista, char *dominio);
 void verificarPilha(LSITES *lista, PSITES *pilha, char *vereficacao);
 void liberarLista(LSITES **lista);
+void liberarPilha(PSITES **lista);

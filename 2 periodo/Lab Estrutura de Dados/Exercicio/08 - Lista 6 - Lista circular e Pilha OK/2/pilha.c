@@ -7,38 +7,41 @@ b) Caso o site não esteja no topo, busque-o na lista (questão 1) e se o encont
 lista insira-o na pilha.*/
 #include "tadPilha.h"
 
-int main (){
-    LSITES *lista = criarListaSites();
+int main() {
     int escolha = 1;
     char url[200];
+    PSITES *pSites = criarPilhaSites();
+    LSITES *lSites = criarListaSites();
 
     while (escolha != 0){
         puts("Digite 1 - Adicionar URL na lista.");
-        puts("Digite 2 - Exibir lista.");;
-        puts("Digite 0 - Sair.");
+        puts("Digite 2 - Verificar URL pilha.");
+        puts("Digite 0 - Sair");
         scanf("%d", &escolha);
         switch (escolha){
             case 1:
-                puts("Digite a URL que deseja adicionar!");
-                fflush(stdin);
-                gets(url);
-                adicionarLista(lista, url);
+                puts("Digite a URL");
+                __fpurge(stdin);
+                fgets(url, 200, stdin);
+                adicionarLista(lSites, url);
                 break;
             case 2:
-                if (lista == NULL){
-                    puts("Lista esta vazia, voce deve adicionar numeros a lista");
-                } else {
-                    exibirUrl(lista);
-                }
+                puts("Digite a URL que deseja procurar na pilha");
+                __fpurge(stdin);
+                fgets(url, 200, stdin);
+                verificarPilha(lSites, pSites, url);
                 break;
             case 0:
-                puts("Obrigado por utilizar o programa!!!");
+                puts("Obrigado pela preferencia!");
                 break;
             default:
-                puts("Escolha invalida, tente uma escolha valida!");
+                puts("Valor digitado invalido, tente um valor valido!");
                 break;
         }
     }
-    liberarLista(&lista);
+
+    liberarLista(&lSites);
+    liberarPilha(&pSites);
+
     return 0;
 }

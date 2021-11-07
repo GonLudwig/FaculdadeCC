@@ -85,14 +85,19 @@ void exibirUrl(LSITES *lista){
 
 void liberarLista(LSITES **lista){
     LSITES *auxLista = *lista;
-
     SITES *percorer = auxLista->inicio;
     SITES *aux = NULL;
-    while (percorer != NULL){
+    int i = 0;
+    while (percorer != NULL && i< auxLista->qtd){
         aux = percorer;
-        percorer = percorer->proximo;
-        free(aux);
-        aux = NULL;
+        if(auxLista->fim == auxLista->inicio){
+            auxLista->inicio = NULL;
+            auxLista->fim = NULL;
+            free(aux);
+        } else {
+            percorer = percorer->proximo;
+            free(aux);
+        }
     }
     
     free(auxLista);

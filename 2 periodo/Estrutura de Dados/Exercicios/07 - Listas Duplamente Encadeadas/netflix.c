@@ -34,7 +34,7 @@ int main() {
         case 1:
             puts("Digite o titulo do episodio.");
             __fpurge(stdin);
-            gets(titulo);
+            fgets(titulo, 50, stdin);
             adicionarEpisodio(lista, titulo);
             break;
         case 2:
