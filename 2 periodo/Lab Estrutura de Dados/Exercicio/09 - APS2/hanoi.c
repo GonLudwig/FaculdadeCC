@@ -84,10 +84,6 @@ void adicionarMonge(FMONGE *fila, char *nome){
     fila->primeiro = pessoa;
 }
 
-void iniciarTorreHanoi(PTORRE *torreInicial, PTORRE *torreFinal, PTORRE *torreAux){
-    
-}
-
 void limparTorre(PTORRE *tor){
     TORRE *aux = NULL;
     TORRE *percorer = tor->primeiro;
@@ -100,4 +96,90 @@ void limparTorre(PTORRE *tor){
     tor->primeiro = NULL;
     tor->ultimo = NULL;
     tor->qtdDisco = 0;
+}
+
+void adicinarDiscoTorre(PTORRE *tor, int nunDisco) {
+    TORRE *disco = criarTorre(nunDisco);
+
+    if(tor->primeiro == NULL){
+        tor->primeiro;
+    } else {
+        disco->anterior = tor->ultimo;
+        tor->ultimo->proximo = disco;
+    }
+    tor->ultimo = disco;
+    tor->qtdDisco++;
+
+    return tor->qtdDisco;
+}
+
+int removerDiscoTorre(PTORRE *tor){
+    int numDisco = tor->ultimo->tamanhoDisco;
+    TORRE *disco = tor->ultimo;
+    
+    tor->ultimo = tor->ultimo->anterior;
+    tor->ultimo->proximo = NULL;
+    free(disco);
+
+    return numDisco;
+}
+
+void iniciarTorreHanoi(PTORRE *torreInicial, PTORRE *torreFinal, PTORRE *torreAux){
+    int i;
+
+    limparTorre(torreAux);
+    adicinarDiscoTorre(torreAux, 0);
+    limparTorre(torreFinal);
+    adicinarDiscoTorre(torreFinal, 0);
+    for (i=0;i <= 7; i++){
+        adicinarDiscoTorre(torreInicial, i);
+    }
+}
+
+void transferirDisco(PTORRE *torreRetirar, PTORRE *torreInserir) {
+    int disco;
+
+    disco = removerDiscoTorre(torreRetirar);
+    adicinarDiscoTorre(torreInserir, disco);
+}
+
+void exibirTorreHanoi(PTORRE *torreInicial, int *numI, PTORRE *torreFinal, int *numF, PTORRE *torreAux, int *numA){
+    int i;
+    numI = torreInicial->ultimo->tamanhoDisco;
+    numF = torreFinal->ultimo->tamanhoDisco;
+    numA = torreAux->ultimo->tamanhoDisco;
+    TORRE *auxI = torreInicial->ultimo;
+    TORRE *auxF = torreFinal->ultimo;
+    TORRE *auxA = torreAux->ultimo;
+    for (i=7;i>=1;i--){
+        if (auxI == NULL && i > torreInicial->qtdDisco){
+            printf("    [ | ]");
+        } else {
+            printf("    [ %d ]", auxI->tamanhoDisco);
+        }
+
+        if (auxA == NULL && i > torreAux->qtdDisco){
+            printf("    [ | ]");
+        } else {
+            printf("    [ %d ]", auxA->tamanhoDisco);
+        }
+
+        if (auxF == NULL && i > torreFinal->qtdDisco){
+            printf("    [ | ]");
+        } else {
+            printf("    [ %d ]", auxF->tamanhoDisco);
+        }
+
+        if (auxA != NULL && i > torreAux->qtdDisco){
+            auxA = auxA->anterior;
+        }
+
+        if (auxI != NULL  && i > torreInicial->qtdDisco){
+            auxI = auxI->anterior;
+        }
+
+        if (auxF != NULL && i > torreFinal->qtdDisco){
+            auxF = auxF->anterior;
+        }
+    }   
 }
