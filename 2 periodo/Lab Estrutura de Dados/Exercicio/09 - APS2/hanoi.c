@@ -61,7 +61,7 @@ TORRE *criarTorre(int tamanho){
 PTORRE *criarTorreHanoi(){
     PTORRE *pilha = (PTORRE*) calloc(1, sizeof(PTORRE));
 
-    pilha->qtdDisco = 0;
+    pilha->qtdDisco = -1;
     pilha->primeiro = NULL;
     pilha->ultimo = NULL;
 
@@ -93,24 +93,32 @@ void limparTorre(PTORRE *tor){
         percorer = percorer->proximo;
         free(aux);
     }
-    tor->primeiro = NULL;
-    tor->ultimo = NULL;
-    tor->qtdDisco = 0;
+    tor->qtdDisco = -1;
 }
 
 void adicinarDiscoTorre(PTORRE *tor, int nunDisco) {
     TORRE *disco = criarTorre(nunDisco);
 
     if(tor->primeiro == NULL){
-        tor->primeiro;
+        tor->primeiro = disco;
     } else {
         disco->anterior = tor->ultimo;
         tor->ultimo->proximo = disco;
     }
     tor->ultimo = disco;
     tor->qtdDisco++;
+}
 
-    return tor->qtdDisco;
+void iniciarTorreHanoi(PTORRE *torreInicial, PTORRE *torreFinal, PTORRE *torreAux){
+    int i;
+
+    limparTorre(torreAux);
+    adicinarDiscoTorre(torreAux, 8);
+    limparTorre(torreFinal);
+    adicinarDiscoTorre(torreFinal, 8);
+    for (i=8;i <= 1; i--){
+        adicinarDiscoTorre(torreInicial, i);
+    }
 }
 
 int removerDiscoTorre(PTORRE *tor){
@@ -120,20 +128,9 @@ int removerDiscoTorre(PTORRE *tor){
     tor->ultimo = tor->ultimo->anterior;
     tor->ultimo->proximo = NULL;
     free(disco);
+    tor->qtdDisco--;
 
     return numDisco;
-}
-
-void iniciarTorreHanoi(PTORRE *torreInicial, PTORRE *torreFinal, PTORRE *torreAux){
-    int i;
-
-    limparTorre(torreAux);
-    adicinarDiscoTorre(torreAux, 0);
-    limparTorre(torreFinal);
-    adicinarDiscoTorre(torreFinal, 0);
-    for (i=0;i <= 7; i++){
-        adicinarDiscoTorre(torreInicial, i);
-    }
 }
 
 void transferirDisco(PTORRE *torreRetirar, PTORRE *torreInserir) {
@@ -145,41 +142,197 @@ void transferirDisco(PTORRE *torreRetirar, PTORRE *torreInserir) {
 
 void exibirTorreHanoi(PTORRE *torreInicial, int *numI, PTORRE *torreFinal, int *numF, PTORRE *torreAux, int *numA){
     int i;
-    numI = torreInicial->ultimo->tamanhoDisco;
-    numF = torreFinal->ultimo->tamanhoDisco;
-    numA = torreAux->ultimo->tamanhoDisco;
+    *numI = torreInicial->ultimo->tamanhoDisco;
+    *numF = torreFinal->ultimo->tamanhoDisco;
+    *numA = torreAux->ultimo->tamanhoDisco;
     TORRE *auxI = torreInicial->ultimo;
     TORRE *auxF = torreFinal->ultimo;
     TORRE *auxA = torreAux->ultimo;
     for (i=7;i>=1;i--){
-        if (auxI == NULL && i > torreInicial->qtdDisco){
+        if (i > torreInicial->qtdDisco){
             printf("    [ | ]");
         } else {
             printf("    [ %d ]", auxI->tamanhoDisco);
         }
 
-        if (auxA == NULL && i > torreAux->qtdDisco){
+        if (i > torreAux->qtdDisco){
             printf("    [ | ]");
         } else {
             printf("    [ %d ]", auxA->tamanhoDisco);
         }
 
-        if (auxF == NULL && i > torreFinal->qtdDisco){
+        if (i > torreFinal->qtdDisco){
             printf("    [ | ]");
         } else {
             printf("    [ %d ]", auxF->tamanhoDisco);
         }
 
-        if (auxA != NULL && i > torreAux->qtdDisco){
+        if (i <= torreAux->qtdDisco){
             auxA = auxA->anterior;
         }
 
-        if (auxI != NULL  && i > torreInicial->qtdDisco){
+        if (i <= torreInicial->qtdDisco){
             auxI = auxI->anterior;
         }
 
-        if (auxF != NULL && i > torreFinal->qtdDisco){
+        if (i <= torreFinal->qtdDisco){
             auxF = auxF->anterior;
         }
     }   
 }
+
+void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal, PTORRE *torreAux){
+    
+    int ultI, ultF, ultA, escolhaP, escolhaS;
+    MONGE *jogador = filaMonge->ultimo;
+
+    puts("Iniciando .");
+    puts("TORRE DE HANOI!!!");
+    while (torreFinal->qtdDisco != 7 || escolhaP == 0){
+        exibirTorreHanoi(torreInicial, &ultI, torreFinal, &ultF, torreAux, &ultA);
+        printf("Monge: %s. Escolha sua jogada!", jogador->monge);
+        puts("Escolha qual torre deseja tirrar o disco.");
+        if(ultI > 0){
+            puts("Digite 1 - Torre Inicial");
+        }
+        if(ultA > 0){
+            puts("Digite 2 - Torre Auxilia");
+        }
+        if(ultF > 0){
+            puts("Digite 3 - Torre Final");
+        }
+        puts("Digite 0 - Sair.");
+        scanf("%d", &escolhaP);
+        puts("Escolha qual torre deseja adicionar o disco.");
+        if(ultI < 7 && escolhaP != 1){
+            puts("Digite 1 - Torre Inicial");
+        }
+        if(ultA < 7 && escolhaP != 2){
+            puts("Digite 2 - Torre Auxilia");
+        }
+        if(ultF < 7 && escolhaP != 3){
+            puts("Digite 3 - Torre Final");
+        }
+        puts("Digite 0 - Sair.");
+        scanf("%d", &escolhaS);
+        
+        switch (escolhaP){
+            case 1:
+                switch (escolhaS){
+                    case 2:
+                        if (ultI > ultA){
+                            puts("Jogada Invalida");
+                        }else {
+                            transferirDisco(torreInicial, torreAux);
+                        }
+                        break;
+                    case 3:
+                        if (ultI > ultF){
+                            puts("Jogada Invalida");
+                        }else {
+                            transferirDisco(torreInicial, torreFinal);
+                            jogador->pontos += 3;
+                        }
+                        break;
+                    default:
+                        puts("Escolha Invalida!!!");
+                        break;
+                }
+                break;
+            case 2:
+                switch (escolhaS){
+                    case 1:
+                        if (ultA > ultI){
+                            puts("Jogada Invalida");
+                        }else {
+                            transferirDisco(torreAux, torreInicial);
+                        }
+                        break;
+                    case 3:
+                        if (ultA > ultF){
+                            puts("Jogada Invalida");
+                        }else {
+                            transferirDisco(torreAux, torreFinal);
+                            jogador->pontos += 3;
+                        }
+                        break;
+                    default:
+                        puts("Escolha Invalida!!!");
+                        break;
+                }
+                break;
+            case 3:
+                switch (escolhaS){
+                    case 1:
+                        if (ultF > ultI){
+                            puts("Jogada Invalida");
+                        }else {
+                            transferirDisco(torreFinal, torreInicial);
+                            jogador->pontos -= 3;
+                        }
+                        break;
+                    case 2:
+                        if (ultF > ultA){
+                            puts("Jogada Invalida");
+                        }else {
+                            transferirDisco(torreFinal, torreAux);
+                            jogador->pontos -= 3;
+                        }
+                        break;
+                    case 0:
+                        escolhaP = 0;
+                        puts("Obrigado pela preferencia!");
+                        break;
+                    default:
+                        puts("Escolha Invalida!!!");
+                        break;
+                }
+                break;
+            case 0:
+                puts("Obrigado pela preferencia!");
+                break;
+            default:
+                puts("Escolha Invalida!!!");
+                break;
+        }
+
+        jogador = jogador->anterior;
+    }
+    
+}
+
+void liberarTorre(PTORRE **lista){
+    PTORRE *l = *lista;
+
+    TORRE *percorer = l->primeiro;
+    TORRE *aux = NULL;
+    while (percorer != NULL){
+        aux = percorer;
+        percorer = percorer->proximo;
+        free(aux);
+    }
+    
+    free(l);
+    *lista = NULL;
+}
+
+void liberarFila(FMONGE **lista){
+    FMONGE *auxLista = *lista;
+    MONGE *percorer = auxLista->primeiro;
+    MONGE *aux = NULL;
+    int i = 0;
+    while (percorer != NULL && i< auxLista->qtdFila){
+        aux = percorer;
+        if(auxLista->ultimo == auxLista->primeiro){
+            auxLista->primeiro = NULL;
+            auxLista->ultimo = NULL;
+            free(aux);
+        } else {
+            percorer = percorer->proximo;
+            free(aux);
+        }
+    }
+    
+    free(auxLista);
+    *lista = NULL;
+}   

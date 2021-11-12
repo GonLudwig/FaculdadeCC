@@ -19,3 +19,46 @@ f) Mostre a cada jogada um relatório contendo: o nome do monge, a quantidade de
 movimentos realizado, a pontuação atualizada do monge, a origem e o destino do
 disco na jogada atual. (A origem é de qual pilha o disco sai e o destino é para qual
 pilha o disco vai).*/
+#include "hanoi.h"
+
+int main (){
+    int escolha = 1;
+    char nMonge[100];
+
+    FMONGE *fMonge = criarFilaMonge();
+    PTORRE *tInicial = criarTorreHanoi();
+    PTORRE *tAuxiliar = criarTorreHanoi();
+    PTORRE *tFinal = criarTorreHanoi();
+
+    while (escolha != 0){
+        puts("O Teste dos Monges!!!");
+        puts("Digite 1 - Adicionar Monge na fila.");
+        puts("Digite 2 - Iniciar o teste");
+        puts("Digite 0 - Sair.");
+        scanf("%d", &escolha);
+        switch (escolha){
+            case 1:
+                puts("Digite o nome do Monge");
+                __fpurge(stdin);
+                fgets(nMonge, 100, stdin);
+                break;
+            case 2:
+                iniciarTorreHanoi(tInicial, tAuxiliar, tFinal);
+                jogarTorreHanoi(fMonge, tInicial, tAuxiliar, tFinal);
+                break;
+            case 0:
+                puts("Obrigado pela preferencia!");
+                break;
+            default:
+                puts("Escolha invalida!");
+                break;
+        }
+    }
+    
+
+    liberarFila(&fMonge);
+    liberarTorre(&tInicial);
+    liberarTorre(&tAuxiliar);
+    liberarTorre(&tFinal);
+    return 0;
+}
