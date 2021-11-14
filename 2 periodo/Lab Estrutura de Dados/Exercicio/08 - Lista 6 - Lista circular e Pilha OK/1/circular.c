@@ -24,7 +24,7 @@ int main (){
                 break;
             case 2:
                 if (lista == NULL){
-                    puts("Lista esta vazia, voce deve adicionar numeros a lista");
+                    puts("Lista esta vazia, voce deve adicionar URL a lista");
                 } else {
                     exibirUrl(lista);
                 }

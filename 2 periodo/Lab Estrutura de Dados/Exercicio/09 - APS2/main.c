@@ -30,8 +30,8 @@ int main (){
     PTORRE *tAuxiliar = criarTorreHanoi();
     PTORRE *tFinal = criarTorreHanoi();
 
+    puts("O Teste dos Monges!!!");
     while (escolha != 0){
-        puts("O Teste dos Monges!!!");
         puts("Digite 1 - Adicionar Monge na fila.");
         puts("Digite 2 - Iniciar o teste");
         puts("Digite 0 - Sair.");
@@ -41,10 +41,12 @@ int main (){
                 puts("Digite o nome do Monge");
                 __fpurge(stdin);
                 fgets(nMonge, 100, stdin);
+                adicionarMonge(fMonge, nMonge);
                 break;
             case 2:
-                iniciarTorreHanoi(tInicial, tAuxiliar, tFinal);
-                jogarTorreHanoi(fMonge, tInicial, tAuxiliar, tFinal);
+                iniciarTorreHanoi(tInicial, tFinal, tAuxiliar);
+
+                jogarTorreHanoi(fMonge, tInicial, tFinal, tAuxiliar);
                 break;
             case 0:
                 puts("Obrigado pela preferencia!");
