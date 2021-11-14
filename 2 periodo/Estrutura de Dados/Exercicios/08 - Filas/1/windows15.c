@@ -34,44 +34,44 @@ FEXE *criarFilaExe(){
     return fila;
 }
 
-void adicionarExe(FEXE *fila, int qtd){
+int adicionarExe(FEXE *fila, int qtd){
     char nome[100];
     switch (qtd){
         case 1:
-            strcpy(nome, 'Chrome');
+            strcpy(nome, "Chrome");
             break;
         case 2:
-            strcpy(nome, 'Firefox');
+            strcpy(nome, "Firefox");
             break;
         case 3:
-            strcpy(nome, 'Word');
+            strcpy(nome, "Word");
             break;
         case 4:
-            strcpy(nome, 'Excel');
+            strcpy(nome, "Excel");
             break;
         case 5:
-            strcpy(nome, 'PowerPoint');
+            strcpy(nome, "PowerPoint");
             break;
         case 6:
-            strcpy(nome, 'Photoshop');
+            strcpy(nome, "Photoshop");
             break;
         case 7:
-            strcpy(nome, 'CorelDraw');
+            strcpy(nome, "CorelDraw");
             break;
         case 8:
-            strcpy(nome, 'Evernote');
+            strcpy(nome, "Evernote");
             break;
         case 9:
-            strcpy(nome, 'Spotify');
+            strcpy(nome, "Spotify");
             break;
         case 10:
-            strcpy(nome, 'Premiere');
+            strcpy(nome, "Premiere");
             break;
         case 11:
-            strcpy(nome, 'AutoCad');
+            strcpy(nome, "AutoCad");
             break;
         case 12:
-            strcpy(nome, 'uTorrent');
+            strcpy(nome, "uTorrent");
             break;
     }
     EXE *executavel = criarExe(nome, qtd);
@@ -85,12 +85,17 @@ void adicionarExe(FEXE *fila, int qtd){
 
     fila->inicio = executavel;
     fila->qtdProg++;
+
+    return fila->qtdProg;
 }
 
-void executarFila(FEXE *fila){
+int executarFila(FEXE *fila){
     EXE *aux = NULL;
     EXE *percorer = fila->fim;
 
+    if(percorer == NULL){
+        puts("Fila esta vazia!");
+    }
     while(percorer != NULL){
         printf("Codigo: %d\n", percorer->codProg);
         printf("Programa: %s\n", percorer->nomeProg);
@@ -101,6 +106,7 @@ void executarFila(FEXE *fila){
         fila->qtdProg--;
     }
 
+    return fila->qtdProg;
 }
 
 void liberaFila(FEXE **fila){
@@ -116,5 +122,4 @@ void liberaFila(FEXE **fila){
     }
 
     free(f);
-    *fila = NULL;
 }

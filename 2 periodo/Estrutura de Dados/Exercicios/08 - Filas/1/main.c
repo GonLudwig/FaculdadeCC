@@ -59,20 +59,28 @@ int main(){
                 puts("Digite 12 - uTorrent");
                 scanf("%d", &escolha);
                 if(escolha < 13 && escolha > 0){
-                    adicionarExe(fila, escolha);
+                    qtdProg = adicionarExe(fila, escolha);
                 } else {
                     puts("Escolha Invalida");
                 }
+
+                if(qtdProg==3){
+                    qtdProg = executarFila(fila);
+                }
                 break;
             case 2:
+                qtdProg = executarFila(fila);
                 break;
             case 0:
+                puts("Obrigado pela preferencia.\nObs: Ubuntu > Windows! kkkk");
                 break;
             default:
+                puts("Escolha invalida!");
                 break;
         }
 
     }
     
+    liberaFila(&fila);
     return 0;
 }

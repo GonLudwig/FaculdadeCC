@@ -2,8 +2,8 @@
 #include<stdlib.h>
 #include<string.h>
 
-typedef struct programa EXE;
-typedef struct filaProgramas FEXE;
+typedef struct pessoa PACIENTE;
+typedef struct filaVacinacao FPACIENTE;
 
 FEXE *criarFilaExe();
 int adicionarExe(FEXE *fila, int qtd);
