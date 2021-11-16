@@ -39,3 +39,46 @@ printf("Vacinação marcada para %d : %d h\n", horas, minutos);
 •
 Atender paciente: Exibe o nome do primeiro da fila, o horário do atendimento e
 remove-o da fila.*/
+#include "vacinacao.h"
+
+int main(){
+    FPACIENTE *fila = criarFilaPacientes();
+    int escolha = 1;
+    int anoNascimento;
+    int horariosMarcados;
+    char nome[100];
+
+    while (escolha != 0){
+        puts("Bem-vindo ao CSMO");
+        puts("Digite 1 - Acidionar paciente");
+        puts("Digite 2 - Vacinar pacientes da fila");
+        puts("Digite 0 - Sair");
+        scanf("%d", &escolha);
+        switch (escolha){
+            case 1:
+                if(horariosMarcados > 590){
+                    puts("Todos horarios ja estão marcados!");
+                } else {
+                puts("Digite o nome do paciente");
+                __fpurge(stdin);
+                fgets(nome, 100, stdin);
+                puts("Digite o ano de nascimento do paciente");
+                scanf("%d", &anoNascimento);
+                horariosMarcados = adicionarPaciente(fila, nome, anoNascimento);
+                }
+                break;
+            case 2:
+                atenderPacientes(fila);
+                break;
+            case 0:
+                puts("Obrigado tenha um bom dia");
+                break;
+            default:
+                puts("Escolha invalida!");
+                break;
+        }
+    }
+    
+    liberaFila(&fila);
+    return 0;
+}

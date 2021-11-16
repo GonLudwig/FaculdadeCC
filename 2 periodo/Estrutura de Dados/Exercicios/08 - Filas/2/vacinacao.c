@@ -66,7 +66,7 @@ void mostraHoraCerta(int horarioMarcado){
     printf("Vacinação marcada para %d : %d h\n", horas, minutos);
 }
 
-int atenderPacientes(FPACIENTE *fila){
+void atenderPacientes(FPACIENTE *fila){
     PACIENTE *aux = NULL;
     PACIENTE *percorer = fila->fim;
 
@@ -82,6 +82,8 @@ int atenderPacientes(FPACIENTE *fila){
         free(aux);
         fila->qtdPessoa--;
     }
+    fila->fim = NULL;
+    fila->inicio = NULL;
 }
 
 void liberaFila(FPACIENTE **fila){
@@ -95,6 +97,5 @@ void liberaFila(FPACIENTE **fila){
         percorer = percorer->proximo;
         free(aux);
     }
-
     free(f);
 }

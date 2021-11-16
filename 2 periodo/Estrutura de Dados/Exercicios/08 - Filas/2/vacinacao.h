@@ -5,7 +5,7 @@
 typedef struct pessoa PACIENTE;
 typedef struct filaVacinacao FPACIENTE;
 
-FEXE *criarFilaExe();
-int adicionarExe(FEXE *fila, int qtd);
-int executarFila(FEXE *fila);
-void liberaFila(FEXE **fila);
+FPACIENTE *criarFilaPacientes();
+int adicionarPaciente(FPACIENTE *fila, char *nome, int ano);
+void atenderPacientes(FPACIENTE *fila);
+void liberaFila(FPACIENTE **fila);
