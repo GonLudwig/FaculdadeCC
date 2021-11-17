@@ -197,6 +197,9 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
         exibirTorreHanoi(torreInicial, torreFinal, torreAux);
         printf("Monge: %sEscolha sua jogada!\n", jogador->monge);
         puts("Escolha qual torre deseja tirar o disco.");
+        printf("Inicial %d\n", torreInicial->ultimo->tamanhoDisco);
+        printf("aux %d\n", torreAux->ultimo->tamanhoDisco);
+        printf("final %d\n", torreFinal->ultimo->tamanhoDisco);
         if(torreInicial->qtdDisco > 0){
             puts("Digite 1 - Torre Inicial");
         }
@@ -225,7 +228,7 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
             case 1:
                 switch (escolhaS){
                     case 2:
-                        if (torreInicial->ultimo->tamanhoDisco > torreAux->ultimo->tamanhoDisco){
+                        if (torreInicial->ultimo->tamanhoDisco > torreAux->ultimo->tamanhoDisco || torreInicial->ultimo->tamanhoDisco == 8){
                             puts("Jogada Invalida");
                             puts("");
                             sleep(2);
@@ -234,7 +237,7 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
                         }
                         break;
                     case 3:
-                        if (torreInicial->ultimo->tamanhoDisco > torreFinal->ultimo->tamanhoDisco){
+                        if (torreInicial->ultimo->tamanhoDisco > torreFinal->ultimo->tamanhoDisco || torreInicial->ultimo->tamanhoDisco == 8){
                             puts("Jogada Invalida");
                             puts("");
                             sleep(2);
@@ -259,7 +262,7 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
             case 2:
                 switch (escolhaS){
                     case 1:
-                        if (torreAux->ultimo->tamanhoDisco > torreInicial->ultimo->tamanhoDisco){
+                        if (torreAux->ultimo->tamanhoDisco > torreInicial->ultimo->tamanhoDisco  || torreAux->ultimo->tamanhoDisco == 8){
                             puts("Jogada Invalida");
                             puts("");
                             sleep(2);
@@ -268,7 +271,7 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
                         }
                         break;
                     case 3:
-                        if (torreAux->ultimo->tamanhoDisco > torreFinal->ultimo->tamanhoDisco){
+                        if (torreAux->ultimo->tamanhoDisco > torreFinal->ultimo->tamanhoDisco || torreAux->ultimo->tamanhoDisco == 8){
                             puts("Jogada Invalida");
                             puts("");
                             sleep(2);
@@ -294,7 +297,7 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
             case 3:
                 switch (escolhaS){
                     case 1:
-                        if (torreFinal->ultimo->tamanhoDisco > torreInicial->ultimo->tamanhoDisco){
+                        if (torreFinal->ultimo->tamanhoDisco > torreInicial->ultimo->tamanhoDisco || torreFinal->ultimo->tamanhoDisco == 8){
                             puts("Jogada Invalida");
                             puts("");
                             sleep(2);
@@ -304,7 +307,7 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
                         }
                         break;
                     case 2:
-                        if (torreFinal->ultimo->tamanhoDisco > torreAux->ultimo->tamanhoDisco){
+                        if (torreFinal->ultimo->tamanhoDisco > torreAux->ultimo->tamanhoDisco || torreFinal->ultimo->tamanhoDisco == 8){
                             puts("Jogada Invalida");
                             puts("");
                             sleep(2);
@@ -353,7 +356,6 @@ void liberarTorre(PTORRE **lista){
         percorer = percorer->proximo;
         free(aux);
     }
-    
     free(l);
 }
 
@@ -367,6 +369,5 @@ void liberarFila(FMONGE **lista){
         percorer = percorer->proximo;
         free(aux);
     }
-    
     free(auxLista);
 }   

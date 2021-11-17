@@ -24,6 +24,7 @@ pilha o disco vai).*/
 int main (){
     int escolha = 1;
     char nMonge[100];
+    int qtdMonge = 0;
 
     FMONGE *fMonge = criarFilaMonge();
     PTORRE *tInicial = criarTorreHanoi();
@@ -42,14 +43,14 @@ int main (){
                 __fpurge(stdin);
                 fgets(nMonge, 100, stdin);
                 adicionarMonge(fMonge, nMonge);
+                qtdMonge++;
                 break;
             case 2:
-                iniciarTorreHanoi(tInicial, tFinal, tAuxiliar);
-                if(fMonge == NULL){
-                    puts("Voce deve criar a lista de monge");
-                    break;
-                } else{
+                if(qtdMonge > 1){
+                    iniciarTorreHanoi(tInicial, tFinal, tAuxiliar);
                     jogarTorreHanoi(fMonge, tInicial, tFinal, tAuxiliar);
+                } else{
+                    puts("Voce deve acrescentar ao menos um monge a lista");
                 }
                 break;
             case 0:
