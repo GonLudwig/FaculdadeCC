@@ -3,7 +3,6 @@
 struct veiculo {
     char placa[10];
     struct veiculo *proximo;
-    struct veiculo *anterior;
 };
 
 struct filaVeiculo {
@@ -16,7 +15,6 @@ CARRO *criarCarro(char *placa){
     CARRO *veiculo = (CARRO*) calloc(1, sizeof(CARRO));
 
     strcpy(veiculo->placa, placa);
-    veiculo->anterior = NULL;
     veiculo->proximo = NULL;
 
     return veiculo;
@@ -34,15 +32,14 @@ FCARRO *criarFilaCarro(){
 
 int adicionarCarro(FCARRO *fila, char *placa){
     CARRO *veiculo = criarCarro(placa);
-    veiculo->proximo = fila->inicio;
-
+    
     if(fila->inicio == NULL){
-        fila->fim = veiculo;
+        fila->inicio = veiculo;
     } else {
-        fila->inicio->anterior = veiculo;
+        fila->fim->proximo = veiculo;
     }
 
-    fila->inicio = veiculo;
+    fila->fim = veiculo;
     fila->qtdCarro++;
 
     return fila->qtdCarro;
@@ -50,7 +47,7 @@ int adicionarCarro(FCARRO *fila, char *placa){
 
 void abrirSemaforo(FCARRO *fila){
     CARRO *aux = NULL;
-    CARRO *percorer = fila->fim;
+    CARRO *percorer = fila->inicio;
 
     puts("Abrindo semaforo");
     if(percorer == NULL){
@@ -60,7 +57,7 @@ void abrirSemaforo(FCARRO *fila){
         printf("Veiculo: %s\n", percorer->placa);
         puts("Saindo veiculo ...");
         aux = percorer;
-        percorer = percorer->anterior;
+        percorer = percorer->proximo;
         free(aux);
         fila->qtdCarro--;
     }

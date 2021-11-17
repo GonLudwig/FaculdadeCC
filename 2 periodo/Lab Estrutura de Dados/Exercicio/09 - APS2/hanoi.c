@@ -82,6 +82,7 @@ void adicionarMonge(FMONGE *fila, char *nome){
     }
 
     fila->primeiro = pessoa;
+    system("clear");
 }
 
 void limparTorre(PTORRE *tor){
@@ -114,15 +115,11 @@ void iniciarTorreHanoi(PTORRE *torreInicial, PTORRE *torreFinal, PTORRE *torreAu
 
     limparTorre(torreAux);
     adicinarDiscoTorre(torreAux, 8);
-    printf("    [ %d ]\n", torreAux->ultimo->tamanhoDisco);
     limparTorre(torreFinal);
     adicinarDiscoTorre(torreFinal, 8);
-    printf("    [ %d ]\n", torreFinal->ultimo->tamanhoDisco);
     for (i=8;i >= 1; i--){
         adicinarDiscoTorre(torreInicial, i);
-        printf("    [ %d ]", torreInicial->ultimo->tamanhoDisco);
     }
-    puts("");
 }
 
 int removerDiscoTorre(PTORRE *tor){
@@ -180,7 +177,8 @@ void exibirTorreHanoi(PTORRE *torreInicial, PTORRE *torreFinal, PTORRE *torreAux
             auxF = auxF->anterior;
         }
         puts(" ");
-    }   
+    }
+    printf("   inicial  auxiliar  final  \n");
 }
 
 void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal, PTORRE *torreAux){
@@ -189,17 +187,21 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
     int escolhaS = 1;
     MONGE *jogador = filaMonge->ultimo;
 
-    puts("Iniciando .");
-    puts("TORRE DE HANOI!!!");
+    printf("Iniciando ...");
+    puts("");
+    sleep(5);
+    puts("");
     while (torreFinal->qtdDisco <= 7){
+        system("clear");
+        puts("TORRE DE HANOI!!!");  
         exibirTorreHanoi(torreInicial, torreFinal, torreAux);
-        printf("Monge: %s Escolha sua jogada!\n", jogador->monge);
-        puts("Escolha qual torre deseja tirrar o disco.");
+        printf("Monge: %sEscolha sua jogada!\n", jogador->monge);
+        puts("Escolha qual torre deseja tirar o disco.");
         if(torreInicial->qtdDisco > 0){
             puts("Digite 1 - Torre Inicial");
         }
         if(torreAux->qtdDisco > 0){
-            puts("Digite 2 - Torre Auxilia");
+            puts("Digite 2 - Torre Auxiliar");
         }
         if(torreFinal->qtdDisco > 0){
             puts("Digite 3 - Torre Final");
@@ -211,7 +213,7 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
             puts("Digite 1 - Torre Inicial");
         }
         if(torreAux->qtdDisco < 7 && escolhaP != 2){
-            puts("Digite 2 - Torre Auxilia");
+            puts("Digite 2 - Torre Auxiliar");
         }
         if(torreFinal->qtdDisco < 7 && escolhaP != 3){
             puts("Digite 3 - Torre Final");
@@ -225,6 +227,8 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
                     case 2:
                         if (torreInicial->ultimo->tamanhoDisco > torreAux->ultimo->tamanhoDisco){
                             puts("Jogada Invalida");
+                            puts("");
+                            sleep(2);
                         }else {
                             transferirDisco(torreInicial, torreAux);
                         }
@@ -232,6 +236,8 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
                     case 3:
                         if (torreInicial->ultimo->tamanhoDisco > torreFinal->ultimo->tamanhoDisco){
                             puts("Jogada Invalida");
+                            puts("");
+                            sleep(2);
                         }else {
                             transferirDisco(torreInicial, torreFinal);
                             jogador->pontos += 3;
@@ -239,10 +245,14 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
                         break;
                     case 0:
                         puts("Obrigado pela preferencia!");
+                        puts("");
+                        sleep(2);
                         return;
                         break;
                     default:
                         puts("Escolha Invalida!!!");
+                        puts("");
+                        sleep(2);
                         break;
                 }
                 break;
@@ -251,6 +261,8 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
                     case 1:
                         if (torreAux->ultimo->tamanhoDisco > torreInicial->ultimo->tamanhoDisco){
                             puts("Jogada Invalida");
+                            puts("");
+                            sleep(2);
                         }else {
                             transferirDisco(torreAux, torreInicial);
                         }
@@ -258,6 +270,8 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
                     case 3:
                         if (torreAux->ultimo->tamanhoDisco > torreFinal->ultimo->tamanhoDisco){
                             puts("Jogada Invalida");
+                            puts("");
+                            sleep(2);
                         }else {
                             transferirDisco(torreAux, torreFinal);
                             jogador->pontos += 3;
@@ -266,10 +280,14 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
                     case 0:
                         escolhaP = 0;
                         puts("Obrigado pela preferencia!");
+                        puts("");
+                        sleep(2);
                         return;
                         break;
                     default:
                         puts("Escolha Invalida!!!");
+                        puts("");
+                        sleep(2);
                         break;
                 }
                 break;
@@ -278,6 +296,8 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
                     case 1:
                         if (torreFinal->ultimo->tamanhoDisco > torreInicial->ultimo->tamanhoDisco){
                             puts("Jogada Invalida");
+                            puts("");
+                            sleep(2);
                         }else {
                             transferirDisco(torreFinal, torreInicial);
                             jogador->pontos -= 3;
@@ -286,6 +306,8 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
                     case 2:
                         if (torreFinal->ultimo->tamanhoDisco > torreAux->ultimo->tamanhoDisco){
                             puts("Jogada Invalida");
+                            puts("");
+                            sleep(2);
                         }else {
                             transferirDisco(torreFinal, torreAux);
                             jogador->pontos -= 3;
@@ -293,19 +315,27 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
                         break;
                     case 0:
                         puts("Obrigado pela preferencia!");
+                        puts("");
+                        sleep(2);
                         return;
                         break;
                     default:
                         puts("Escolha Invalida!!!");
+                        puts("");
+                        sleep(2);
                         break;
                 }
                 break;
             case 0:
                 puts("Obrigado pela preferencia!");
+                puts("");
+                sleep(2);
                 return;
                 break;
             default:
                 puts("Escolha Invalida!!!");
+                puts("");
+                sleep(2);
                 break;
         }
 
@@ -325,7 +355,6 @@ void liberarTorre(PTORRE **lista){
     }
     
     free(l);
-    *lista = NULL;
 }
 
 void liberarFila(FMONGE **lista){
@@ -340,5 +369,4 @@ void liberarFila(FMONGE **lista){
     }
     
     free(auxLista);
-    *lista = NULL;
 }   

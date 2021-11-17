@@ -33,7 +33,7 @@ int main (){
     puts("O Teste dos Monges!!!");
     while (escolha != 0){
         puts("Digite 1 - Adicionar Monge na fila.");
-        puts("Digite 2 - Iniciar o teste");
+        puts("Digite 2 - Iniciar o jogo");
         puts("Digite 0 - Sair.");
         scanf("%d", &escolha);
         switch (escolha){
@@ -45,8 +45,12 @@ int main (){
                 break;
             case 2:
                 iniciarTorreHanoi(tInicial, tFinal, tAuxiliar);
-
-                jogarTorreHanoi(fMonge, tInicial, tFinal, tAuxiliar);
+                if(fMonge == NULL){
+                    puts("Voce deve criar a lista de monge");
+                    break;
+                } else{
+                    jogarTorreHanoi(fMonge, tInicial, tFinal, tAuxiliar);
+                }
                 break;
             case 0:
                 puts("Obrigado pela preferencia!");
