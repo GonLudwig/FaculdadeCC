@@ -197,9 +197,6 @@ void jogarTorreHanoi(FMONGE *filaMonge, PTORRE *torreInicial, PTORRE *torreFinal
         exibirTorreHanoi(torreInicial, torreFinal, torreAux);
         printf("Monge: %sEscolha sua jogada!\n", jogador->monge);
         puts("Escolha qual torre deseja tirar o disco.");
-        printf("Inicial %d\n", torreInicial->ultimo->tamanhoDisco);
-        printf("aux %d\n", torreAux->ultimo->tamanhoDisco);
-        printf("final %d\n", torreFinal->ultimo->tamanhoDisco);
         if(torreInicial->qtdDisco > 0){
             puts("Digite 1 - Torre Inicial");
         }
