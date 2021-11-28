@@ -23,3 +23,46 @@ ele como pagamento por seu serviço de programador.
 pilha:
 • Exiba o valor da conta – Diga que ela foi paga – desempilhe-a
 • Repita a análise para a conta que passou a estar no topo.*/
+#include"conta.h"
+
+int main(){
+    PCONTA *pConta;
+    int escolha = 1;
+    float saldoConta;
+    float valorConta;
+    char conta[50];
+
+    pConta = pilhaConta();
+
+    while (escolha != 0){
+        puts("Questão de contas!");
+        puts("Digite 1 - Adicionar conta.");
+        puts("Digite 2 - Pagar contas.");
+        puts("Digite 0 - Sair.");
+        scanf("%d", &escolha);
+        switch (escolha){
+            case 1:
+                puts("Qual nome da conta.");
+                __fpurge(stdin);
+                fgets(conta, 50, stdin);
+                puts("Qual valor da conta.");
+                scanf("%f", &valorConta);
+                adicionarConta(pConta, valorConta, conta);
+                break;
+            case 2:
+                puts("Digite valor recebido.");
+                scanf("%f", &valorConta);
+                pagarConta(&pConta, valorConta);
+                break;
+            case 0:
+                puts("Obrigado pela preferencia!");
+                break;
+            default:
+                puts("Escolha invalida!");
+                break;
+        }
+    }
+    
+    liberarConta(&pConta);
+    return 0;
+}

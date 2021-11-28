@@ -1,7 +1,7 @@
 #include"conta.h"
 
 struct conta {
-    char *nomeConta;
+    char nomeConta[50];
     float valorConta;
     struct conta *anterior;
 };
@@ -23,7 +23,7 @@ CONTA *criarConta(float valor, char *conta) {
 }
 
 PCONTA *pilhaConta() {
-    PCONTA *pilha = (PCONTA*) calloc(1, sizeof(PCONTA*));
+    PCONTA *pilha = (PCONTA*) calloc(1, sizeof(PCONTA));
 
     pilha->qtd = 0;
     pilha->fim = NULL;
@@ -43,23 +43,31 @@ void adicionarConta(PCONTA *pilhaConta, float valor, char *conta){
 
     pilhaConta->qtd++;
     pilhaConta->valorTotal += valor;
+
+    printf("O valor total das contas e: %.2f\n", pilhaConta->valorTotal);
 }
 
-int pagarConta(PCONTA *pilhaConta, float salario){
+void pagarConta(PCONTA **pilhaConta, float salario){
+    PCONTA *conta = *pilhaConta;
     CONTA *percorer;
     CONTA *aux = NULL;
-    percorer = pilhaConta->fim;
+    percorer = conta->fim;
 
-    while(pilhaConta->fim->valorConta <= salario){
+    while(percorer->anterior != NULL || conta->fim->valorConta <= salario){
+        printf("Valor da carteira: %.2f\n", salario);
+        printf("Valor da conta: %.2f\n", percorer->valorConta);
         salario -= percorer->valorConta;
-        pilhaConta->valorTotal -= percorer->valorConta;
-        pilhaConta->fim = percorer->anterior;
+        conta->valorTotal -= percorer->valorConta;
+        conta->fim = percorer->anterior;
         percorer = percorer->anterior;
         aux = percorer;
         free(aux);
+        puts("Pagando conta...");
     }
 
-    return 0;
+    conta->fim = NULL;
+    conta->qtd = 0;
+    conta->valorTotal = 0;
 }
 
 void liberarConta(PCONTA **pilha){
@@ -72,5 +80,6 @@ void liberarConta(PCONTA **pilha){
         percorer = percorer->anterior;
         free(aux);
     }
-    
+
+    free(p);
 }
