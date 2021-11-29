@@ -5,8 +5,6 @@ struct pessoa {
     char monge[100];
     int pontos;
     int qtdMovimento;
-    // int MovOrigem;
-    // int MovDestino;
     struct pessoa *proximo;
     struct pessoa *anterior;
 };
@@ -35,8 +33,6 @@ MONGE *criarMonge(int num, char *nome){
     pessoa->qtd = num;
     strcpy(pessoa->monge, nome);
     pessoa->pontos = 0;
-    // pessoa->MovDestino = 0;
-    // pessoa->MovOrigem = 0;
     pessoa->qtdMovimento = 0;
     pessoa->proximo = NULL;
     pessoa->anterior = NULL;

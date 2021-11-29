@@ -17,3 +17,50 @@ não há livros sendo lidos.
 • Deve haver uma opção para sair.
 • Essa não deve ser uma pilha duplamente encadeada. Decida se armazenará o
 endereço do livro de cima ou do de baixo, mas nunca de ambos.*/
+
+#include"livro.h"
+
+int main(){
+    PLIVRO *pLivro;
+    int escolha = 1;
+    int livros;
+    char livro[50];
+
+    pLivro = pilhaLivro();
+
+    while (escolha != 0){
+        if(livros == 0){
+            puts("Não possui livro na pilha");
+        } else {
+            puts("Juan esta lendo livro.");
+        }
+        puts("Digite 1 - Adicionar livro.");
+        puts("Digite 2 - Retirar livro.");
+        puts("Digite 0 - Sair.");
+        scanf("%d", &escolha);
+        switch (escolha){
+            case 1:
+                puts("Qual nome do livro.");
+                __fpurge(stdin);
+                fgets(livro, 100, stdin);
+                livros = adicionarLivro(pLivro, livro);
+                break;
+            case 2:
+                if(livros == 0){
+                    puts("Não possui livro na pilha");
+                } else{
+                    livros = desepilharLivro(pLivro);
+                }
+                break;
+            case 0:
+                puts("Obrigado pela preferencia!");
+                break;
+            default:
+                puts("Escolha invalida!");
+                break;
+        }
+    }
+    
+    liberarPilha(&pLivro);
+    return 0;
+}
