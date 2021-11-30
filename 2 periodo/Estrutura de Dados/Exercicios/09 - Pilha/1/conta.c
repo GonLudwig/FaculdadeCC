@@ -48,22 +48,26 @@ void adicionarConta(PCONTA *pilhaConta, float valor, char *conta){
 }
 
 void pagarConta(PCONTA *pilhaConta, float salario){
-    float vSalario = salario;
     CONTA *percorer = pilhaConta->fim;
     CONTA *aux = NULL;
 
-    while(percorer->anterior != NULL){
-        if(pilhaConta->fim->valorConta <= vSalario){
-            printf("Valor da carteira: %.2f\n", vSalario);
+    if(percorer == NULL){
+        puts("Não existe conta na pilha!");
+    }
+    while(percorer != NULL){
+        if(pilhaConta->fim->valorConta <= salario){
+            printf("Valor da carteira: %.2f\n", salario);
             printf("Valor da conta: %.2f\n", percorer->valorConta);
-            vSalario -= percorer->valorConta;
+            salario -= percorer->valorConta;
             pilhaConta->valorTotal -= percorer->valorConta;
             pilhaConta->fim = percorer->anterior;
-            percorer = percorer->anterior;
             aux = percorer;
+            percorer = percorer->anterior;
             pilhaConta->qtd--;
             free(aux);
             puts("Pagando conta...");
+        }else {
+            percorer = percorer->anterior;
         }
     }
 

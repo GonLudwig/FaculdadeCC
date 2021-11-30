@@ -1,78 +1,87 @@
-#include"conta.h"
+#include"musica.h"
 
-struct conta {
-    char nomeConta[50];
-    float valorConta;
-    struct conta *anterior;
+struct musica {
+    char nomeMusica[50];
+    int duraMusica;
+    struct musica *anterior;
 };
 
-struct pilhaConta {
+struct pilhaMusica {
     int qtd;
-    float valorTotal;
-    struct conta *fim;
+    int duraTotal;
+    struct musica *fim;
 };
 
-CONTA *criarConta(float valor, char *conta) {
-    CONTA *boleto = (CONTA*) calloc(1, sizeof(CONTA));
+MUSICA *criarMusica(int duracao, char *conta){
+    MUSICA *musica = (MUSICA*) calloc(1, sizeof(MUSICA));
 
-    strcpy(boleto->nomeConta, conta);
-    boleto->valorConta = valor;
-    boleto->anterior = NULL;
+    strcpy(musica->nomeMusica, conta);
+    musica->duraMusica = duracao;
+    musica->anterior = NULL;
     
-    return boleto;
+    return musica;
 }
 
-PCONTA *pilhaConta() {
-    PCONTA *pilha = (PCONTA*) calloc(1, sizeof(PCONTA));
+PMUSICA *pilhaMusica(){
+    PMUSICA *pilha = (PMUSICA*) calloc(1, sizeof(PMUSICA));
 
     pilha->qtd = 0;
+    pilha->duraTotal = 0;
     pilha->fim = NULL;
 
     return pilha;
 }
 
-void adicionarConta(PCONTA *pilhaConta, float valor, char *conta){
-    CONTA *boleto = criarConta(valor, conta);
+void adicionarMusica(PMUSICA *pilhaMusica, int duracao, char *musica){
+    MUSICA *boleto = criarMusica(duracao, musica);
 
-    if(pilhaConta->fim == NULL){
-        pilhaConta->fim = boleto;
+    if(pilhaMusica->fim == NULL){
+        pilhaMusica->fim = boleto;
     } else {
-        boleto->anterior = pilhaConta->fim;
-        pilhaConta->fim = boleto;
+        boleto->anterior = pilhaMusica->fim;
+        pilhaMusica->fim = boleto;
     }
 
-    pilhaConta->qtd++;
-    pilhaConta->valorTotal += valor;
+    pilhaMusica->qtd++;
+    pilhaMusica->duraTotal += duracao;
 
-    printf("O valor total das contas e: %.2f\n", pilhaConta->valorTotal);
+    printf("Duracao total das musicas: %d minutos\n", pilhaMusica->duraTotal);
 }
 
-void pagarConta(PCONTA *pilhaConta, float salario){
-    float vSalario = salario;
-    CONTA *percorer = pilhaConta->fim;
-    CONTA *aux = NULL;
+void tocarMusica(PMUSICA *pilhaMusica, int duraTocar){
+    MUSICA *percorer = pilhaMusica->fim;
+    MUSICA *aux = NULL;
 
-    while(percorer->anterior != NULL){
-        if(pilhaConta->fim->valorConta <= vSalario){
-            printf("Valor da carteira: %.2f\n", vSalario);
-            printf("Valor da conta: %.2f\n", percorer->valorConta);
-            vSalario -= percorer->valorConta;
-            pilhaConta->valorTotal -= percorer->valorConta;
-            pilhaConta->fim = percorer->anterior;
-            percorer = percorer->anterior;
+    if(percorer == NULL){
+        puts("Não existe musica na pilha!");
+    }
+    while(percorer != NULL ){
+        if(pilhaMusica->fim->duraMusica <= duraTocar){
             aux = percorer;
-            pilhaConta->qtd--;
+            printf("Tempo de Execucao: %d\n", duraTocar);
+            printf("Musica: %s\n", percorer->nomeMusica);
+            printf("Tempo da musica: %d\n", percorer->duraMusica);
+            duraTocar -= percorer->duraMusica;
+            pilhaMusica->duraTotal -= percorer->duraMusica;
+            pilhaMusica->fim = percorer->anterior;
+            percorer = percorer->anterior;
+            pilhaMusica->qtd--;
+            puts("Tocando musica...");
             free(aux);
-            puts("Pagando conta...");
+        } else {
+            puts("Ainda existe essa musica na pilha.");
+            printf("Musica: %s\n", percorer->nomeMusica);
+            printf("Duracao: %d\n", percorer->duraMusica);
+            percorer = percorer->anterior;
         }
     }
 
 }
 
-void liberarConta(PCONTA **pilha){
-    PCONTA *p = *pilha;
-    CONTA *aux = NULL;
-    CONTA *percorer = p->fim;
+void liberarConta(PMUSICA **pilha){
+    PMUSICA *p = *pilha;
+    MUSICA *aux = NULL;
+    MUSICA *percorer = p->fim;
 
     while (percorer != NULL){
         aux = percorer;

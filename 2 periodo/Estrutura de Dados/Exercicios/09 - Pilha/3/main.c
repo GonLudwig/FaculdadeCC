@@ -11,3 +11,45 @@ e recalculando o tempo empilhado.
 Se em algum momento não houverem músicas suficientes para serem tocadas,
 exiba essa informação ao usuário e toque as músicas que puder. Durante a execução,
 não é possível inserir mais músicas na pilha.*/
+#include"musica.h"
+
+int main(){
+    PMUSICA *pMusica;
+    int escolha = 1;
+    int duracaoMusica;
+    char musica[50];
+
+    pMusica = pilhaMusica();
+
+    while (escolha != 0){
+        puts("RDCMO (Rádio da Cidade de Massachusetts do Oeste)!");
+        puts("Digite 1 - Adicionar musica.");
+        puts("Digite 2 - tocar musicas.");
+        puts("Digite 0 - Sair.");
+        scanf("%d", &escolha);
+        switch (escolha){
+            case 1:
+                puts("Qual nome da musica.");
+                __fpurge(stdin);
+                fgets(musica, 50, stdin);
+                puts("Qual duracao da musica.");
+                scanf("%d", &duracaoMusica);
+                adicionarMusica(pMusica, duracaoMusica, musica);
+                break;
+            case 2:
+                puts("Digite tempo para tocar as musicas.");
+                scanf("%d", &duracaoMusica);
+                tocarMusica(pMusica, duracaoMusica);
+                break;
+            case 0:
+                puts("Obrigado pela preferencia!");
+                break;
+            default:
+                puts("Escolha invalida!");
+                break;
+        }
+    }
+    
+    liberarConta(&pMusica);
+    return 0;
+}

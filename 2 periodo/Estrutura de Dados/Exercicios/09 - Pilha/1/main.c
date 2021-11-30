@@ -52,7 +52,7 @@ int main(){
             case 2:
                 puts("Digite valor recebido.");
                 scanf("%f", &valorConta);
-                pagarConta(&pConta, valorConta);
+                pagarConta(pConta, valorConta);
                 break;
             case 0:
                 puts("Obrigado pela preferencia!");
