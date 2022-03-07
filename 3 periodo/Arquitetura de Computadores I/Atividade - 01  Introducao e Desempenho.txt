@@ -1,0 +1,20 @@
+1 - Liguagem de alto nivel:
+    Vantagens: E melhor no posto de vista o usuario.
+    Desvantagens: Vai possuir instrucoes que podem nao ser interpretadas(compiladas) da melhor forma.
+  - Liguagem Assembly:
+    Vantagens: As instrucoes sao mais proxima da linguagem de maquina e com isso ira ser interpretadas(compiladas) da uma melhor forma.
+    Desvantagens: E muito mais dificil no ponto da vista do cliente pois e muito mais complexo entender ou criar um programa nesta linguagem.
+
+2 - Compilacao e "transformar" a linguagem de alto nivel em Assembley e Assembler e o processor de "transformar" esta linguagem em linguagem de maquina.
+
+3 - a) Entradas e Saidas = Sao todos dispositivos de entrada de instrucoes e de saida de instrucoes como exemplo: Mouse - Entrada, Monitor - Saida.
+    b) Memoria = 
+    c) Caminho de Dados = E o caminho pelo qual sua instrucao ira passar.
+    d) Unidade de Controle = Ela controla quando a instrucao sera processada e todas as demais atividades de controle das intrucoes.
+
+4 - a) Latencia: e o tempo para realizar uma tarefa.
+    b) Throghput: e a quantidade de instrucoes que da pra realizar em um periodo de tempo.
+
+5 - A explicacao mais simples e que a combinacao entre o software e hardware da maquina A e melhor que da maquina B, podendo dizer tambem que o processador de A e melhor que de B.
+
+6 - 
