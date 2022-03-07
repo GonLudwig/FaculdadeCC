@@ -1,0 +1,17 @@
+- Fatores de desempenho do computador
+    Qual o principal fator de desempenho do computador e a relacao do hardware e software.
+    Fatores de software
+        - Ciclos por instrucoes
+        - instrucoes por programa
+        - intrucoes por ciclos
+    Fatores de hardware
+        - Ciclo de vida
+        - Temperatura
+        - ISA: Arquitetura da Estrutura de instrucoes
+        - Bits por instrucoes
+        - Frequencia
+
+- Quanto maior a Frequencia menor o tempo para realizar as tarefas
+- Latencia: e o tempo para realizar uma tarefa.
+- Throghput: e a quantidade de instrucoes que da pra realizar em um periodo de tempo.
+- Quanto maior o Throghput maior a latencia.

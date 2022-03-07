@@ -1,0 +1,11 @@
+- Latência - Tempo de enviar e voltar. Tempo de executar tarefas
+
+- Throughput - Quantidade de coisas que podem ser executadas dentro da latência. Quantidade de processamento paralelo.
+
+- Programa possui
+	1 - Quantidade de instruções
+	2 - QUantidade de Ciclos
+	3 - Quantidade de Segundos
+
+- CPI = Ciclos por instrução. Depende da complexidade da instrução.
+- CPS = Ciclos por segundo. Pode ser medido por uma equação.
