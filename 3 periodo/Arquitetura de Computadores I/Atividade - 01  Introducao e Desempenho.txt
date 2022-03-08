@@ -8,7 +8,7 @@
 2 - Compilacao e "transformar" a linguagem de alto nivel em Assembley e Assembler e o processor de "transformar" esta linguagem em linguagem de maquina.
 
 3 - a) Entradas e Saidas = Sao todos dispositivos de entrada de instrucoes e de saida de instrucoes como exemplo: Mouse - Entrada, Monitor - Saida.
-    b) Memoria = 
+    b) Memoria = Se resumi na quantidade e velocidade em que poderar abrir os programas. 
     c) Caminho de Dados = E o caminho pelo qual sua instrucao ira passar.
     d) Unidade de Controle = Ela controla quando a instrucao sera processada e todas as demais atividades de controle das intrucoes.
 
@@ -17,4 +17,16 @@
 
 5 - A explicacao mais simples e que a combinacao entre o software e hardware da maquina A e melhor que da maquina B, podendo dizer tambem que o processador de A e melhor que de B.
 
-6 - 
+6 - A frequencia do computador esta relacionado diretamenta com a velocidade com que ele conseque executar as instrucoes, quanto mais complexo a instrucao e maior mais tempo sera gasto
+para o processador executar essas instrucoes, tempo este que segue o tempo de clock do processador. Executar tarefas simultaneas implica na capacidade do processador executar instrucoes
+o mais rapido possivel e para melhorar isto ter mais nucleos melhora muito esta execucao simultaneas, por terem mais nucleos para processar mais instrucoes.
+
+7 - a) 250ps
+    b) 285,71ps
+    c) 357,14ps
+    d) 232,55ps
+
+8 - a) Implicara em realizar as instrucoes de forma mais rapida, basicamente abrir os programas mais rapidos
+    b) Implicara em realizar mais tarefas simultaneas em um mesmo periodo de tempo para executar as instrucoes, tendo a vantagem somente de executar mais instrucoes.
+    c) Implicara em ter instrucoes com maior quantidade de bits.
+    d) Implicara em maior quantidade de programas poderam ser abertos simultaneamente.
