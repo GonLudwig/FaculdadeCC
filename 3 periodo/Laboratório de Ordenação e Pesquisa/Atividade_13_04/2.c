@@ -53,20 +53,76 @@ int insertionSortDecresc(int *vetor, int n){
     return variaveis;
 }
 
-int selectionSortCres(){
-
+int selectionSortCres(int *vetor, int n){
+    int i, j, min, temp;
+  
+    for (i = 0; i < n-1; i++){
+        min = i;
+        for (j = i+1; j < n; j++){
+          if (vetor[j] < vetor[min]){
+            min = j;
+            temp = vetor[min];
+            vetor[min] = vetor[i];
+            vetor[i] = temp;
+          }
+        }
+    }
 }
 
-int selectionSortDecres(){
-
+int selectionSortDecres(int *vetor, int n){
+    int i, j, min, temp;
+  
+    for (i = 0; i < n-1; i++){
+        min = i;
+        for (j = i+1; j < n; j++){
+          if (vetor[j] > vetor[min]){
+            min = j;
+            temp = vetor[min];
+            vetor[min] = vetor[i];
+            vetor[i] = temp;
+          }
+        }
+    }
 }
 
-int shellSortCresc(){
-
+int shellSortCresc(int *vetor, int n){
+    int i , j , aux;
+    int h = 1;
+    while(h < n) {
+        h = 3*h+1;
+    }
+    while ( h > 1) {
+        h /= 3;
+        for(i = h; i < 8; i++) {
+            aux = vetor[i];
+            j = i - h;
+            while (j >= 0 && aux < vetor[j]) {
+                vetor [j + h] = vetor[j];
+                j -= h;
+            }
+            vetor [j + h] = aux;
+        }
+    }
 }
 
 int shellSortDecresc(){
-
+    int i , j , aux;
+    int h = 1;
+    while(h < 8) {
+        h = 3*h+1;
+    }
+    while ( h > 1) {
+        h /= 3;
+        for(i = h; i < 8; i++) {
+            aux = vetor[i];
+            j = i - h;
+            while (j >= 0 && aux < vetor[j]) {
+                vetor [j + h] = vetor[j];
+                j -= h;
+            }
+            vetor [j + h] = aux;
+        }
+    }
 }
 
 int bubbleSortCresc(){
