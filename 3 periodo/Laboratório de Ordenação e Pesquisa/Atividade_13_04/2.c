@@ -116,7 +116,7 @@ int shellSortDecresc(){
         for(i = h; i < 8; i++) {
             aux = vetor[i];
             j = i - h;
-            while (j >= 0 && aux < vetor[j]) {
+            while (j >= 0 && aux > vetor[j]) {
                 vetor [j + h] = vetor[j];
                 j -= h;
             }
@@ -125,12 +125,32 @@ int shellSortDecresc(){
     }
 }
 
-int bubbleSortCresc(){
+int bubbleSortCresc(int *vetor, int n){
+    int i, j, aux;
 
+	for (i = 1; i < n; i++){
+		for (j = 0; j < n - i; j++){
+			if (vetor[j] > vetor[j+1]){
+				aux = vetor[j];
+				vetor[j] = vetor[j+1];
+				vetor[j+1] = aux;
+			}
+		}
+	}
 }
 
 int bubbleSortDecresc(){
+    int i, j, aux;
 
+	for (i = 1; i < n; i++){
+		for (j = 0; j < n - i; j++){
+			if (vetor[j] < vetor[j+1]){
+				aux = vetor[j];
+				vetor[j] = vetor[j+1];
+				vetor[j+1] = aux;
+			}
+		}
+	}
 }
 
 int main() {
@@ -148,6 +168,7 @@ int main() {
     printf("Insertion\n");
     printf("Cresente");
     segundosAntes = clock();
+    insertionSortCresc();
     segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
     printf("Tempo gasto foi de %lf\n", segundosDiferenca);
