@@ -1,0 +1,4 @@
+- Assembly = Linguagem de maquina. Geralmente possui o I.S.A mais simples possivel.
+- Assembler = Montador/compilador de Assembly para binario.
+- I.S.A. = Quantidade das diferencas formas que temos disponivel para realizar uma instrucao.
+- Hierarquia da memoria - HD -> RAM -> Cache(instrucoes) -> Banco de Registadores
