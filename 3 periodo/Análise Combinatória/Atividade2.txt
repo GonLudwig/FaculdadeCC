@@ -1,6 +1,6 @@
 Atividade 2
 
-1. F possui 15 elementos
+1. F possui 16 elementos
 
 2. a)!=
 	b)!=
@@ -17,34 +17,37 @@ Atividade 2
 	
 3. a)!=
 	b)!=
-	c)E
-	d)E
+	c)!=
+	d)!=
+	e)E
 	f)E
 	g)!=
-	h)E
+	h)!=
 	i)E
 	j)E
-	k)E
+	k)!=
 
-4. 1 - Silva 2 - Rodrigo 3 - 4 -
+4. 1 - Ricardo Silva 2 - Rodrigo Santiago 3 - Rafael Souza 4 - Ronaldo Santos
 
-5. a)V
+5. a)F
 	b)V
-	c)V
+	c)F
 
 6. a) 1
-	b) 469
-	c) ble60
-	d) df
-	e) 1, 2, 3
+	b) 1
+	c) 1
+	d) 1
+	e) 3
 	
 7. a)f
 	b)v
 	c)f
-	d)v
+	d)F
 	e)v
 	
-8. 
+8.  1 - Roberto, Alemao, 2horas, Volei
+	2- Mauro, Ingles, 6horas, Judo
+	3 - Pedro, Frances, 4horas, Natacao;
 
 9. a) P(A) = {0,{1}, {2}, {1, 2}}
 	b) P(B) = {0, {0}, {1}, {2}, {0, 1}, {0,2}, {1, 2}, {0, 1, 2}}
