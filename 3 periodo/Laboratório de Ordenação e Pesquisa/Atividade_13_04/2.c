@@ -204,7 +204,8 @@ int bubbleSortDecresc(int *vetor, int n, int *variaveis){
 }
 
 int insertion(int *vetor, int n){
-    clock_t segundosAntes, segundosDepois, segundosDiferenca;
+    clock_t segundosAntes, segundosDepois;
+    double segundosDiferenca;
     int variaveis[2];
 
     printf("Insertion\n");
@@ -213,7 +214,7 @@ int insertion(int *vetor, int n){
     insertionSortCresc(vetor, n, variaveis);
     segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
-    printf("Tempo gasto foi de %ld\n", segundosDiferenca);
+    printf("Tempo gasto foi de %f\n", segundosDiferenca);
     printf("Foram realizadas %d comparacoes\n", variaveis[0]);
     printf("Foram realizadas %d trocas\n", variaveis[1]);
 
@@ -222,73 +223,82 @@ int insertion(int *vetor, int n){
     insertionSortDecresc(vetor, n, variaveis);
     segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
-    printf("Tempo gasto foi de %ld\n", segundosDiferenca);
+    printf("Tempo gasto foi de %f\n", segundosDiferenca);
     printf("Foram realizadas %d comparacoes\n", variaveis[0]);
     printf("Foram realizadas %d trocas\n", variaveis[1]);
 }
 
 int selection(int *vetor, int n){
-    clock_t segundosAntes, segundosDepois, segundosDiferenca;
+    clock_t segundosAntes, segundosDepois;
+    double segundosDiferenca;
     int variaveis[2];
 
     printf("Selection\n");
     printf("Cresente\n");
     segundosAntes = clock();
+    selectionSortCres(vetor, n, variaveis);
     segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
-    printf("Tempo gasto foi de %ld\n", segundosDiferenca);
+    printf("Tempo gasto foi de %f\n", segundosDiferenca);
     printf("Foram realizadas %d comparacoes\n", variaveis[0]);
     printf("Foram realizadas %d trocas\n", variaveis[1]);
 
     printf("Decrescente\n");
     segundosAntes = clock();
+    selectionSortDecres(vetor, n, variaveis);
     segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
-    printf("Tempo gasto foi de %ld\n", segundosDiferenca);
+    printf("Tempo gasto foi de %f\n", segundosDiferenca);
     printf("Foram realizadas %d comparacoes\n", variaveis[0]);
     printf("Foram realizadas %d trocas\n", variaveis[1]);
 }
 
 int shell(int *vetor, int n){
-    clock_t segundosAntes, segundosDepois, segundosDiferenca;
+    clock_t segundosAntes, segundosDepois;
+    double segundosDiferenca;
     int variaveis[2];
 
     printf("Shell\n");
     printf("Cresente\n");
     segundosAntes = clock();
+    shellSortCresc(vetor, n, variaveis);
     segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
-    printf("Tempo gasto foi de %ld\n", segundosDiferenca);
+    printf("Tempo gasto foi de %f\n", segundosDiferenca);
     printf("Foram realizadas %d comparacoes\n", variaveis[0]);
     printf("Foram realizadas %d trocas\n", variaveis[1]);
 
     printf("Decrescente\n");
     segundosAntes = clock();
+    shellSortDecresc(vetor, n, variaveis);
     segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
-    printf("Tempo gasto foi de %ld\n", segundosDiferenca);
+    printf("Tempo gasto foi de %f\n", segundosDiferenca);
     printf("Foram realizadas %d comparacoes\n", variaveis[0]);
     printf("Foram realizadas %d trocas\n", variaveis[1]);
 }
 
 int bubble(int *vetor, int n){
-    clock_t segundosAntes, segundosDepois, segundosDiferenca;
+    clock_t segundosAntes, segundosDepois;
+    double segundosDiferenca;
     int variaveis[2];
 
     printf("Bubble\n");
     printf("Cresente\n");
     segundosAntes = clock();
+    bubbleSortCresc(vetor, n, variaveis);
     segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
-    printf("Tempo gasto foi de %ld\n", segundosDiferenca);
+    printf("Tempo gasto foi de %f\n", segundosDiferenca);
     printf("Foram realizadas %d comparacoes\n", variaveis[0]);
     printf("Foram realizadas %d trocas\n", variaveis[1]);
 
     printf("Decrescente\n");
     segundosAntes = clock();
+    bubbleSortDecresc(vetor, n, variaveis);
     segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
-    printf("Tempo gasto foi de %ld\n", segundosDiferenca);
+    printf("Tempo gasto foi de %f\n", segundosDiferenca);
     printf("Foram realizadas %d comparacoes\n", variaveis[0]);
     printf("Foram realizadas %d trocas\n", variaveis[1]);
 }
@@ -301,22 +311,21 @@ int main() {
     numerosAletorios(vetor10k, 10000);
     numerosAletorios(vetor100k, 100000);
 
-    insertion(vetor1k, 1000);
-    // insertion(vetor10k, 10000);
+    // insertion(vetor1k, 1000);
+    insertion(vetor10k, 10000);
     // insertion(vetor100k, 100000);
     printf("\n");
-    selection(vetor1k, 1000);
-    // selection(vetor10k, 10000);
+    // selection(vetor1k, 1000);
+    selection(vetor10k, 10000);
     // selection(vetor100k, 100000);
     printf("\n");
-    shell(vetor1k, 1000);
-    // shell(vetor10k, 10000);
+    // shell(vetor1k, 1000);
+    shell(vetor10k, 10000);
     // shell(vetor100k, 100000);
     printf("\n");
-    bubble(vetor1k, 1000);
-    // bubble(vetor10k, 10000);
+    // bubble(vetor1k, 1000);
+    bubble(vetor10k, 10000);
     // bubble(vetor100k, 100000);
-
-
+    
     return 0;
 }
