@@ -15,11 +15,12 @@ struct listaEstadoCovid{
 	struct estadosCovid *fim;
 };
 
-ESTADOCOVID *criarEstado(int casos, int mortes, char *nomeEstado){
+ESTADOCOVID *criarEstado(int casos, int mortes, char *nomeEstado, int regiao){
 	ESTADOCOVID *estado = (ESTADOCOVID*) calloc(1, sizeof(ESTADOCOVID));
 	
 	estado->casosConfirmados = casos;
 	estado->mortes = mortes;
+	estado->regiao = regiao;
 	strcpy(estado->estado, nomeEstado);
 	estado->proximo = NULL;
 	estado->anterior = NULL;
@@ -37,8 +38,8 @@ LESTADOCOVID *criarListaEstado(){
 	return lista;
 }
 
-void adicionarEstado(LESTADOCOVID *lista, int casos, int mortes, char *nomeEstado){
-	ESTADOCOVID *estado = criarEstado(casos, mortes, nomeEstado);
+void adicionarEstado(LESTADOCOVID *lista, int casos, int mortes, char *nomeEstado, int regiao){
+	ESTADOCOVID *estado = criarEstado(casos, mortes, nomeEstado, regiao);
 	estado->anterior = lista->fim;
 
 	if(lista->inicio == NULL){
@@ -54,10 +55,31 @@ void adicionarEstado(LESTADOCOVID *lista, int casos, int mortes, char *nomeEstad
 void imprimirLista(LESTADOCOVID *lista){
 	ESTADOCOVID *estado = lista->inicio;
 	int i;
+	char regiao[12];
+
 
 	for(i=1; estado != NULL ;i++){
+		switch(estado->regiao){
+			case 1:
+				strcpy(regiao, 'Norte');
+				break;
+			case 2:
+				strcpy(regiao, 'Nordeste');
+				break;
+			case 3:
+				strcpy(regiao, 'Centro-Oeste');
+				break;
+			case 4:
+				strcpy(regiao, 'Sudeste');
+				break;
+			case 5:
+				strcpy(regiao, 'Sul');
+				break;
+		}
+
 		printf("Item - %d\n", i);
 		printf("Estado - %s\n", estado->estado);
+		printf("Regiao - %s\n", regiao);
 		printf("Numero de mortos - %d\n", estado->mortes);
 		printf("Numero de casos confirmados - %d\n", estado->casosConfirmados);
 		estado = estado->proximo;
@@ -126,6 +148,30 @@ void ordenarPorEstado(LESTADOCOVID *lista){
 		}
 	}
 	printf("Ordenando por estado\n");
+}
+
+void ordenarPorEstadoRegiao(LESTADOCOVID *lista){
+	int i, j;
+	int letra1, letra2;
+	ESTADOCOVID *estadoCovid = lista->inicio;
+	ESTADOCOVID *aux;
+	
+
+	for (i = 1; i < lista->qtd; i++){
+		for (j = 0; j < lista->qtd - i; j++){
+			letra1 = estadoCovid->estado[0];
+			letra2 = estadoCovid->proximo->estado[0];
+			if (leta1 > letra2 && estadoCovid->regiao >= estadoCovid->proximo->regiao){
+				aux = estadoCovid->proximo->proximo;
+				estadoCovid->proximo->anterior = estadoCovid->anterior;
+				estadoCovid->anterior = estadoCovid->proximo;
+				estadoCovid->proximo->proximo = estadoCovid;
+				estadoCovid->proximo = aux;
+				aux = NULL;
+			}
+		}
+	}
+	printf("Ordenando por estado e regiao\n");
 }
 
 void liberarLista(LESTADOCOVID **lista){
