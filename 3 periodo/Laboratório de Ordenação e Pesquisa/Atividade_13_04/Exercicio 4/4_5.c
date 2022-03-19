@@ -1,4 +1,4 @@
-#include"exercicio4.h"
+#include"4_5.h"
 
 struct estadosCovid {
 	int casosConfirmados;
@@ -55,25 +55,25 @@ void adicionarEstado(LESTADOCOVID *lista, int casos, int mortes, char *nomeEstad
 void imprimirLista(LESTADOCOVID *lista){
 	ESTADOCOVID *estado = lista->inicio;
 	int i;
-	char regiao[12];
+	char regiao[15];
 
 
 	for(i=1; estado != NULL ;i++){
 		switch(estado->regiao){
 			case 1:
-				strcpy(regiao, 'Norte');
+				strcpy(regiao, "Norte");
 				break;
 			case 2:
-				strcpy(regiao, 'Nordeste');
+				strcpy(regiao, "Nordeste");
 				break;
 			case 3:
-				strcpy(regiao, 'Centro-Oeste');
+				strcpy(regiao, "Centro-Oeste");
 				break;
 			case 4:
-				strcpy(regiao, 'Sudeste');
+				strcpy(regiao, "Sudeste");
 				break;
 			case 5:
-				strcpy(regiao, 'Sul');
+				strcpy(regiao, "Sul");
 				break;
 		}
 
@@ -137,7 +137,7 @@ void ordenarPorEstado(LESTADOCOVID *lista){
 		for (j = 0; j < lista->qtd - i; j++){
 			letra1 = estadoCovid->estado[0];
 			letra2 = estadoCovid->proximo->estado[0];
-			if (leta1 > letra2){
+			if (letra1 > letra2){
 				aux = estadoCovid->proximo->proximo;
 				estadoCovid->proximo->anterior = estadoCovid->anterior;
 				estadoCovid->anterior = estadoCovid->proximo;
@@ -161,7 +161,7 @@ void ordenarPorEstadoRegiao(LESTADOCOVID *lista){
 		for (j = 0; j < lista->qtd - i; j++){
 			letra1 = estadoCovid->estado[0];
 			letra2 = estadoCovid->proximo->estado[0];
-			if (leta1 > letra2 && estadoCovid->regiao >= estadoCovid->proximo->regiao){
+			if (letra1 > letra2 && estadoCovid->regiao >= estadoCovid->proximo->regiao){
 				aux = estadoCovid->proximo->proximo;
 				estadoCovid->proximo->anterior = estadoCovid->anterior;
 				estadoCovid->anterior = estadoCovid->proximo;

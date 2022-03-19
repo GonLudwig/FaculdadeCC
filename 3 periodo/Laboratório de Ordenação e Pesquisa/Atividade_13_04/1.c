@@ -2,7 +2,8 @@
 #include <time.h>
 
 int main (){
-    clock_t segundoAntes, segundosDepois, segundoDiferenca;
+    clock_t segundoAntes, segundosDepois;
+    double segundoDiferenca;
 	int vetor[10] = { 1, 5, 3, 6, 7, 8, 4, 23, 10, 9};
 	int n = 10;
 	int i, aux, j, min_idx, temp;
@@ -22,7 +23,7 @@ int main (){
     }
     segundosDepois = clock();
     segundoDiferenca = (double)(segundosDepois - segundoAntes) / CLOCKS_PER_SEC;
-    printf("Tempo gasto foi de %lf\n", segundoDiferenca);
+    printf("Tempo gasto foi de %f\n", segundoDiferenca);
     printf("Foram realizadas %d comparacoes", comparacoes);
 
     printf("Seguencia ordenada ");
@@ -48,7 +49,7 @@ int main (){
     }
     segundosDepois = clock();
     segundoDiferenca = (double)(segundosDepois - segundoAntes)/CLOCKS_PER_SEC;
-    printf("Tempo gasto foi de %lf\n", segundoDiferenca);
+    printf("Tempo gasto foi de %f\n", segundoDiferenca);
     printf("Foram realizadas %d comparacoes", comparacoes);
 
     printf("Seguencia ordenada ");
