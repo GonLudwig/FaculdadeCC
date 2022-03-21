@@ -1,0 +1,25 @@
+Assembly 
+
+- Artimetica:
+    - Add = $a, $b, $c -> a = b+c
+    - Sub = $a, $b, $c -> a = b-c
+    - Addi = $a, $b, (Numero imediato) -> a = b+4
+
+- Logica:
+    - And = $a, $b, $c -> a = b&&c
+    - Or = $a, $b, $c -> a = b||c
+    - Andi = $a, $b, (Numero imediato) -> a = b&&10
+    = Ori = $a, $b, (Numero imediato) -> a = b||10
+
+- Desvios:
+    - Beq = $a, $b, destino -> if(a==b) destino
+    - Bne = $a, $b, destino -> if(a!=b) destino
+    - J = destino
+
+- Inferrioridade:
+    - Slt = $a,$b,$c -> if(b<c) a=1 else a=0
+    - Slti = $a,$b,(Numero imediato) -> if(b<20) a=1 else a=0
+
+- Dados:
+    - Lw = $a, 100($b) -> a = b[100]
+    - Sw = $a, 100($b) -> b[100] = a

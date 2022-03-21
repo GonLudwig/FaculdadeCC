@@ -1,0 +1,56 @@
+a)  1 - addi $b, $0, 3
+    2 - addi $a, $0, 7
+    3 - add $c, $b, $a
+
+b)  1 - add $a, $b, $c
+    2 - Lw $b, 50($d)
+    3 - addi $c, $c, 1
+
+c)  1 - addi $d, $b, 7
+        and $c, $a, $d
+
+d)  1 - ori $c, $b, 7
+        Sw $c, 52($a)
+
+e)  1 - addi $f, $0, 3
+        addi $e, $f, 5
+        add $g, $b, $c
+        add $h, $e, $d
+        add $i, $g, $h
+        Sw $i, 70($a)
+
+f)  1 - addi $a, $0, 3
+    2 - add $b, $c, $a
+    3 - add $e, $b, $d
+        sub $c, $a, $e
+
+g)  1 - add $d, $b, $c
+        sw $d, 12($a)
+    2 - lw $d, 4($t1)
+        add $c, b, $d
+    3 - sub $d, $e, $c
+    4 - add $t2, $0, 72
+        sub $t3, $e, $t2
+        lw $t4, 12($a)
+        add $t5, $t4, $b
+        add $t6, $c, $d
+        add $t7, $t6, $t3
+        add $t8, $t5, $t7
+        Sw $t8, 10($a)
+
+h)  1 - lw $t1, 10($d)
+        sub $t2, $c, $t1
+        add $a, $b, $t2
+    2 - lw $t3, 5($d)
+        sub $a, $a, $t3
+    3 - add $b, $a, $c
+    4 - add $c, $a, $b
+    5 - add $t4, $b, $c
+        add $t5, $t4, $a
+        sw $t5, 1($d)
+    
+i)  1 - 
+
+j)  1 - add $t1, $0, $b
+        add $b, $b, %t1
+        add $b, $b, $t1
