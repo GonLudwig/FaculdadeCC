@@ -29,7 +29,7 @@ g)  1 - add $d, $b, $c
     2 - lw $d, 4($t1)
         add $c, b, $d
     3 - sub $d, $e, $c
-    4 - add $t2, $0, 72
+    4 - addi $t2, $0, 72
         sub $t3, $e, $t2
         lw $t4, 12($a)
         add $t5, $t4, $b
@@ -49,8 +49,88 @@ h)  1 - lw $t1, 10($d)
         add $t5, $t4, $a
         sw $t5, 1($d)
     
-i)  1 - 
+i)  1 - beq $a, $b, verdadeiro
+        bne $a, $b, falso
+        verdaderio
+        addi $c, $0, 1
+        j fim
+        falso
+        add $c, $0, $0
+        fim
 
-j)  1 - add $t1, $0, $b
-        add $b, $b, %t1
-        add $b, $b, $t1
+j)  1 - add $a, $b, $b
+        add $a, $a, $b
+
+k)  1 - slti $b, $a, 1
+        add $t1, $0, 1
+        beq $b, $t1, destino
+        j fim
+        destino
+        add $b, $0, $1
+        addi $c, $d, 3
+        addi $t2, $0, 7
+        sub $e, $a, $t2
+        fim
+
+l)  1 - sub $a, $b, $b
+        sub $a, $a, $b
+
+m)  1 - slt $t1, $a, $b
+        add $t2, $0, 1
+        beq $t1, $t2, primeiroif
+        slt $t3, $b, $a
+        beq $t3, $t2, segundoif
+        beq $a, $b, terceiroif
+        j fim
+        primeiroif
+        sub $c, $b, $a
+        j fim
+        segundoif
+        sub $c, $a, $b
+        j fim
+        terceiroif
+        add $a, $0, $0
+        fim
+        add $b, $0, $0
+
+n)  1 - add $c, $a, $b
+        slt $t1, $c, $0
+        add $t2, $0, 1
+        beq $t2, $t1, destino
+        j fim
+        destino
+        add $t3, $a, $b
+        add $c, $c, $t3
+        beq $t2, $t1, destino
+        fim
+        
+o)  1 - add $i, $0, $a
+        add $t1, $a, $a
+        slt $t2, $i, $t1
+        add $t3, $0, 1
+        beq $t2, $t3, destino
+        j fim
+        destino
+        add $b, $i, $a
+        addi $i, $i, 1
+        slt $t2, $i, $t1
+        beq $t2, $t3, destino
+        fim
+
+p)  1 - beq $a, $b, continuaprimeiro
+        j primeirofim
+        continuaprimeiro
+        slti $t1, $a, 3
+        add $t2, $0, 1
+        bne $t1, $t2, continuaSegundo
+        j primeirofim
+        continuaSegundo
+        slti $t3, $b, 3
+        bne $t3, $t2, continuaTerceiro
+        j primeirofim
+        continuaTerceiro
+        addi $a, $0, 4
+        addi $b, $0, 4        
+        primeirofim
+
+q) 
