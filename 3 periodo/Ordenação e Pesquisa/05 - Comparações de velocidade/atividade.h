@@ -5,11 +5,11 @@
 void numerosAletorios(int *vetor, int quantidade);
 void numerosCrescente(int *vetor, int quantidade);
 void numerosDecrescente(int *vetor, int quantidade);
-void insertionSort(int vetor[], int n);
-void selectionSort(int vetor[], int n);
-void shellSort(int vetor[], int n);
-void bubbleSort(int vetor[], int n);
-void heapMaxSort(int vetor[], int n);
+int insertionSort(int vetor[], int n);
+int selectionSort(int vetor[], int n);
+int shellSort(int vetor[], int n);
+int bubbleSort(int vetor[], int n);
+int heapMaxSort(int vetor[], int n);
 void insertion(int vetor[], int n);
 void selection(int vetor[], int n);
 void bubble(int vetor[], int n);

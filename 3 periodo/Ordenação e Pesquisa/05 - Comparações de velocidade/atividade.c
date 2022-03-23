@@ -144,7 +144,6 @@ void insertion(int vetor[], int n){
     int troca;
 
     printf("Insertion\n");
-    printf("Cresente\n");
     segundosAntes = clock();
     troca = insertionSort(vetor, n);
     segundosDepois = clock();
@@ -159,7 +158,6 @@ void selection(int vetor[], int n){
     int troca;
 
     printf("Selection\n");
-    printf("Cresente\n");
     segundosAntes = clock();
     troca = selectionSort(vetor, n);
     segundosDepois = clock();
@@ -174,7 +172,6 @@ void bubble(int vetor[], int n){
     int troca;
 
     printf("Bubble\n");
-    printf("Cresente\n");
     segundosAntes = clock();
     troca = bubbleSort(vetor, n);
     segundosDepois = clock();
@@ -189,7 +186,6 @@ void shell(int vetor[], int n){
     int troca;
 
     printf("Shell\n");
-    printf("Cresente\n");
     segundosAntes = clock();
     troca = shellSort(vetor, n);
     segundosDepois = clock();
@@ -198,13 +194,12 @@ void shell(int vetor[], int n){
     printf("Foram realizadas %d trocas\n", troca);
 }
 
-void heapMax(int *vetor, int n){
+void heapMax(int vetor[], int n){
     clock_t segundosAntes, segundosDepois;
     double segundosDiferenca;
     int troca;
 
     printf("HeapMax\n");
-    printf("Cresente\n");
     segundosAntes = clock();
     troca = heapMaxSort(vetor, n);
     segundosDepois = clock();
