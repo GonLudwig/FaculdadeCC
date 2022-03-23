@@ -22,7 +22,7 @@ void numerosDecrescente(int *vetor, int quantidade){
     }
 }
 
-void insertionSort(int *vetor, int n, int *variaveis){
+int insertionSort(int vetor[], int n){
     int troca = 0;
     int i, aux, j;
     for (i = 1; i < n; i++){
@@ -35,10 +35,11 @@ void insertionSort(int *vetor, int n, int *variaveis){
         }
         vetor[j+1] = aux;
     }
-    variaveis[1] = troca;
+    
+    return troca;
 }
 
-void selectionSort(int *vetor, int n, int *variaveis){
+int selectionSort(int vetor[], int n){
     int i, j, min, temp;
     int troca = 0;
   
@@ -54,10 +55,11 @@ void selectionSort(int *vetor, int n, int *variaveis){
             }
         }
     }
-    variaveis[1] = troca;
+    
+    return troca;
 }
 
-void shellSort(int *vetor, int n, int *variaveis){
+int shellSort(int vetor[], int n){
     int i , j , aux;
     int h = 1;
     int troca = 0;
@@ -78,10 +80,11 @@ void shellSort(int *vetor, int n, int *variaveis){
             vetor [j + h] = aux;       
         }
     }
-    variaveis[1] = troca;
+
+    return troca;
 }
 
-void bubbleSort(int *vetor, int n, int *variaveis){
+int bubbleSort(int vetor[], int n){
     int i, j, aux;
     int troca = 0;
 
@@ -95,10 +98,11 @@ void bubbleSort(int *vetor, int n, int *variaveis){
 			}
 		}
 	}
-    variaveis[1] = troca;
+
+    return troca;
 }
 
-void heapMaxSort(int *vetor, int n, int *variaveis){
+int heapMaxSort(int vetor[], int n){
     int i, j, aux;
     int troca = 0;
 
@@ -131,80 +135,80 @@ void heapMaxSort(int *vetor, int n, int *variaveis){
 		n = n - 1;
 	}
 
-    variaveis[1] = troca;
+    return troca;
 }
 
-void insertion(int *vetor, int n){
+void insertion(int vetor[], int n){
     clock_t segundosAntes, segundosDepois;
     double segundosDiferenca;
-    int variaveis[2];
+    int troca;
 
     printf("Insertion\n");
     printf("Cresente\n");
     segundosAntes = clock();
-    insertionSort(vetor, n, variaveis);
+    troca = insertionSort(vetor, n);
     segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
     printf("Tempo gasto foi de %f\n", segundosDiferenca);
-    printf("Foram realizadas %d trocas\n", variaveis[1]);
+    printf("Foram realizadas %d trocas\n", troca);
 }
 
-void selection(int *vetor, int n){
+void selection(int vetor[], int n){
     clock_t segundosAntes, segundosDepois;
     double segundosDiferenca;
-    int variaveis[2];
+    int troca;
 
     printf("Selection\n");
     printf("Cresente\n");
     segundosAntes = clock();
-    insertionSort(vetor, n, variaveis);
+    troca = selectionSort(vetor, n);
     segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
     printf("Tempo gasto foi de %f\n", segundosDiferenca);
-    printf("Foram realizadas %d trocas\n", variaveis[1]);
+    printf("Foram realizadas %d trocas\n", troca);
 }
 
-void bubble(int *vetor, int n){
+void bubble(int vetor[], int n){
     clock_t segundosAntes, segundosDepois;
     double segundosDiferenca;
-    int variaveis[2];
+    int troca;
 
     printf("Bubble\n");
     printf("Cresente\n");
     segundosAntes = clock();
-    insertionSort(vetor, n, variaveis);
+    troca = bubbleSort(vetor, n);
     segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
     printf("Tempo gasto foi de %f\n", segundosDiferenca);
-    printf("Foram realizadas %d trocas\n", variaveis[1]);
+    printf("Foram realizadas %d trocas\n", troca);
 }
 
-void shell(int *vetor, int n){
+void shell(int vetor[], int n){
     clock_t segundosAntes, segundosDepois;
     double segundosDiferenca;
-    int variaveis[2];
+    int troca;
 
     printf("Shell\n");
     printf("Cresente\n");
     segundosAntes = clock();
-    insertionSort(vetor, n, variaveis);
+    troca = shellSort(vetor, n);
     segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
     printf("Tempo gasto foi de %f\n", segundosDiferenca);
-    printf("Foram realizadas %d trocas\n", variaveis[1]);
+    printf("Foram realizadas %d trocas\n", troca);
 }
 
 void heapMax(int *vetor, int n){
     clock_t segundosAntes, segundosDepois;
     double segundosDiferenca;
-    int variaveis[2];
+    int troca;
 
     printf("HeapMax\n");
     printf("Cresente\n");
     segundosAntes = clock();
-    insertionSort(vetor, n, variaveis);
+    troca = heapMaxSort(vetor, n);
     segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
     printf("Tempo gasto foi de %f\n", segundosDiferenca);
-    printf("Foram realizadas %d trocas\n", variaveis[1]);
+    printf("Foram realizadas %d trocas\n", troca);
 }
