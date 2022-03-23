@@ -132,5 +132,35 @@ p)  1 - beq $a, $b, continuaprimeiro
         addi $a, $0, 4
         addi $b, $0, 4        
         primeirofim
+        slt $t1, $b, $a
+        Beq $t1, $t2, segundoIfContinua1
+        j segundoFim
+        segundoIfContinua1
+        Slti $t1, $a, 3
+        Bne $t1, $t2, segundoIfContinua2
+        j segundoFim
+        segundoIfContinua2
+        Addi $b, $0, 3
+        segundoFim
+        Slt $t1, $b, $a
+        Bne $t1, $t2, terceiroIfContinua1
+        j terceiroFim
+        terceiroIfContinua1
+        Slti $t1, $a, 3
+        Bne $t1, $t2, terceiroIfContinua2
+        j terceiroFim
+        terceiroIfContinua2
+        Addi $a, $0, 3
+        terceiroFim
 
-q) 
+q)      Add $t1, $0, $0
+        Beq $b, $t1, fimZero
+        multiplica
+        Add $c, $c, $a
+        Addi $t1, $t1, 1
+        Beq $b, $t1, fim
+        j multiplica
+        fimZero
+        Add $c, $0, $0
+        fim
+
