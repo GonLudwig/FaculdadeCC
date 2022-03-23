@@ -52,7 +52,7 @@ int main() {
     heapMax(vetor1k, 10000);
     heapMax(vetor10k, 100000);
     heapMax(vetor100k, 1000000);
-    
+
     numerosAletorios(vetor1k, 10000);
     numerosAletorios(vetor10k, 100000);
     numerosAletorios(vetor100k, 1000000);
@@ -76,6 +76,6 @@ int main() {
     heapMax(vetor1k, 10000);
     heapMax(vetor10k, 100000);
     heapMax(vetor100k, 1000000);
-    
+
     return 0;
 }
