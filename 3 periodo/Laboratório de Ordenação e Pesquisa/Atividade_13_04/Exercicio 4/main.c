@@ -5,6 +5,7 @@ int main(){
     int escolha = 1;
     int casos, mortes, regiao;
     char nomeEstado[2];
+    int tamanho = 2;
 
     lista = criarListaEstado();
 
@@ -24,7 +25,7 @@ int main(){
                 puts("Digite o numero de mortes:");
                 scanf("%d", &mortes);
                 puts("Digite as duas silgas do estado:");
-                gets(nomeEstado);
+                fgets(nomeEstado, tamanho, stdin);
                 puts("Digite o numero para referencia da regiao:");
                 puts("Digite 1 - Norte");
                 puts("Digite 2 - Nordeste");
