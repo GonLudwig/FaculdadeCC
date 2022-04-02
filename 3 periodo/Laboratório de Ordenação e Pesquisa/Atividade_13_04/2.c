@@ -335,17 +335,17 @@ int main() {
     insertion(vetor10k, 10000);
     insertion(vetor100k, 100000);
     printf("\n");
-    // selection(vetor1k, 1000);
-    // selection(vetor10k, 10000);
-    // selection(vetor100k, 100000);
-    // printf("\n");
-    // shell(vetor1k, 1000);
-    // shell(vetor10k, 10000);
-    // shell(vetor100k, 100000);
-    // printf("\n");
-    // bubble(vetor1k, 1000);
-    // bubble(vetor10k, 10000);
-    // bubble(vetor100k, 100000);
+    selection(vetor1k, 1000);
+    selection(vetor10k, 10000);
+    selection(vetor100k, 100000);
+    printf("\n");
+    shell(vetor1k, 1000);
+    shell(vetor10k, 10000);
+    shell(vetor100k, 100000);
+    printf("\n");
+    bubble(vetor1k, 1000);
+    bubble(vetor10k, 10000);
+    bubble(vetor100k, 100000);
     
     return 0;
 }

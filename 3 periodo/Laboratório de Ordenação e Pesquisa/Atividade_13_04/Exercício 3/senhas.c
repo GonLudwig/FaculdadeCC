@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MAXSENHAS 300000 // Altere para os testes iniciais. No final ordene pelo menos metade disso.
+#define MAXSENHAS 250000 // Altere para os testes iniciais. No final ordene pelo menos metade disso.
 
 struct senha{
 	char *palavra;
@@ -33,14 +33,13 @@ void LerSenhas(Senha **senhas, char *filepath){
 	fclose(fp);
 }
 
-void ordenacaoAlfabeticaBubble(Senha **senhas){
+double ordenacaoAlfabeticaBubble(Senha **senhas){
 	clock_t segundosAntes, segundosDepois;
     double segundosDiferenca;
 	Senha *aux;
 
     int i, j, letra1, letra2;
 
-	printf("Bubble\n");
     segundosAntes = clock();
 	for (i = 1; i < MAXSENHAS; i++){
 		for (j = 0; j < MAXSENHAS - i; j++){
@@ -55,17 +54,16 @@ void ordenacaoAlfabeticaBubble(Senha **senhas){
 	}
 	segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
-    printf("Tempo gasto foi de %f\n", segundosDiferenca);
+	return segundosDiferenca;
 }
 
-void ordenacaoAlfabeticaSelection(Senha **senhas){
+double ordenacaoAlfabeticaSelection(Senha **senhas){
 	clock_t segundosAntes, segundosDepois;
     double segundosDiferenca;
 	Senha *aux;
 
 	int i, j, min, letra1, letra2;
   
-	printf("Selection\n");
     segundosAntes = clock();
     for (i = 0; i < MAXSENHAS-1; i++){
         min = i;
@@ -74,124 +72,36 @@ void ordenacaoAlfabeticaSelection(Senha **senhas){
 			letra2 = senhas[min]->palavra[0];
             if (letra1 < letra2){
                 min = j;
-                aux = senhas[min];
-                senhas[min] = senhas[i];
-                senhas[i] = aux;
+                aux = senhas[i];
+                senhas[i] = senhas[min];
+                senhas[min] = aux;
             }
         }
     }
 	segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
-    printf("Tempo gasto foi de %f\n", segundosDiferenca);
-}
-
-void ordenacaoTamanhoBubble(Senha **senhas){
-	clock_t segundosAntes, segundosDepois;
-    double segundosDiferenca;
-	Senha *aux;
-
-    int i, j;
-
-	printf("Bubble\n");
-    segundosAntes = clock();
-	for (i = 1; i < MAXSENHAS; i++){
-		for (j = 0; j < MAXSENHAS - i; j++){
-			if (senhas[j]->tamanho > senhas[j+1]->tamanho){
-				aux = senhas[j];
-				senhas[j] = senhas[j+1];
-				senhas[j+1] = aux;
-			}
-		}
-	}
-	segundosDepois = clock();
-    segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
-    printf("Tempo gasto foi de %f\n", segundosDiferenca);
-}
-
-void ordenacaoTamanhoSelection(Senha **senhas){
-	clock_t segundosAntes, segundosDepois;
-    double segundosDiferenca;
-	Senha *aux;
-
-	int i, j, min;
-  
-	printf("Selection\n");
-    segundosAntes = clock();
-    for (i = 0; i < MAXSENHAS-1; i++){
-        min = i;
-        for (j = i+1; j < MAXSENHAS; j++){
-            if (senhas[j]->tamanho < senhas[min]->palavra[0]){
-                min = j;
-                aux = senhas[min];
-                senhas[min] = senhas[i];
-                senhas[i] = aux;
-            }
-        }
-    }
-	segundosDepois = clock();
-    segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
-    printf("Tempo gasto foi de %f\n", segundosDiferenca);
-}
-
-void ordenacaoFrequenciaBubble(Senha **senhas){
-	clock_t segundosAntes, segundosDepois;
-    double segundosDiferenca;
-	Senha *aux;
-
-    int i, j;
-
-	printf("Bubble\n");
-    segundosAntes = clock();
-	for (i = 1; i < MAXSENHAS; i++){
-		for (j = 0; j < MAXSENHAS - i; j++){
-			if (senhas[j]->frequencia > senhas[j+1]->frequencia){
-				aux = senhas[j];
-				senhas[j] = senhas[j+1];
-				senhas[j+1] = aux;
-			}
-		}
-	}
-	segundosDepois = clock();
-    segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
-    printf("Tempo gasto foi de %f\n", segundosDiferenca);
-}
-
-void ordenacaoFrequenciaSelection(Senha **senhas){
-	clock_t segundosAntes, segundosDepois;
-    double segundosDiferenca;
-	Senha *aux;
-
-	int i, j, min;
-  
-	printf("Selection\n");
-    segundosAntes = clock();
-    for (i = 0; i < MAXSENHAS-1; i++){
-        min = i;
-        for (j = i+1; j < MAXSENHAS; j++){
-            if (senhas[j]->palavra[0] < senhas[min]->frequencia){
-                min = j;
-                aux = senhas[min];
-                senhas[min] = senhas[i];
-                senhas[i] = aux;
-            }
-        }
-    }
-	segundosDepois = clock();
-    segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
-    printf("Tempo gasto foi de %f\n", segundosDiferenca);
+	return segundosDiferenca;
 }
 
 int main(){
     int n;
+	double comparacoes[2];
 	Senha** senhas;
 	senhas = (Senha**)malloc(MAXSENHAS * sizeof(Senha*));
 
 	LerSenhas(senhas, "senhas.txt");
 
-	for (n = 0; n < MAXSENHAS; n++){
-		printf("%s - %d %d\n", senhas[n]->palavra, senhas[n]->tamanho, senhas[n]->frequencia);
-	}
+	comparacoes[0] = ordenacaoAlfabeticaBubble(senhas);
+	comparacoes[1] = ordenacaoAlfabeticaSelection(senhas);
 
+	// for (n = 0; n < MAXSENHAS; n++){
+	// 	printf("%s - %d %d\n", senhas[n]->palavra, senhas[n]->tamanho, senhas[n]->frequencia);
+	// }
+
+	printf("Bubble\n");
+	printf("Tempo gasto foi de %f\n", comparacoes[0]);
+	printf("Selection\n");
+	printf("Tempo gasto foi de %f\n", comparacoes[1]);
 
 	for (n = 0; n < MAXSENHAS ; n++){
 		free(senhas[n]);

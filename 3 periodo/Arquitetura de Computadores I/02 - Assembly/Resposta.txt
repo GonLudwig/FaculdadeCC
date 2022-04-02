@@ -72,8 +72,11 @@ k)  1 - slti $b, $a, 1
         sub $e, $a, $t2
         fim
 
-l)  1 - sub $a, $b, $b
-        sub $a, $a, $b
+l) 1 -   verifica
+        Addi $a, $a, 1
+        Add $t2, $a, $a
+        Add $t2, $t2, $a
+        Bne $t2, $b, verifica
 
 m)  1 - slt $t1, $a, $b
         add $t2, $0, 1

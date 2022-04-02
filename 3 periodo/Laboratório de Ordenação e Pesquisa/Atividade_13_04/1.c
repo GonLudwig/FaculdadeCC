@@ -14,7 +14,7 @@ int main (){
     
     puts("Escregva 10 palavras de 5 letras\n");
     for (i = 0; i < n; i++){
-        gets(vetorString[i]);
+        fgets(vetorString[i], 5, stdin);
     }
 
     // int
