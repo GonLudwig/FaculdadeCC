@@ -86,6 +86,13 @@ h)  1 - add $i, $0, $0
 2)
 
 3)
+a) Maitor tempo - 1.9Ghz, Menor tempo 4,1.9Ghz
+
+b) Nenhum deles pois sao cada um somente um nucleo.
+
+c) 4.1ghz
+
+d) 1.9ghz
 
 4)  Compilação - O processo de "traduzir"/montar um programa de alto Nivel para Assembly,
     Assembler - O processo de "traduzir"/montar um programa em Assembly para Binario.
