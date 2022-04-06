@@ -1,0 +1,105 @@
+1)
+a)  1 - slt $t1, $a, $b
+        add $t2, $0, 1
+        beq $t1, $t2, primeiroif
+        slt $t3, $b, $a
+        beq $t3, $t2, segundoif
+        beq $a, $b, terceiroif
+        j fim
+        primeiroif
+        sub $c, $b, $a
+        j fim
+        segundoif
+        sub $c, $a, $b
+        j fim
+        terceiroif
+        add $a, $0, $0
+        fim
+        add $b, $0, $0
+
+b)  1 - add $c, $a, $b
+        slt $t1, $c, $0
+        add $t2, $0, 1
+        beq $t2, $t1, destino
+        j fim
+        destino
+        add $t3, $a, $b
+        add $c, $c, $t3
+        beq $t2, $t1, destino
+        fim
+    
+c)  1 - add $i, $0, $a
+        add $t1, $a, $a
+        slt $t2, $i, $t1
+        add $t3, $0, 1
+        beq $t2, $t3, destino
+        j fim
+        destino
+        add $b, $i, $a
+        addi $i, $i, 1
+        slt $t2, $i, $t1
+        beq $t2, $t3, destino
+        fim
+
+d)  1 - add $t1, $a, $beq
+        addi $t2, $0, 5
+        bne $t1, $t2, else
+        addi $c, $0, 1
+        j fim
+        else
+        add $c, $0, $0
+        fim
+
+e)  1 - add $t1, $b, $c
+        add $t2, $t1, $a
+        slti $t3, $t2, 0
+        addi $t4, $0, 1
+        bne $t3, $t4, fim
+        addi $d, $0, 1
+        j fim
+        fim
+
+f)  1 - while
+        add $t1, $e, $f
+        add $t2, $d, $t1
+        add $t3, $c, $t2
+        add $a, $b, $t3
+        addi $a, $a, 1
+        slt $t4, $a, $0
+        addi $t5, $0, 1
+        beq $t4, $t5, while
+
+g)  1 - lw $t1, 5($b)
+        sw $t1, 10($a)
+
+h)  1 - add $i, $0, $0
+        slt $t1, $i, $n
+        addi $t2, $0, 1
+        bne $t1, $t2, fim
+        for
+        addi $t3, $i, 1
+        add $a, $a, $t3
+        addi $i, $i, 1
+        slt $t1, $i, $n
+        beq $t1, $t2, for
+
+2)
+
+3)
+
+4)  Compilação - O processo de "traduzir"/montar um programa de alto Nivel para Assembly,
+    Assembler - O processo de "traduzir"/montar um programa em Assembly para Binario.
+
+5)
+a) Latencia
+
+b) Diminuir
+
+c) Ele teve possuir mais Ghz
+
+6)
+a) Througput
+
+b) Aumentar
+
+c) Ele deve possuir mais nucleos
