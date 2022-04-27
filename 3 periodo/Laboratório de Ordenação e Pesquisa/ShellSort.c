@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// Shell Sort
 int main(){
 	
 	int vetor[10] = {5, 1, 8, 3, 10, 7, 9, 2};

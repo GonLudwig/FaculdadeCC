@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+
+// BubbleSort
 int main (){ 
 
 	int vetor[10] = {1 ,54 ,65 ,72 ,5 ,34 ,27 ,41 ,57 , 2};
