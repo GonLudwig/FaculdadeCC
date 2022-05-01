@@ -1,0 +1,9 @@
+2.
+a)  S1 = A'+B
+    S2 = A'B'+AB
+b)  S1 = AB' + A'B + BC'
+    s2 = A' + B + C
+
+c)  S1 = A'B' + B'C + B'D' + A'CD' +  ABC'
+    S2 = BC' + AD + B'CD + AB'C
+    S3 = AC + BD' + AB'D + A'BC' + B'CD
