@@ -1,0 +1,16 @@
+1. Sim. Sim e comum isso ocorrer, e acontece quando voce 
+divider um vetor em tamanhos diferentes sempre avera sobras.
+
+2. Sim. No caso fazer-lo sem recursividade irar gastar menos
+menoria mas e um esforço que nao compensa, pois ira diminuir
+muito o desempenho do metodo de orgenacao, entao em todos outros
+aspectos realizar ele de forma recursiva sera melhor.
+
+3. 
+
+4. O grande uso de memoria por parte do merge sort e devido sua 
+recursividade, pois quando ele começa a dividir o vetor, ele ira
+dividir todo vetor ate chegar em um vetor com somente um valor, 
+com isso todas as outras divisoes ficam ocupando espaco na memoria.
+E ele ira usar mais memoria devido ao tamanho do vetor, quanto maior
+o vetor mais memoria sera gasta.
