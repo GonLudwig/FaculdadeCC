@@ -7,6 +7,14 @@ muito o desempenho do metodo de orgenacao, entao em todos outros
 aspectos realizar ele de forma recursiva sera melhor.
 
 3. 
+void mergeSort(char vetor[], int esquerda, int direita){
+    if (esquerda < direita) {
+        int media = esquerda + (direita - esquerda) / 2;
+  
+        mergeSort(vetor, esquerda, media);
+        mergeSort(vetor, media + 1, direita);
+    }
+}
 
 4. O grande uso de memoria por parte do merge sort e devido sua 
 recursividade, pois quando ele começa a dividir o vetor, ele ira
