@@ -1,0 +1,28 @@
+# hades.models.Design file
+#  
+[name] unnamed
+[components]
+hades.models.io.Ipin D 20400 3000 @N 1001 null U
+hades.models.io.Ipin C 17400 3000 @N 1001 null U
+hades.models.io.Ipin B 14400 3000 @N 1001 null U
+hades.models.io.Ipin A 11400 3000 @N 1001 null U
+hades.models.io.LED i2 42600 8400 @N 1001 0
+hades.models.gates.And3 i1 25200 7200 @N 1001 1.0E-8
+hades.models.gates.Or3 i18 37200 7200 @N 1001 1.0E-8
+hades.models.gates.And3 i0 25200 3600 @N 1001 1.0E-8
+hades.models.gates.InvSmall i11 22800 4800 @N 1001 5.0E-9
+hades.models.gates.InvSmall i10 22800 4200 @N 1001 5.0E-9
+hades.models.gates.InvSmall i9 22800 3600 @N 1001 5.0E-9
+[end components]
+[signals]
+hades.signals.SignalStdLogic1164 n7 1 i18 A 2 2 28800 4800 37200 4800 2 37200 4800 37200 7800 0 
+hades.signals.SignalStdLogic1164 n6 1 i18 B 1 2 28800 8400 37200 8400 0 
+hades.signals.SignalStdLogic1164 n5 3 C Y i11 A i1 C 4 2 17400 3000 17400 5400 2 17400 5400 22800 5400 2 17400 3000 17400 9000 2 17400 9000 25200 9000 1 17400 3000 
+hades.signals.SignalStdLogic1164 n4 2 i11 Y i0 C 1 2 24600 5400 25200 5400 0 
+hades.signals.SignalStdLogic1164 n3 2 i10 Y i0 B 1 2 24600 4800 25200 4800 0 
+hades.signals.SignalStdLogic1164 n2 1 i9 Y 1 2 24600 4200 25200 4200 0 
+hades.signals.SignalStdLogic1164 n1 3 B Y i10 A i1 B 4 2 14400 3000 14400 4800 2 14400 4800 22800 4800 2 14400 3000 14400 8400 2 14400 8400 25200 8400 1 14400 3000 
+hades.signals.SignalStdLogic1164 n0 3 A Y i9 A i1 A 4 2 11400 3000 11400 4200 2 11400 4200 22800 4200 2 11400 3000 11400 7800 2 11400 7800 25200 7800 1 11400 3000 
+hades.signals.SignalStdLogic1164 n11 2 i18 Y i2 A 1 2 40800 8400 42600 8400 0 
+[end signals]
+[end]
