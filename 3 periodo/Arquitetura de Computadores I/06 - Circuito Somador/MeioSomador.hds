@@ -1,21 +1,21 @@
 # hades.models.Design file
 #  
-[name] unnamed
+[name] MeioSomador
 [components]
-hades.models.io.LED i7 14400 12000 @N 1001 0
+hades.models.io.Ipin B 6000 1200 @N 1001  U
 hades.models.gates.Or2 i6 14400 3600 @N 1001 1.0E-8
-hades.models.io.Ipin B 6000 1200 @N 1001 null U
+hades.models.io.Ipin A 3600 1200 @N 1001  U
 hades.models.gates.InvSmall i5 6600 6000 @N 1001 5.0E-9
-hades.models.io.Ipin A 3600 1200 @N 1001 null U
 hades.models.gates.InvSmall i4 6600 3000 @N 1001 5.0E-9
 hades.models.gates.And2 i3 9000 10800 @N 1001 1.0E-8
 hades.models.gates.And2 i2 9000 6000 @N 1001 1.0E-8
-hades.models.io.LED i1 20400 4800 @N 1001 0
 hades.models.gates.And2 i0 9000 1800 @N 1001 1.0E-8
+hades.models.io.Opin Resultado 20400 4800 @N 1001 5.0E-9
+hades.models.io.Opin V1 15600 12000 @N 1001 5.0E-9
 [end components]
 [signals]
-hades.signals.SignalStdLogic1164 n7 2 i3 Y i7 A 1 2 12600 12000 14400 12000 0 
-hades.signals.SignalStdLogic1164 n6 2 i6 Y i1 A 1 2 18000 4800 20400 4800 0 
+hades.signals.SignalStdLogic1164 n7 2 i6 Y Resultado A 1 2 18000 4800 20400 4800 0 
+hades.signals.SignalStdLogic1164 n6 2 i3 Y V1 A 1 2 12600 12000 15600 12000 0 
 hades.signals.SignalStdLogic1164 n5 2 i5 Y i2 A 1 2 8400 6600 9000 6600 0 
 hades.signals.SignalStdLogic1164 n4 2 i4 Y i0 B 1 2 8400 3600 9000 3600 0 
 hades.signals.SignalStdLogic1164 n3 2 i2 Y i6 B 2 2 12600 7200 14400 7200 2 14400 7200 14400 5400 0 

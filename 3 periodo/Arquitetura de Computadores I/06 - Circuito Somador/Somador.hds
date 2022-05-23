@@ -1,0 +1,33 @@
+# hades.models.Design file
+#  
+[name] unnamed
+[components]
+hades.models.io.Ipin i8 21600 20400 @N 1001 null U
+hades.models.io.Ipin i7 14400 20400 @N 1001 null U
+hades.models.io.Ipin i6 10800 20400 @N 1001 null U
+hades.models.io.Ipin i5 4800 20400 @N 1001 null U
+hades.models.io.Ipin i4 1200 20400 @N 1001 null U
+hades.models.Design MeioSomador 22800 23400 @N 1001 C:\u005cUsers\u005cLIBER\u005cDownloads/MeioSomador.hds
+hades.models.io.LED i3 10200 31200 @N 1001 0
+hades.models.io.LED i2 13800 31200 @N 1001 0
+hades.models.io.LED i1 17400 31200 @N 1001 0
+hades.models.Design CompletoSomador 12600 23400 @N 1001 C:\u005cUsers\u005cLIBER\u005cDownloads/CompletoSomador.hds
+hades.models.io.LED i0 21600 31200 @N 1001 0
+hades.models.Design CompletoSomador1 3000 23400 @N 1001 C:\u005cUsers\u005cLIBER\u005cDownloads/CompletoSomador.hds
+hades.models.io.Ipin i9 24600 20400 @N 1001 null U
+[end components]
+[signals]
+hades.signals.SignalStdLogic1164 n9 2 i7 Y CompletoSomador A1 3 2 14400 20400 14400 21600 2 14400 21600 12600 21600 2 12600 21600 12600 24000 0 
+hades.signals.SignalStdLogic1164 n8 2 i6 Y CompletoSomador B 3 2 10800 20400 11400 20400 2 11400 20400 11400 24600 2 11400 24600 12600 24600 0 
+hades.signals.SignalStdLogic1164 n7 2 i5 Y CompletoSomador1 A1 4 2 4800 20400 4800 21600 2 4800 21600 1800 21600 2 1800 21600 1800 24000 2 1800 24000 3000 24000 0 
+hades.signals.SignalStdLogic1164 n6 2 i4 Y CompletoSomador1 B 2 2 1200 20400 1200 24600 2 1200 24600 3000 24600 0 
+hades.signals.SignalStdLogic1164 n5 2 CompletoSomador1 V1 i3 A 5 2 7800 24600 8400 24600 2 8400 24600 8400 28800 2 8400 28800 8400 29400 2 8400 29400 10200 29400 2 10200 29400 10200 31200 0 
+hades.signals.SignalStdLogic1164 n4 2 CompletoSomador1 Resultado i2 A 4 2 7800 24000 9600 24000 2 9600 24000 9600 28800 2 9600 28800 13800 28800 2 13800 28800 13800 31200 0 
+hades.signals.SignalStdLogic1164 n3 2 CompletoSomador Resultado i1 A 4 2 17400 24000 19200 24000 2 19200 24000 19200 28800 2 19200 28800 17400 28800 2 17400 28800 17400 31200 0 
+hades.signals.SignalStdLogic1164 n2 2 MeioSomador Resultado i0 A 4 2 27600 24000 30000 24000 2 30000 24000 30000 28800 2 30000 28800 21600 28800 2 21600 28800 21600 31200 0 
+hades.signals.SignalStdLogic1164 n1 2 CompletoSomador V1 CompletoSomador1 C 7 2 17400 24600 18000 24600 2 18000 24600 18000 26400 2 18000 26400 10800 26400 2 10800 26400 10800 22800 2 10800 22800 2400 22800 2 2400 22800 2400 25200 2 2400 25200 3000 25200 0 
+hades.signals.SignalStdLogic1164 n0 2 MeioSomador V1 CompletoSomador C 7 2 27600 24600 28800 24600 2 28800 24600 28800 26400 2 28800 26400 20400 26400 2 20400 26400 20400 22800 2 20400 22800 12000 22800 2 12000 22800 12000 25200 2 12000 25200 12600 25200 0 
+hades.signals.SignalStdLogic1164 n11 2 i9 Y MeioSomador A 3 2 24600 20400 24600 21600 2 24600 21600 22800 21600 2 22800 21600 22800 24000 0 
+hades.signals.SignalStdLogic1164 n10 2 i8 Y MeioSomador B 2 2 21600 20400 21600 24600 2 21600 24600 22800 24600 0 
+[end signals]
+[end]
