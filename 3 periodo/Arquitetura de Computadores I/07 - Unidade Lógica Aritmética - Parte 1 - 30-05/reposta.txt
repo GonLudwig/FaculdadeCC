@@ -1,0 +1,14 @@
+1.
+a) A função da ULA e para processar/realizar todas os calculos e processamentos logicos e entregar um
+resultado que nao nescessariamente esta pronto, pois ela so processa duas intruções completas ADD e SUB.
+
+b) As operações logicas são: AND, OR, SOMA/SUB e SLT.
+
+c) A ULA sempre recebi duas entradas e retorna um resultado que nao nescessariamente esta pronto. Apartir
+destas duas entradas ele sempre ira processar 4 operações AND, OR, SOMA/SUB e SLT. A definicao da
+operação de SOMA ou SUB e feita apartir da porta DEMUX. A escolha de qual resultado sera gerado com
+base nas 4 operações realizadas e feita com base tambem da porta DEMUX.
+
+d)DEMUX
+
+2.
