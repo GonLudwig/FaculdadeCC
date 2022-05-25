@@ -1,0 +1,5 @@
+1. A diferença entre metodo sequencial e binario e que o sequencial começa do inicio e percore todo
+vetor ate o final para achar. O binario inicia a busca apartir da metade do vetor e identifica para
+qual metade ele deve percorer para encontrar o que deseja. O binario sempre vai ser mais eficiente que
+o sequencial mas existe algumas circunstancia para que o binario funciona, que seriam so funciona em
+vetores e se o vetor estiver ordenado.

@@ -1,3 +1,5 @@
+Dupla: Glauco e Robert
+
 1.
 a) A função da ULA e para processar/realizar todas os calculos e processamentos logicos e entregar um
 resultado que nao nescessariamente esta pronto, pois ela so processa duas intruções completas ADD e SUB.
@@ -9,6 +11,6 @@ destas duas entradas ele sempre ira processar 4 operações AND, OR, SOMA/SUB e 
 operação de SOMA ou SUB e feita apartir da porta DEMUX. A escolha de qual resultado sera gerado com
 base nas 4 operações realizadas e feita com base tambem da porta DEMUX.
 
-d)DEMUX
+d) 1-D.png
 
 2.

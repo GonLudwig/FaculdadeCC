@@ -1,0 +1,32 @@
+# hades.models.Design file
+#  
+[name] MeioSomador
+[components]
+hades.models.gates.InvSmall i7 1200 -1200 @N 1001 5.0E-9
+hades.models.io.Ipin INVB 6000 1200 @N 1001 null U
+hades.models.gates.Or2 i6 14400 3600 @N 1001 1.0E-8
+hades.models.io.Ipin B 2400 -3000 @N 1001 null U
+hades.models.gates.InvSmall i5 6600 6000 @N 1001 5.0E-9
+hades.models.io.Ipin A 3600 1200 @N 1001 null U
+hades.models.gates.InvSmall i4 6600 3000 @N 1001 5.0E-9
+hades.models.gates.And2 i3 9000 10800 @N 1001 1.0E-8
+hades.models.gates.And2 i2 9000 6000 @N 1001 1.0E-8
+hades.models.gates.Mux21 i1 3600 -2400 @N 1001 1.0E-8
+hades.models.gates.And2 i0 9000 1800 @N 1001 1.0E-8
+hades.models.io.Opin Resultado 20400 4800 @N 1001 5.0E-9
+hades.models.io.Opin V1 15600 12000 @N 1001 5.0E-9
+[end components]
+[signals]
+hades.signals.SignalStdLogic1164 n9 2 INVB Y i1 S 3 2 6000 1200 6000 600 2 6000 600 4800 600 2 4800 600 4800 0 0 
+hades.signals.SignalStdLogic1164 n8 2 i7 Y i1 A0 1 2 3000 -600 3600 -600 0 
+hades.signals.SignalStdLogic1164 n7 2 i6 Y Resultado A 1 2 18000 4800 20400 4800 0 
+hades.signals.SignalStdLogic1164 n6 2 i3 Y V1 A 1 2 12600 12000 15600 12000 0 
+hades.signals.SignalStdLogic1164 n5 2 i5 Y i2 A 1 2 8400 6600 9000 6600 0 
+hades.signals.SignalStdLogic1164 n4 2 i4 Y i0 B 1 2 8400 3600 9000 3600 0 
+hades.signals.SignalStdLogic1164 n3 2 i2 Y i6 B 2 2 12600 7200 14400 7200 2 14400 7200 14400 5400 0 
+hades.signals.SignalStdLogic1164 n2 2 i0 Y i6 A 2 2 12600 3000 14400 3000 2 14400 3000 14400 4200 0 
+hades.signals.SignalStdLogic1164 n1 4 A Y i5 A i0 A i3 A 6 2 3600 1200 3600 6600 2 3600 6600 6600 6600 2 3600 1200 3600 2400 2 3600 2400 9000 2400 2 3600 1200 3600 11400 2 3600 11400 9000 11400 1 3600 1200 
+hades.signals.SignalStdLogic1164 n0 3 B Y i1 A1 i7 A 5 2 2400 -3000 2400 -1800 2 2400 -1800 3600 -1800 2 2400 -3000 2400 -1800 2 2400 -1800 1200 -1800 2 1200 -1800 1200 -600 2 2400 -3000 2400 -1800 
+hades.signals.SignalStdLogic1164 n10 4 i1 Y i4 A i2 B i3 B 6 2 6000 -1200 6600 -1200 2 6600 -1200 6600 3600 2 6600 3600 6600 7800 2 6600 7800 9000 7800 2 6600 7800 6600 12600 2 6600 12600 9000 12600 2 6600 3600 6600 7800 
+[end signals]
+[end]
