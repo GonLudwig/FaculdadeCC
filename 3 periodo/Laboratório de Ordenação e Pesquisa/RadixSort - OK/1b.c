@@ -11,7 +11,6 @@ typedef struct placa Placas;
 void LerPlacas(Placas **placas, char *filepath){
 	FILE *fp;
 	int n = 0, tamanho, letr;
-	// char letr[8];
 
 	fp = fopen(filepath, "r");
 

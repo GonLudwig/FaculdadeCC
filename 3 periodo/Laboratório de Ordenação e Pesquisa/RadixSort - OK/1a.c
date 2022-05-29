@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define MAXSENHAS 30 // Altere para os testes iniciais. No final ordene pelo menos metade disso.
 #define MAX 30
 #define QTD 36
 
@@ -13,7 +12,7 @@ void LerSenhas(char **senhas, char *filepath){
 
 	fp = fopen(filepath, "r");
 
-	while (fscanf(fp, "%s", &pass) == 1 && n < MAXSENHAS)
+	while (fscanf(fp, "%s", &pass) == 1 && n < MAX)
 	{
 		senhas[n] = (char*)malloc(sizeof(char));
         pass[8] = '\0';
@@ -72,19 +71,19 @@ void radixSort(char** placas){
 }
 
 int main(){
-    int n;
+  int n;
 	char **senhas;
-	senhas = (char**)malloc(MAXSENHAS * sizeof(char*));
+	senhas = (char**)malloc(MAX * sizeof(char*));
 
 	LerSenhas(senhas, "placas.txt");
 
-    radixSort(senhas);
+  radixSort(senhas);
 
-	for (n = 0; n < MAXSENHAS; n++){
+	for (n = 0; n < MAX; n++){
 		printf("%s\n", senhas[n]);
 	}
 
-	for (n = 0; n < MAXSENHAS ; n++){
+	for (n = 0; n < MAX ; n++){
 		free(senhas[n]);
 	}
 	// free(senhas);
