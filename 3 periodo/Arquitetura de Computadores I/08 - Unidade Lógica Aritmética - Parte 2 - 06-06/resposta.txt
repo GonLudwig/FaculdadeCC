@@ -1,0 +1,21 @@
+Dupla: Glauco e Robert
+
+1. Ela realizada Add, Sub, Soma e subtracao.
+
+2.
+Entradas:
+A - Entrada de valor.
+B - Entrada de valor.
+CarryIn - Entrada do V1 da soma ou subtracao.
+Less - Entrada para ultilizacao da SLT.
+B_invert - Determinar se sera somador ou subtrator.
+Op0 e Op1 - Serve para escolher qual a operacao que sera ultilizada.
+
+Saidas:
+Result - Sera o resultado determinado pelo Op0 e 0p1.
+Set - E o resultado do somador/subtrator que sera ultilizado para realizar o SLT.
+CarryOut - E a saida do V1 resultante da soma/subtracao.
+
+3.
+O multiplexador serve para escolher qual sera a saida.
+o demultiplexador serve para escolher qual sera a entrada.
