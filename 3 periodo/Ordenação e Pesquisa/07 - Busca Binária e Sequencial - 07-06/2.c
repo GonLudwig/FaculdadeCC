@@ -5,7 +5,11 @@ void buscaSequencial(int *vetor, int busca, int tamanho) {
 
     for (i = 0; i < tamanho; i++)
     {
-        vetor[]
+        if(vetor[i] == busca)
+        {
+            return i;
+        }
     }
     
+    return -1;
 }
