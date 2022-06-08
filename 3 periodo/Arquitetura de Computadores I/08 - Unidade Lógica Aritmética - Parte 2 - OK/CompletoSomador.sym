@@ -1,9 +1,9 @@
 hades.symbols.BboxRectangle  0 0 4800 2400
 hades.symbols.Rectangle  0 0 4800 2400
-hades.symbols.PortLabel 4650 1350 3 carryout
-hades.symbols.PortSymbol 4800 1200 carryout
-hades.symbols.PortLabel 4650 750 3 result
-hades.symbols.PortSymbol 4800 600 result
+hades.symbols.PortLabel 4650 1350 3 CarryOut
+hades.symbols.PortSymbol 4800 1200 CarryOut
+hades.symbols.PortLabel 4650 750 3 RESULT
+hades.symbols.PortSymbol 4800 600 RESULT
 hades.symbols.PortLabel 150 1950 C
 hades.symbols.PortSymbol 0 1800 C
 hades.symbols.PortLabel 150 1350 B

@@ -6,14 +6,13 @@ hades.models.gates.And2 i23 9600 39000 @N 1001 1.0E-8
 hades.models.gates.And2 i22 9600 35400 @N 1001 1.0E-8
 hades.models.gates.And2 i21 9600 31800 @N 1001 1.0E-8
 hades.models.io.Ipin A1 1200 15600 @N 1001 null U
-hades.models.io.Opin carryout 20400 36600 @N 1001 5.0E-9
-hades.models.io.Opin result 26400 22800 @N 1001 5.0E-9
 hades.models.gates.And3 i9 9000 19800 @N 1001 1.0E-8
 hades.models.gates.Or2 i19 19800 21600 @N 1001 1.0E-8
 hades.models.gates.And3 i8 9000 16200 @N 1001 1.0E-8
 hades.models.gates.Or2 i18 14400 25200 @N 1001 1.0E-8
 hades.models.io.Ipin C 6000 15600 @N 1001  U
 hades.models.gates.Or2 i7 14400 18000 @N 1001 1.0E-8
+hades.models.io.Opin CarryOut 22800 36600 @N 1001 5.0E-9
 hades.models.gates.InvSmall i17 6600 24600 @N 1001 5.0E-9
 hades.models.io.Ipin B 3600 15600 @N 1001 null U
 hades.models.gates.InvSmall i16 6600 24000 @N 1001 5.0E-9
@@ -23,14 +22,15 @@ hades.models.gates.InvSmall i13 6600 16800 @N 1001 5.0E-9
 hades.models.gates.InvSmall i12 6600 16200 @N 1001 5.0E-9
 hades.models.gates.And3 i11 9000 27000 @N 1001 1.0E-8
 hades.models.gates.And3 i10 9000 23400 @N 1001 1.0E-8
+hades.models.io.Opin RESULT 26400 22800 @N 1001 5.0E-9
 hades.models.gates.Or3 i24 14400 35400 @N 1001 1.0E-8
 [end components]
 [signals]
 hades.signals.SignalStdLogic1164 n9 2 i12 Y i8 A 1 2 8400 16800 9000 16800 0 
-hades.signals.SignalStdLogic1164 n8 2 i24 Y carryout A 1 2 18000 36600 20400 36600 0 
+hades.signals.SignalStdLogic1164 n8 2 i19 Y RESULT A 1 2 23400 22800 26400 22800 0 
 hades.signals.SignalStdLogic1164 n7 2 i14 Y i9 A 1 2 8400 20400 9000 20400 0 
 hades.signals.SignalStdLogic1164 n6 2 i17 Y i10 C 1 2 8400 25200 9000 25200 0 
-hades.signals.SignalStdLogic1164 n5 2 i19 Y result A 1 2 23400 22800 26400 22800 0 
+hades.signals.SignalStdLogic1164 n5 2 i24 Y CarryOut A 1 2 18000 36600 22800 36600 0 
 hades.signals.SignalStdLogic1164 n19 2 i11 Y i18 B 2 2 12600 28200 14400 28200 2 14400 28200 14400 27000 0 
 hades.signals.SignalStdLogic1164 n4 2 i10 Y i18 A 2 2 12600 24600 14400 24600 2 14400 24600 14400 25800 0 
 hades.signals.SignalStdLogic1164 n3 2 i18 Y i19 B 2 2 18000 26400 19800 26400 2 19800 26400 19800 23400 0 
