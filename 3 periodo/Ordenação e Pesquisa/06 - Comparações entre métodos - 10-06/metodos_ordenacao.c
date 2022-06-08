@@ -29,7 +29,7 @@ void merge(char vetor[], int esqueda, int media, int direita){
     int n2 = direita - media;
   
 
-    char Vesquerda[n1], Vdireita[n2];
+    int Vesquerda[n1], Vdireita[n2];
   
 
     for (i = 0; i < n1; i++)
@@ -75,6 +75,20 @@ void mergeSort(char vetor[], int esquerda, int direita){
   
         merge(vetor, esquerda, media, direita);
     }
+}
+
+void mergeSortComparacao(int vetor[], int n){
+    clock_t segundosAntes, segundosDepois;
+    double segundosDiferenca;
+    int troca;
+
+    printf("Merge Sort\n");
+    segundosAntes = clock();
+    troca = mergeSort(vetor, 0, n);
+    segundosDepois = clock();
+    segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
+    printf("Tempo gasto foi de %f\n", segundosDiferenca);
+    printf("Foram realizadas %d trocas\n", troca);
 }
 
 // Radix Sort
@@ -128,6 +142,21 @@ void radixsort(int vetor[], int tamano) {
     montadorBaldes(vetor, tamano, balde);
 }
 
+void radixSortComparacao(int vetor[], int num){
+    clock_t segundosAntes, segundosDepois;
+    double segundosDiferenca;
+    int troca;
+    int n = sizeof(vetor) / sizeof(vetor[0]);
+
+    printf("Radix Sort\n");
+    segundosAntes = clock();
+    troca = radixsort(vetor, n);
+    segundosDepois = clock();
+    segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
+    printf("Tempo gasto foi de %f\n", segundosDiferenca);
+    printf("Foram realizadas %d trocas\n", troca);
+}
+
 // Quick Sort
 void trocarElementos(int *a, int *b) {
   int t = *a;
@@ -164,4 +193,19 @@ void quickSort(int array[], int low, int high) {
     
     quickSort(array, pi + 1, high);
   }
+}
+
+void quickSortComparacao(int vetor[], int num){
+    clock_t segundosAntes, segundosDepois;
+    double segundosDiferenca;
+    int troca;
+    int n = sizeof(vetor) / sizeof(data[0]);
+
+    printf("Radix Sort\n");
+    segundosAntes = clock();
+    troca = quickSort(vetor, 0, n-1);
+    segundosDepois = clock();
+    segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
+    printf("Tempo gasto foi de %f\n", segundosDiferenca);
+    printf("Foram realizadas %d trocas\n", troca);
 }
