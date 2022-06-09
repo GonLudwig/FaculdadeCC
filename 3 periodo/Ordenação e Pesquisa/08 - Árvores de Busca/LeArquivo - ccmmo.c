@@ -21,12 +21,11 @@ struct Pessoa {
 	char observacoes[100];
 };
 
-
 typedef struct TrieNode TrieNode;
  
 struct TrieNode {
     Pessoa *data;
-    TrieNode* children[26];
+    TrieNode* children[10];
     int no;
 };
 
