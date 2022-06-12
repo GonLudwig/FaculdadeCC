@@ -1,0 +1,21 @@
+# hades.models.Design file
+#  
+[name] unnamed
+[components]
+hades.models.io.Ipin Op1 11100 -8100 @N 1001 null U
+hades.models.io.Ipin Op0 8400 -6600 @N 1001 null U
+hades.models.rtlib.io.Expander B -16800 -5400 @N 1001 16 1.0E-8
+hades.models.rtlib.io.Expander A -4500 -5400 @N 1001 16 1.0E-8
+hades.models.Design unnamed3 8400 28800 @N 1001 /home/starling/Documentos/FaculdadeCC/3\u0020periodo/Arquitetura\u0020de\u0020Computadores\u0020I/09\u0020-\u0020Unidade\u0020L\u00f3gica\u0020Aritm\u00e9tica\u0020-\u0020Parte\u00203\u0020-\u002013-06/4BIT.hds
+hades.models.Design unnamed2 8400 18000 @N 1001 /home/starling/Documentos/FaculdadeCC/3\u0020periodo/Arquitetura\u0020de\u0020Computadores\u0020I/09\u0020-\u0020Unidade\u0020L\u00f3gica\u0020Aritm\u00e9tica\u0020-\u0020Parte\u00203\u0020-\u002013-06/4BIT.hds
+hades.models.Design unnamed1 8400 7200 @N 1001 /home/starling/Documentos/FaculdadeCC/3\u0020periodo/Arquitetura\u0020de\u0020Computadores\u0020I/09\u0020-\u0020Unidade\u0020L\u00f3gica\u0020Aritm\u00e9tica\u0020-\u0020Parte\u00203\u0020-\u002013-06/4BIT.hds
+hades.models.Design unnamed 8400 -3600 @N 1001 /home/starling/Documentos/FaculdadeCC/3\u0020periodo/Arquitetura\u0020de\u0020Computadores\u0020I/09\u0020-\u0020Unidade\u0020L\u00f3gica\u0020Aritm\u00e9tica\u0020-\u0020Parte\u00203\u0020-\u002013-06/4BIT.hds
+hades.models.io.Ipin CarryIn 15900 -8100 @N 1001 null U
+hades.models.io.Ipin B-Inv 13500 -6600 @N 1001 null U
+[end components]
+[signals]
+hades.signals.SignalStdLogic1164 n2 2 unnamed2 CARRYOUT unnamed3 Carry-In 5 2 13200 21000 13500 21000 2 13500 21000 13500 28500 2 13500 28500 8100 28500 2 8100 28500 8100 38400 2 8100 38400 8400 38400 0 
+hades.signals.SignalStdLogic1164 n1 2 unnamed1 CARRYOUT unnamed2 Carry-In 5 2 13200 10200 13500 10200 2 13500 10200 13500 17700 2 13500 17700 8100 17700 2 8100 17700 8100 27600 2 8100 27600 8400 27600 0 
+hades.signals.SignalStdLogic1164 n0 2 unnamed CARRYOUT unnamed1 Carry-In 5 2 13200 -600 13500 -600 2 13500 -600 13500 6900 2 13500 6900 8100 6900 2 8100 6900 8100 16800 2 8100 16800 8400 16800 0 
+[end signals]
+[end]

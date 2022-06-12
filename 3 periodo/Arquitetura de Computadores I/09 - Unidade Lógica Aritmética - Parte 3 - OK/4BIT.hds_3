@@ -1,0 +1,27 @@
+# hades.models.Design file
+#  
+[name] unnamed
+[components]
+hades.models.Design unnamed3 2400 21600 @N 1001 /home/starling/Documentos/FaculdadeCC/3\u0020periodo/Arquitetura\u0020de\u0020Computadores\u0020I/09\u0020-\u0020Unidade\u0020L\u00f3gica\u0020Aritm\u00e9tica\u0020-\u0020Parte\u00203\u0020-\u002013-06/1BIT.hds
+hades.models.Design unnamed2 2400 14400 @N 1001 /home/starling/Documentos/FaculdadeCC/3\u0020periodo/Arquitetura\u0020de\u0020Computadores\u0020I/09\u0020-\u0020Unidade\u0020L\u00f3gica\u0020Aritm\u00e9tica\u0020-\u0020Parte\u00203\u0020-\u002013-06/1BIT.hds
+hades.models.Design unnamed1 2400 7200 @N 1001 /home/starling/Documentos/FaculdadeCC/3\u0020periodo/Arquitetura\u0020de\u0020Computadores\u0020I/09\u0020-\u0020Unidade\u0020L\u00f3gica\u0020Aritm\u00e9tica\u0020-\u0020Parte\u00203\u0020-\u002013-06/1BIT.hds
+hades.models.io.Ipin B-inv -1800 -600 @N 1001 null U
+hades.models.io.Ipin i9 -23400 -600 @N 1001 null U
+hades.models.io.Ipin i8 -21000 -3000 @N 1001 null U
+hades.models.io.Ipin i7 -18600 -1800 @N 1001 null U
+hades.models.io.Ipin i6 -16200 -600 @N 1001 null U
+hades.models.io.Ipin i5 -13800 -3000 @N 1001 null U
+hades.models.io.Ipin i4 -11400 -1800 @N 1001 null U
+hades.models.io.Opin i14 16200 -3000 @N 1001 5.0E-9
+hades.models.io.Ipin i3 -9000 -600 @N 1001 null U
+hades.models.io.Opin i13 13800 -1800 @N 1001 5.0E-9
+hades.models.io.Opin i12 11400 -600 @N 1001 5.0E-9
+hades.models.io.Ipin i11 -28200 -3000 @N 1001 null U
+hades.models.io.Ipin i10 -25800 -1800 @N 1001 null U
+hades.models.io.Ipin Op1 -6600 -3000 @N 1001 null U
+hades.models.io.Ipin Op0 -4200 -1800 @N 1001 null U
+hades.models.Design unnamed 2400 0 @N 1001 /home/starling/Documentos/FaculdadeCC/3\u0020periodo/Arquitetura\u0020de\u0020Computadores\u0020I/09\u0020-\u0020Unidade\u0020L\u00f3gica\u0020Aritm\u00e9tica\u0020-\u0020Parte\u00203\u0020-\u002013-06/1BIT.hds
+[end components]
+[signals]
+[end signals]
+[end]

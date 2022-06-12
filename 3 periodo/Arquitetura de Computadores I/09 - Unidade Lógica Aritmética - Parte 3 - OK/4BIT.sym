@@ -1,0 +1,54 @@
+hades.symbols.BboxRectangle  0 0 4800 10200
+hades.symbols.Rectangle  0 0 4800 10200
+hades.symbols.PortLabel 4650 5550 3 Set2
+hades.symbols.PortSymbol 4800 5400 Set2
+hades.symbols.PortLabel 4650 4950 3 RESULT4
+hades.symbols.PortSymbol 4800 4800 RESULT4
+hades.symbols.PortLabel 4650 4350 3 RESULT1
+hades.symbols.PortSymbol 4800 4200 RESULT1
+hades.symbols.PortLabel 4650 3750 3 Set3
+hades.symbols.PortSymbol 4800 3600 Set3
+hades.symbols.PortLabel 4650 3150 3 CARRYOUT
+hades.symbols.PortSymbol 4800 3000 CARRYOUT
+hades.symbols.PortLabel 4650 2550 3 RESULT2
+hades.symbols.PortSymbol 4800 2400 RESULT2
+hades.symbols.PortLabel 4650 1950 3 Set4
+hades.symbols.PortSymbol 4800 1800 Set4
+hades.symbols.PortLabel 4650 1350 3 Set1
+hades.symbols.PortSymbol 4800 1200 Set1
+hades.symbols.PortLabel 4650 750 3 RESULT3
+hades.symbols.PortSymbol 4800 600 RESULT3
+hades.symbols.PortLabel 150 9750 Carry-In
+hades.symbols.PortSymbol 0 9600 Carry-In
+hades.symbols.PortLabel 150 9150 B-inv
+hades.symbols.PortSymbol 0 9000 B-inv
+hades.symbols.PortLabel 150 8550 A3
+hades.symbols.PortSymbol 0 8400 A3
+hades.symbols.PortLabel 150 7950 B2
+hades.symbols.PortSymbol 0 7800 B2
+hades.symbols.PortLabel 150 7350 LESS1
+hades.symbols.PortSymbol 0 7200 LESS1
+hades.symbols.PortLabel 150 6750 LESS4
+hades.symbols.PortSymbol 0 6600 LESS4
+hades.symbols.PortLabel 150 6150 Op0
+hades.symbols.PortSymbol 0 6000 Op0
+hades.symbols.PortLabel 150 5550 A1
+hades.symbols.PortSymbol 0 5400 A1
+hades.symbols.PortLabel 150 4950 A4
+hades.symbols.PortSymbol 0 4800 A4
+hades.symbols.PortLabel 150 4350 B3
+hades.symbols.PortSymbol 0 4200 B3
+hades.symbols.PortLabel 150 3750 LESS2
+hades.symbols.PortSymbol 0 3600 LESS2
+hades.symbols.PortLabel 150 3150 Op1
+hades.symbols.PortSymbol 0 3000 Op1
+hades.symbols.PortLabel 150 2550 A2
+hades.symbols.PortSymbol 0 2400 A2
+hades.symbols.PortLabel 150 1950 B1
+hades.symbols.PortSymbol 0 1800 B1
+hades.symbols.PortLabel 150 1350 B4
+hades.symbols.PortSymbol 0 1200 B4
+hades.symbols.PortLabel 150 750 LESS3
+hades.symbols.PortSymbol 0 600 LESS3
+hades.symbols.InstanceLabel 150 10050 unnamed
+hades.symbols.ClassLabel 150 450 unnamed

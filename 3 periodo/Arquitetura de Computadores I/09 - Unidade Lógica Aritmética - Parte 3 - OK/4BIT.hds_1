@@ -1,0 +1,12 @@
+# hades.models.Design file
+#  
+[name] unnamed
+[components]
+hades.models.Design unnamed3 2400 21600 @N 1001 /home/starling/Documentos/FaculdadeCC/3\u0020periodo/Arquitetura\u0020de\u0020Computadores\u0020I/09\u0020-\u0020Unidade\u0020L\u00f3gica\u0020Aritm\u00e9tica\u0020-\u0020Parte\u00203\u0020-\u002013-06/1BIT.hds
+hades.models.Design unnamed2 2400 14400 @N 1001 /home/starling/Documentos/FaculdadeCC/3\u0020periodo/Arquitetura\u0020de\u0020Computadores\u0020I/09\u0020-\u0020Unidade\u0020L\u00f3gica\u0020Aritm\u00e9tica\u0020-\u0020Parte\u00203\u0020-\u002013-06/1BIT.hds
+hades.models.Design unnamed1 2400 7200 @N 1001 /home/starling/Documentos/FaculdadeCC/3\u0020periodo/Arquitetura\u0020de\u0020Computadores\u0020I/09\u0020-\u0020Unidade\u0020L\u00f3gica\u0020Aritm\u00e9tica\u0020-\u0020Parte\u00203\u0020-\u002013-06/1BIT.hds
+hades.models.Design unnamed 2400 0 @N 1001 /home/starling/Documentos/FaculdadeCC/3\u0020periodo/Arquitetura\u0020de\u0020Computadores\u0020I/09\u0020-\u0020Unidade\u0020L\u00f3gica\u0020Aritm\u00e9tica\u0020-\u0020Parte\u00203\u0020-\u002013-06/1BIT.hds
+[end components]
+[signals]
+[end signals]
+[end]

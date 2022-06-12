@@ -1,0 +1,49 @@
+# hades.models.Design file
+#  
+[name] unnamed
+[components]
+hades.models.io.Ipin A4 -18600 -1800 @N 1001  U
+hades.models.io.Ipin A3 -16200 -600 @N 1001  U
+hades.models.io.Ipin A2 -13800 -3000 @N 1001  U
+hades.models.io.Ipin A1 -11400 -1800 @N 1001  U
+hades.models.Design unnamed3 2400 21600 @N 1001 /home/starling/Documentos/FaculdadeCC/3\u0020periodo/Arquitetura\u0020de\u0020Computadores\u0020I/09\u0020-\u0020Unidade\u0020L\u00f3gica\u0020Aritm\u00e9tica\u0020-\u0020Parte\u00203\u0020-\u002013-06/1BIT.hds
+hades.models.Design unnamed2 2400 14400 @N 1001 /home/starling/Documentos/FaculdadeCC/3\u0020periodo/Arquitetura\u0020de\u0020Computadores\u0020I/09\u0020-\u0020Unidade\u0020L\u00f3gica\u0020Aritm\u00e9tica\u0020-\u0020Parte\u00203\u0020-\u002013-06/1BIT.hds
+hades.models.Design unnamed1 2400 7200 @N 1001 /home/starling/Documentos/FaculdadeCC/3\u0020periodo/Arquitetura\u0020de\u0020Computadores\u0020I/09\u0020-\u0020Unidade\u0020L\u00f3gica\u0020Aritm\u00e9tica\u0020-\u0020Parte\u00203\u0020-\u002013-06/1BIT.hds
+hades.models.io.Ipin B4 -28200 -3000 @N 1001  U
+hades.models.io.Ipin B3 -25800 -1800 @N 1001  U
+hades.models.io.Ipin B2 -23400 -600 @N 1001  U
+hades.models.io.Ipin B1 -21000 -3000 @N 1001  U
+hades.models.io.Ipin B-inv -9000 -600 @N 1001  U
+hades.models.io.Ipin Op1 -6600 -3000 @N 1001  U
+hades.models.io.Ipin Op0 -4200 -1800 @N 1001  U
+hades.models.Design unnamed 2400 0 @N 1001 /home/starling/Documentos/FaculdadeCC/3\u0020periodo/Arquitetura\u0020de\u0020Computadores\u0020I/09\u0020-\u0020Unidade\u0020L\u00f3gica\u0020Aritm\u00e9tica\u0020-\u0020Parte\u00203\u0020-\u002013-06/1BIT.hds
+hades.models.io.Opin CARRYOUT 21000 -1800 @N 1001 5.0E-9
+hades.models.io.Opin RESULT4 18600 -600 @N 1001 5.0E-9
+hades.models.io.Opin RESULT3 16200 -3000 @N 1001 5.0E-9
+hades.models.io.Ipin Carry-In -1800 -600 @N 1001  U
+hades.models.io.Opin RESULT2 13800 -1800 @N 1001 5.0E-9
+hades.models.io.Opin RESULT1 11400 -600 @N 1001 5.0E-9
+[end components]
+[signals]
+hades.signals.SignalStdLogic1164 n9 2 A3 Y unnamed2 A 3 2 -16200 -600 -15600 -600 2 -15600 -600 -15600 15000 2 -15600 15000 2400 15000 0 
+hades.signals.SignalStdLogic1164 n8 2 A2 Y unnamed1 A 3 2 -13800 -3000 -13200 -3000 2 -13200 -3000 -13200 7800 2 -13200 7800 2400 7800 0 
+hades.signals.SignalStdLogic1164 n7 2 A1 Y unnamed A 3 2 -11400 -1800 -10800 -1800 2 -10800 -1800 -10800 600 2 -10800 600 2400 600 0 
+hades.signals.SignalStdLogic1164 n6 2 unnamed2 CARRYOUT unnamed3 CARRYIN 5 2 7200 16200 7800 16200 2 7800 16200 7800 20400 2 7800 20400 2100 20400 2 2100 20400 2100 24000 2 2100 24000 2400 24000 0 
+hades.signals.SignalStdLogic1164 n19 2 unnamed3 CARRYOUT CARRYOUT A 3 2 7200 23400 20400 23400 2 20400 23400 20400 -1800 2 20400 -1800 21000 -1800 0 
+hades.signals.SignalStdLogic1164 n5 2 unnamed1 CARRYOUT unnamed2 CARRYIN 5 2 7200 9000 7800 9000 2 7800 9000 7800 13200 2 7800 13200 2100 13200 2 2100 13200 2100 16800 2 2100 16800 2400 16800 0 
+hades.signals.SignalStdLogic1164 n18 2 unnamed3 RESULT RESULT4 A 3 2 18600 -600 18000 -600 2 18000 -600 18000 22200 2 18000 22200 7200 22200 0 
+hades.signals.SignalStdLogic1164 n4 2 unnamed CARRYOUT unnamed1 CARRYIN 5 2 7200 1800 7800 1800 2 7800 1800 7800 6000 2 7800 6000 2100 6000 2 2100 6000 2100 9600 2 2100 9600 2400 9600 0 
+hades.signals.SignalStdLogic1164 n17 2 unnamed2 RESULT RESULT3 A 3 2 16200 -3000 15600 -3000 2 15600 -3000 15600 15000 2 15600 15000 7200 15000 0 
+hades.signals.SignalStdLogic1164 n3 5 B-inv Y unnamed3 B-INV unnamed2 B-INV unnamed1 B-INV unnamed B-INV 9 2 -9000 -600 -8400 -600 2 -8400 18600 -8400 25800 2 -8400 25800 2400 25800 2 -8400 11400 -8400 18600 2 -8400 18600 2400 18600 2 -8400 4200 -8400 11400 2 -8400 11400 2400 11400 2 -8400 -600 -8400 4200 2 -8400 4200 2400 4200 3 -8400 4200 -8400 11400 -8400 18600 
+hades.signals.SignalStdLogic1164 n2 5 Op1 Y unnamed3 Op1 unnamed2 Op1 unnamed1 Op1 unnamed Op1 9 2 -6600 -3000 -6000 -3000 2 -6000 17400 -6000 24600 2 -6000 24600 2400 24600 2 -6000 10200 -6000 17400 2 -6000 17400 2400 17400 2 -6000 3000 -6000 10200 2 -6000 10200 2400 10200 2 -6000 -3000 -6000 3000 2 -6000 3000 2400 3000 3 -6000 10200 -6000 3000 -6000 17400 
+hades.signals.SignalStdLogic1164 n16 2 unnamed1 RESULT RESULT2 A 3 2 13800 -1800 13200 -1800 2 13200 -1800 13200 7800 2 13200 7800 7200 7800 0 
+hades.signals.SignalStdLogic1164 n1 5 Op0 Y unnamed3 Op0 unnamed2 Op0 unnamed1 Op0 unnamed Op0 9 2 -4200 -1800 -3600 -1800 2 -3600 16200 -3600 23400 2 -3600 23400 2400 23400 2 -3600 9000 -3600 16200 2 -3600 16200 2400 16200 2 -3600 1800 -3600 9000 2 -3600 9000 2400 9000 2 -3600 -1800 -3600 1800 2 -3600 1800 2400 1800 3 -3600 16200 -3600 9000 -3600 1800 
+hades.signals.SignalStdLogic1164 n15 2 B4 Y unnamed3 B 3 2 -28200 -3000 -27600 -3000 2 -27600 -3000 -27600 22800 2 -27600 22800 2400 22800 0 
+hades.signals.SignalStdLogic1164 n0 2 Carry-In Y unnamed CARRYIN 3 2 -1800 -600 -1200 -600 2 -1200 -600 -1200 2400 2 -1200 2400 2400 2400 0 
+hades.signals.SignalStdLogic1164 n14 2 B3 Y unnamed2 B 3 2 -25800 -1800 -25200 -1800 2 -25200 -1800 -25200 15600 2 -25200 15600 2400 15600 0 
+hades.signals.SignalStdLogic1164 n13 2 B2 Y unnamed1 B 3 2 -23400 -600 -22800 -600 2 -22800 -600 -22800 8400 2 -22800 8400 2400 8400 0 
+hades.signals.SignalStdLogic1164 n12 2 B1 Y unnamed B 3 2 -21000 -3000 -20400 -3000 2 -20400 -3000 -20400 1200 2 -20400 1200 2400 1200 0 
+hades.signals.SignalStdLogic1164 n11 2 unnamed RESULT RESULT1 A 3 2 7200 600 10800 600 2 10800 600 10800 -600 2 10800 -600 11400 -600 0 
+hades.signals.SignalStdLogic1164 n10 2 A4 Y unnamed3 A 3 2 -18600 -1800 -18000 -1800 2 -18000 -1800 -18000 22200 2 -18000 22200 2400 22200 0 
+[end signals]
+[end]

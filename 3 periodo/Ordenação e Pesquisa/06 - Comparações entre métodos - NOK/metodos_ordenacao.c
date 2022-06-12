@@ -1,20 +1,20 @@
 #include"metodos_ordenacao.h"
 
-void preencheVetorAletorios (int *vetor, int quantidade){
+void numerosAletorios (int *vetor, int quantidade){
     int i;
     for (i = 0; i < quantidade; i++){
         vetor[i] = rand() % quantidade;
     }
 }
 
-void preencheVetorCrescente(int *vetor, int quantidade){
+void numerosCrescente(int *vetor, int quantidade){
     int i;
     for (i = 0; i < quantidade; i++){
         vetor[i] = i;
     }
 }
 
-void preencheVetorDecrescente(int *vetor, int quantidade){
+void numerosDecrescente(int *vetor, int quantidade){
     int i, j;
 
     for (i = quantidade-1, j = 0; i >= 0; i--, j++){
@@ -23,10 +23,11 @@ void preencheVetorDecrescente(int *vetor, int quantidade){
 }
 
 // Merge Sort
-void merge(char vetor[], int esqueda, int media, int direita){
+int merge(int vetor[], int esqueda, int media, int direita){
     int i, j, k;
     int n1 = media - esqueda + 1;
     int n2 = direita - media;
+    int troca = 0;
   
 
     int Vesquerda[n1], Vdireita[n2];
@@ -52,7 +53,7 @@ void merge(char vetor[], int esqueda, int media, int direita){
         }
         k++;
     }
-  
+    troca = i + j;
     while (i < n1) {
         vetor[k] = Vesquerda[i];
         i++;
@@ -64,26 +65,33 @@ void merge(char vetor[], int esqueda, int media, int direita){
         j++;
         k++;
     }
+
+    return troca;
 }
   
-void mergeSort(char vetor[], int esquerda, int direita){
+int mergeSort(int vetor[], int esquerda, int direita){
+  int troca;
+
     if (esquerda < direita) {
         int media = esquerda + (direita - esquerda) / 2;
   
         mergeSort(vetor, esquerda, media);
         mergeSort(vetor, media + 1, direita);
   
-        merge(vetor, esquerda, media, direita);
+        troca = merge(vetor, esquerda, media, direita);
     }
+
+    return troca;
 }
 
 void mergeSortComparacao(int vetor[], int n){
     clock_t segundosAntes, segundosDepois;
     double segundosDiferenca;
+    int troca;
 
     printf("Merge Sort\n");
     segundosAntes = clock();
-    mergeSort(vetor, 0, n);
+    troca = mergeSort(vetor, 0, n);
     segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
     printf("Tempo gasto foi de %f\n", segundosDiferenca);
@@ -101,9 +109,10 @@ int valorMaximo(int vetor[], int tamanho) {
   return maior;
 }
 
-void montadorBaldes(int vetor[], int tamano, int balde) {
+int montadorBaldes(int vetor[], int tamano, int balde) {
   int vetorSaida[tamano + 1];
   int valorMax = (vetor[0] / balde) % 10;
+  int troca = 0;
 
   for (int i = 1; i < tamano; i++) {
     if (((vetor[i] / balde) % 10) > valorMax)
@@ -126,6 +135,7 @@ void montadorBaldes(int vetor[], int tamano, int balde) {
   for (int i = tamano - 1; i >= 0; i--) {
     vetorSaida[count[(vetor[i] / balde) % 10] - 1] = vetor[i];
     count[(vetor[i] / balde) % 10]--;
+    troca++;
   }
 
   for (int i = 0; i < tamano; i++){
@@ -133,22 +143,25 @@ void montadorBaldes(int vetor[], int tamano, int balde) {
   }
 }
 
-void radixsort(int vetor[], int tamano) {
-
+int radixsort(int vetor[], int tamano) {
+    int troca;
   int valorMax = valorMaximo(vetor, tamano);
 
   for (int balde = 1; valorMax / balde > 0; balde *= 10)
-    montadorBaldes(vetor, tamano, balde);
+    troca = montadorBaldes(vetor, tamano, balde);
+
+    return troca;
 }
 
-void radixSortComparacao(int vetor[], int num){
+void radixSortComparacao(int *vetor, int num){
     clock_t segundosAntes, segundosDepois;
     double segundosDiferenca;
     int n = sizeof(vetor) / sizeof(vetor[0]);
+    int troca;
 
     printf("Radix Sort\n");
     segundosAntes = clock();
-    radixsort(vetor, n);
+    troca = radixsort(vetor, n);
     segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
     printf("Tempo gasto foi de %f\n", segundosDiferenca);
@@ -156,13 +169,16 @@ void radixSortComparacao(int vetor[], int num){
 }
 
 // Quick Sort
-void trocarElementos(int *a, int *b) {
-  int t = *a;
-  *a = *b;
-  *b = t;
+int trocarElementos(int *a, int *b) {
+    int troca = 0;
+    int t = *a;
+    *a = *b;
+    *b = t;
+
+    return troca;
 }
 
-int dividirVetor(int array[], int low, int high) {
+int dividirVetor(int array[], int low, int high, int *troca) {
   
   int pivot = array[high];
   
@@ -173,34 +189,38 @@ int dividirVetor(int array[], int low, int high) {
         
       i++;
       
-      trocarElementos(&array[i], &array[j]);
+      troca += trocarElementos(&array[i], &array[j]);
     }
   }
 
-  trocarElementos(&array[i + 1], &array[high]);
+  troca += trocarElementos(&array[i + 1], &array[high]);
   
   return (i + 1);
 }
 
-void quickSort(int array[], int low, int high) {
+int quickSort(int array[], int low, int high) {
+    int troca = 0;
   if (low < high) {
     
-    int pi = dividirVetor(array, low, high);
+    int pi = dividirVetor(array, low, high, &troca);
     
     quickSort(array, low, pi - 1);
     
     quickSort(array, pi + 1, high);
   }
+
+  return troca;
 }
 
-void quickSortComparacao(int vetor[], int num){
+void quickSortComparacao(int *vetor, int num){
     clock_t segundosAntes, segundosDepois;
     double segundosDiferenca;
-    int n = sizeof(vetor) / sizeof(data[0]);
+    int n = sizeof(vetor) / sizeof(vetor[0]);
+    int troca;
 
-    printf("Radix Sort\n");
+    printf("Quick Sort\n");
     segundosAntes = clock();
-    quickSort(vetor, 0, n-1);
+    troca = quickSort(vetor, 0, n-1);
     segundosDepois = clock();
     segundosDiferenca = (double)(segundosDepois - segundosAntes)/CLOCKS_PER_SEC;
     printf("Tempo gasto foi de %f\n", segundosDiferenca);
