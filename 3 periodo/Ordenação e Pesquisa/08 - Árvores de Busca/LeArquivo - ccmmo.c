@@ -1,13 +1,14 @@
 #include<stdio.h>
 #include<string.h>
+#include <stdlib.h>
 /*
-r	Abre o arquivo somente para leitura. O arquivo deve existir. (O r vem do inglês read, ler)
+r	Abre o arquivo somente para leitura. O arquivo deve existir. (O r vem do inglÃªs read, ler)
 r+	Abre o arquivo para leitura e escrita. O arquivo deve existir.
 
-w	Abre o arquivo somente para escrita no início do arquivo. Apagará o conteúdo do arquivo se ele já existir, criará um arquivo novo se não existir. (O w vem do inglês write, escrever)
-w+	Abre o arquivo para escrita e leitura, apagando o conteúdo pré-existente.
+w	Abre o arquivo somente para escrita no inÃ­cio do arquivo. ApagarÃ¡ o conteÃºdo do arquivo se ele jÃ¡ existir, criarÃ¡ um arquivo novo se nÃ£o existir. (O w vem do inglÃªs write, escrever)
+w+	Abre o arquivo para escrita e leitura, apagando o conteÃºdo prÃ©-existente.
 
-a	Abre o arquivo para escrita no final do arquivo. Não apaga o conteúdo pré-existente. (O a vem do inglês append, adicionar, apender)
+a	Abre o arquivo para escrita no final do arquivo. NÃ£o apaga o conteÃºdo prÃ©-existente. (O a vem do inglÃªs append, adicionar, apender)
 a+	Abre o arquivo para escrita no final do arquivo e leitura.
 */
 
@@ -33,13 +34,13 @@ struct TrieNode {
 
 void removeParteDaString(char *string, int inicio){
 	//recebe um ponteiro de uma string
-	//recebe a posição inicial
-	//despreza tudo antes do início e para de copiar quando achar o \n
-	char aux[250]={};
+	//recebe a posiÃ§Ã£o inicial
+	//despreza tudo antes do inÃ­cio e para de copiar quando achar o \n
+	char aux[250];
 	int i;
-	int e;//marca a posição a escrever
+	int e;//marca a posiÃ§Ã£o a escrever
 	
-	e = 0;//começamos a escrever a partir da posição zero
+	e = 0;//comeÃ§amos a escrever a partir da posiÃ§Ã£o zero
 
 	i = inicio;
 
@@ -53,14 +54,15 @@ void removeParteDaString(char *string, int inicio){
 }
 
 int main(){
-	//Criando o ponteiro que carregará o arquivo
+	//Criando o ponteiro que carregarÃ¡ o arquivo
 	FILE *arquivo;
 	char linhaLida[250];
 	int numeroLinha;
 	int numeroPessoa = 1;
+	int i;
 
 
-	//Variáveis de exemplo
+	//VariÃ¡veis de exemplo
 	char cpf[11];
 	char nome[100];
 	char endereco[250];
@@ -78,13 +80,13 @@ int main(){
 		return 1;
 	}
 
-	//Esta variável contabiliza o número da linha lida - Serve para controlarmos o que estamos lendo
+	//Esta variÃ¡vel contabiliza o nÃºmero da linha lida - Serve para controlarmos o que estamos lendo
 	numeroLinha = 1;
 	while( ! feof(arquivo) ) {//percorrendo o arquivo completo
 		
 		fgets(linhaLida, 250, arquivo);//lendo a linha inteira
 		
-		printf("\n\t%d -> %s", numeroLinha,linhaLida);//exibindo o que estamos lendo
+//		printf("\n\t%d -> %s", numeroLinha,linhaLida);//exibindo o que estamos lendo
 
 		if(numeroLinha == 1){
 			//abertura da tag <pessoa>
@@ -93,42 +95,56 @@ int main(){
 		else if(numeroLinha == 2){
 			//::cpf::
 			removeParteDaString(linhaLida,7);//removendo os primeiros caracteres
-			strcpy(cpf,linhaLida);//copiando a informação para a variável de destino
-			printf("\n\t* %d -> CPF -> %s", numeroPessoa, cpf);//exibindo a informação correta
+			strcpy(cpf,linhaLida);//copiando a informaÃ§Ã£o para a variÃ¡vel de destino
+			//exibindo a informaÃ§Ã£o correta
 		}
 		else if(numeroLinha == 3){
 			//::nome::
 			removeParteDaString(linhaLida,8);//removendo os primeiros caracteres
-			strcpy(nome,linhaLida);//copiando a informação para a variável de destino
-			printf("\n\t* %d -> NOME -> %s", numeroPessoa, nome);//exibindo a informação correta
+			strcpy(nome,linhaLida);//copiando a informaÃ§Ã£o para a variÃ¡vel de destino
+			//exibindo a informaÃ§Ã£o correta
 		}
 		else if(numeroLinha == 4){
 			//::endereco::
 			removeParteDaString(linhaLida,12);//removendo os primeiros caracteres
-			strcpy(endereco,linhaLida);//copiando a informação para a variável de destino
-			printf("\n\t* %d -> ENDERECO -> %s", numeroPessoa, endereco);//exibindo a informação correta
+			strcpy(endereco,linhaLida);//copiando a informaÃ§Ã£o para a variÃ¡vel de destino
+			//exibindo a informaÃ§Ã£o correta
 		}
 		else if(numeroLinha == 5){
 			//::telefone::
 			removeParteDaString(linhaLida,12);//removendo os primeiros caracteres
-			strcpy(telefone,linhaLida);//copiando a informação para a variável de destino
-			printf("\n\t* %d -> TELEFONE -> %s", numeroPessoa, telefone);//exibindo a informação correta
+			strcpy(telefone,linhaLida);//copiando a informaÃ§Ã£o para a variÃ¡vel de destino
+			//exibindo a informaÃ§Ã£o correta
 		}
 		else if(numeroLinha == 6){
 			//::observacoes::
 			removeParteDaString(linhaLida,15);//removendo os primeiros caracteres
-			strcpy(observacoes,linhaLida);//copiando a informação para a variável de destino
-			printf("\n\t* %d -> OBSERVACOES -> %s", numeroPessoa, observacoes);//exibindo a informação correta
+			strcpy(observacoes,linhaLida);//copiando a informaÃ§Ã£o para a variÃ¡vel de destino
+			//exibindo a informaÃ§Ã£o correta
 		}
 		else if(numeroLinha == 7){
 			//fechamento da tag </pessoa>
 			//nada a fazer
 		}
-		
 
 		if(numeroLinha >= 7){
+			
+					TrieNode *ArTrie = (TrieNode*) calloc(1, sizeof(TrieNode));
+				ArTrie->no = 1;
+				int teste;
+				for(i = 0; i<12;i++){
+					teste = (int)cpf[i] - 48;
+					printf("%d , %d\n", teste, i);
+					printf("%c , %d\n", cpf[i], i);
+				}
+
+			printf("\n\t* %d -> CPF -> %s", numeroPessoa, cpf);
+			printf("\n\t* %d -> NOME -> %s", numeroPessoa, nome);
+			printf("\n\t* %d -> ENDERECO -> %s", numeroPessoa, endereco);
+			printf("\n\t* %d -> TELEFONE -> %s", numeroPessoa, telefone);
+			printf("\n\t* %d -> OBSERVACOES -> %s", numeroPessoa, observacoes);
 			numeroLinha = 0;//zerando as linhas novamente
-			numeroPessoa++;//indo para a próxima pessoa
+			numeroPessoa++;//indo para a prÃ³xima pessoa
 		}
 		
 
