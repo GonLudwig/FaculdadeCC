@@ -53,6 +53,25 @@ void removeParteDaString(char *string, int inicio){
 	strcpy(string,aux);
 }
 
+TrieNode *criarTrie(){
+    TrieNode *trie = (TrieNode*) calloc(1, sizeof(TrieNode));
+
+    trie->no = 1;
+
+    return trie;
+}
+
+TrieNode *criarArvoreTrie(TrieNode *arvTrie, int posicao){
+
+
+    TrieNode *trie = (TrieNode*) calloc(1, sizeof(TrieNode));
+    trie->no = 0;
+
+	arvTrie->children[posicao] = trie;
+
+    return trie;
+}
+
 int main(){
 	//Criando o ponteiro que carregarÃ¡ o arquivo
 	FILE *arquivo;
@@ -80,6 +99,7 @@ int main(){
 		return 1;
 	}
 
+	TrieNode *ArTrie = criarTrie();
 	//Esta variÃ¡vel contabiliza o nÃºmero da linha lida - Serve para controlarmos o que estamos lendo
 	numeroLinha = 1;
 	while( ! feof(arquivo) ) {//percorrendo o arquivo completo
@@ -128,15 +148,15 @@ int main(){
 		}
 
 		if(numeroLinha >= 7){
+			int auxP;
+			auxP = cpf[0];
+			printf("\n%d\n", auxP);
 			
-					TrieNode *ArTrie = (TrieNode*) calloc(1, sizeof(TrieNode));
-				ArTrie->no = 1;
-				int teste;
-				for(i = 0; i<12;i++){
-					teste = (int)cpf[i] - 48;
-					printf("%d , %d\n", teste, i);
-					printf("%c , %d\n", cpf[i], i);
-				}
+			TrieNode *aux = criarArvoreTrie(ArTrie, auxP);
+			for(i = 1; i<12;i++){
+				auxP = cpf[i];
+				printf("%d , %d\n", auxP, i);
+			}
 
 			printf("\n\t* %d -> CPF -> %s", numeroPessoa, cpf);
 			printf("\n\t* %d -> NOME -> %s", numeroPessoa, nome);
