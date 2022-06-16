@@ -151,7 +151,7 @@ int main(){
 			int auxP;
 			auxP = cpf[0];
 			printf("\n%d\n", auxP);
-			
+			fo
 			TrieNode *aux = criarArvoreTrie(ArTrie, auxP);
 			for(i = 1; i<12;i++){
 				auxP = cpf[i];
