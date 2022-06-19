@@ -53,23 +53,86 @@ void removeParteDaString(char *string, int inicio){
 	strcpy(string,aux);
 }
 
-TrieNode *criarTrie(){
-    TrieNode *trie = (TrieNode*) calloc(1, sizeof(TrieNode));
+Pessoa *criarPessoa(char *nome, char *cpf, char *endereco, char *telefone, char *observacoes){
+	Pessoa *pes = (Pessoa*) calloc(1, sizeof(Pessoa));
 
-    trie->no = 1;
+	strcpy(pes->cpf,cpf);
+	strcpy(pes->endereco,endereco);
+	strcpy(pes->nome,nome);
+	strcpy(pes->observacoes,observacoes);
+	strcpy(pes->telefone,telefone);
+
+	return pes;
+}
+
+TrieNode *criarTrie(int numNo){
+    TrieNode *trie = (TrieNode*) calloc(1, sizeof(TrieNode));
+	int i;
+    trie->no = numNo;
+	for (i = 0; i < 10; i++)
+	{
+		trie->children[i] = NULL;
+	}
+	trie->data = NULL;
 
     return trie;
 }
 
-TrieNode *criarArvoreTrie(TrieNode *arvTrie, int posicao){
+TrieNode *criarArvoreTrie(TrieNode *arvTrie, char posicao, int no, Pessoa *pessoa){
+	int i;
+	int intPosicao;
+	TrieNode *aux;
 
+	if(posicao == '0'){
+		intPosicao = 0;
+	}
 
-    TrieNode *trie = (TrieNode*) calloc(1, sizeof(TrieNode));
-    trie->no = 0;
+	if(posicao == '1'){
+		intPosicao = 1;
+	}
 
-	arvTrie->children[posicao] = trie;
+	if(posicao == '2'){
+		intPosicao = 2;
+	}
 
-    return trie;
+	if(posicao == '3'){
+		intPosicao = 3;
+	}
+
+	if(posicao == '4'){
+		intPosicao = 4;
+	}
+
+	if(posicao == '5'){
+		intPosicao = 5;
+	}
+
+	if(posicao == '6'){
+		intPosicao = 6;
+	}
+
+	if(posicao == '7'){
+		intPosicao = 7;
+	}
+
+	if(posicao == '8'){
+		intPosicao = 8;
+	}
+
+	if(posicao == '9'){
+		intPosicao = 9;
+	}
+
+	if (arvTrie->children[intPosicao] != NULL ){
+		return arvTrie->children[intPosicao];
+	} else {
+		aux = criarTrie(no);
+		if(no = 2){
+			aux->data = pessoa;
+		}
+		arvTrie->children[intPosicao] = aux;
+		return arvTrie->children[intPosicao];
+	}
 }
 
 int main(){
@@ -80,16 +143,12 @@ int main(){
 	int numeroPessoa = 1;
 	int i;
 
-
 	//VariÃ¡veis de exemplo
 	char cpf[11];
 	char nome[100];
 	char endereco[250];
 	char telefone[11];
 	char observacoes[250];
-
-
-
 
 	//tentando carregar o arquivo
 	arquivo =  fopen ("CCMMO.txt", "r");
@@ -99,14 +158,14 @@ int main(){
 		return 1;
 	}
 
-	TrieNode *ArTrie = criarTrie();
+	TrieNode *ArTrie = criarTrie(0);
 	//Esta variÃ¡vel contabiliza o nÃºmero da linha lida - Serve para controlarmos o que estamos lendo
 	numeroLinha = 1;
 	while( ! feof(arquivo) ) {//percorrendo o arquivo completo
 		
 		fgets(linhaLida, 250, arquivo);//lendo a linha inteira
 		
-//		printf("\n\t%d -> %s", numeroLinha,linhaLida);//exibindo o que estamos lendo
+		//printf("\n\t%d -> %s", numeroLinha,linhaLida);//exibindo o que estamos lendo
 
 		if(numeroLinha == 1){
 			//abertura da tag <pessoa>
@@ -151,17 +210,25 @@ int main(){
 			int auxP;
 			auxP = cpf[0];
 			printf("\n%d\n", auxP);
-			TrieNode *aux = criarArvoreTrie(ArTrie, auxP);
-			for(i = 1; i<12;i++){
-				auxP = cpf[i];
-				printf("%d , %d\n", auxP, i);
+			Pessoa *pes;
+			TrieNode *aux;
+			pes = criarPessoa(nome, cpf, endereco, telefone, observacoes);
+
+			aux = ArTrie;
+			for(i = 0; i < 11;i++){
+				if(i = 10){
+					aux = criarArvoreTrie(aux, cpf[i], 2, pes);
+				}else{
+					aux = criarArvoreTrie(aux, cpf[i], 1, pes);
+				}
+				
 			}
 
-			printf("\n\t* %d -> CPF -> %s", numeroPessoa, cpf);
-			printf("\n\t* %d -> NOME -> %s", numeroPessoa, nome);
-			printf("\n\t* %d -> ENDERECO -> %s", numeroPessoa, endereco);
-			printf("\n\t* %d -> TELEFONE -> %s", numeroPessoa, telefone);
-			printf("\n\t* %d -> OBSERVACOES -> %s", numeroPessoa, observacoes);
+			printf("\n\t* %d -> CPF -> %s", numeroPessoa, aux->data->cpf);
+			printf("\n\t* %d -> NOME -> %s", numeroPessoa, aux->data->nome);
+			printf("\n\t* %d -> ENDERECO -> %s", numeroPessoa, aux->data->endereco);
+			printf("\n\t* %d -> TELEFONE -> %s", numeroPessoa, aux->data->telefone);
+			printf("\n\t* %d -> OBSERVACOES -> %s", numeroPessoa, aux->data->observacoes);
 			numeroLinha = 0;//zerando as linhas novamente
 			numeroPessoa++;//indo para a prÃ³xima pessoa
 		}
