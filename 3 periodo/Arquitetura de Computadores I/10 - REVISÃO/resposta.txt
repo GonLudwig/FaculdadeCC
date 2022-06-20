@@ -1,0 +1,45 @@
+1)
+a - Latencia: e o tempo para realizar uma tarefa.
+b - Throghput: e a quantidade de instrucoes que da pra realizar em um periodo de tempo.
+c - Tempo decorrido: E o tempo apartir de quando o programa abri ate o programa ser fechado.
+d - Tempo de CPU: E o tempo em que o processador começar a processar o programa ate ele parrar de processar o programa.
+e - Ciclos por instrução e o tempo para processar uma instrução, depende diretamente da complexidade da instrução.
+
+2) 
+    addi $t1, $0, 7
+    beq $b, $t1, verdadeiro
+    sub $b, $x, $y
+    sub $b, $b, $z
+    j fimIf
+    verdaderio
+    add $b, $x, $y
+    add $b, $b, $z
+    fimIf
+
+    slti $a, $b, 7
+    add $t1, $0, 1
+    beq $a, $t1, destino
+    j fim
+    destino
+    addi $b, $b, 1
+    fim
+
+3)
+As operações lógicas são: AND, OR, SOMA/SUB e SLT.
+    and - Condição logica que valida se as duas condições são verdadeiros.
+    or - Condição logica que valida se uma das duas condições são verdadeiras.
+    SOMA/SUB - Soma ou subtrai o a entrada da ula.
+    SLT -  Serve para comprar se um registrador e menor que o outro.
+
+4) Ela usa uma entrada de bit chamada B_invert que determinar se sera somador ou subtrator.
+
+5)
+a - add: Soma uma variavel a outra variavel e armazena e um terceira variavel.
+b - sub: Subtrai uma variavel a outra variavel e armazena e um terceira variavel.
+c - and: Condição logica que valida se as duas condições são verdadeiros e armazena e uma terceira variavel.
+d - or: Condição logica que valida se uma das duas condições são verdadeiras e armazena e uma tercaira variavel.
+e - lw: Acessa a possicao de um vetor de uma variavel e armazena e uma outra variavel.
+f - sw: Atribuma a uma possicao de uma vetor uma varivel.
+g - slt: verificar se uma variavel e menor que outra variavel e armazena 1 se verdadeiro e 0 se falso a outra variavel.
+h - slti: verificar se uma variavel e menor que um numero e armazena 1 se verdadeiro e 0 se falso a outra variavel.
+i - beq: Valida se uma variavel e igual a outra variavel. 
