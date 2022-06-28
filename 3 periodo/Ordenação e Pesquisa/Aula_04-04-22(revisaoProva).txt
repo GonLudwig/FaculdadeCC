@@ -1,2 +1,0 @@
-2 - Selection sort e aquele que escolhe um elemento e compara ele com os demais.
-    BuBleble sort ele sempre faz comparacoes adjacentes.

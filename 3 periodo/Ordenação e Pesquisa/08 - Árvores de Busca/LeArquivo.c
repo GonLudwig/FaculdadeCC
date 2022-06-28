@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<string.h>
 #include <stdlib.h>
+#include<locale.h>
+#include<stdlib.h>
 /*
 r	Abre o arquivo somente para leitura. O arquivo deve existir. (O r vem do inglÃªs read, ler)
 r+	Abre o arquivo para leitura e escrita. O arquivo deve existir.
@@ -13,21 +15,19 @@ a+	Abre o arquivo para escrita no final do arquivo e leitura.
 */
 
 typedef struct Pessoa Pessoa;
- 
 struct Pessoa {
+	char cpf[12];
 	char nome[100];
-	char cpf[100];
-	char endereco[100];
-	char telefone[100];
-	char observacoes[100];
+	char endereco[250];
+	char telefone[11];
+	char observacoes[250];
 };
-
-typedef struct TrieNode TrieNode;
  
+typedef struct TrieNode TrieNode;
 struct TrieNode {
     Pessoa *data;
-    TrieNode* children[10];
-    int no;
+    TrieNode *children[10];
+    int no; // 1 no, 2 fim da arvore
 };
 
 
@@ -36,7 +36,7 @@ void removeParteDaString(char *string, int inicio){
 	//recebe um ponteiro de uma string
 	//recebe a posiÃ§Ã£o inicial
 	//despreza tudo antes do inÃ­cio e para de copiar quando achar o \n
-	char aux[250];
+	char aux[250] = {};
 	int i;
 	int e;//marca a posiÃ§Ã£o a escrever
 	
@@ -78,73 +78,188 @@ TrieNode *criarTrie(int numNo){
     return trie;
 }
 
-TrieNode *criarArvoreTrie(TrieNode *arvTrie, char posicao, int no, Pessoa *pessoa){
+int criarArvoreTrie(TrieNode **arvTrie, char *posicao, Pessoa *pessoa){
 	int i;
 	int intPosicao;
 	TrieNode *aux;
 
-	if(posicao == '0'){
-		intPosicao = 0;
+	if(*arvTrie == NULL){
+		*arvTrie = criarTrie(1); 
 	}
 
-	if(posicao == '1'){
-		intPosicao = 1;
-	}
 
-	if(posicao == '2'){
-		intPosicao = 2;
-	}
+	aux = *arvTrie;
 
-	if(posicao == '3'){
-		intPosicao = 3;
-	}
+	for (i = 1; i < 11; i++){
 
-	if(posicao == '4'){
-		intPosicao = 4;
-	}
-
-	if(posicao == '5'){
-		intPosicao = 5;
-	}
-
-	if(posicao == '6'){
-		intPosicao = 6;
-	}
-
-	if(posicao == '7'){
-		intPosicao = 7;
-	}
-
-	if(posicao == '8'){
-		intPosicao = 8;
-	}
-
-	if(posicao == '9'){
-		intPosicao = 9;
-	}
-
-	if (arvTrie->children[intPosicao] != NULL ){
-		return arvTrie->children[intPosicao];
-	} else {
-		aux = criarTrie(no);
-		if(no = 2){
-			aux->data = pessoa;
+		if(posicao[i] == '0'){
+			intPosicao = 0;
 		}
-		arvTrie->children[intPosicao] = aux;
-		return arvTrie->children[intPosicao];
+
+		if(posicao[i] == '1'){
+			intPosicao = 1;
+		}
+
+		if(posicao[i] == '2'){
+			intPosicao = 2;
+		}
+
+		if(posicao[i] == '3'){
+			intPosicao = 3;
+		}
+
+		if(posicao[i] == '4'){
+			intPosicao = 4;
+		}
+
+		if(posicao[i] == '5'){
+			intPosicao = 5;
+		}
+
+		if(posicao[i] == '6'){
+			intPosicao = 6;
+		}
+
+		if(posicao[i] == '7'){
+			intPosicao = 7;
+		}
+
+		if(posicao[i] == '8'){
+			intPosicao = 8;
+		}
+
+		if(posicao[i] == '9'){
+			intPosicao = 9;
+		}
+		
+		if(aux->children[intPosicao] == NULL){
+			aux->children[intPosicao] = criarTrie(1);
+		}
+
+		aux = aux->children[intPosicao];
 	}
+	
+	if(aux->no == 2){
+		return 0;
+	}
+
+	aux->no = 2;
+	aux->data = pessoa;
+	return 1;
+
+	// if (aux->children[intPosicao] != NULL ){
+	// 	return aux->children[intPosicao];
+	// } else {
+	// 	aux = criarTrie(no);
+	// 	if(no = 2){
+	// 		aux->data = pessoa;
+	// 	}
+	// 	aux->children[intPosicao] = aux;
+	// 	return aux->children[intPosicao];
+	// }
+}
+
+void printArvore(TrieNode *arvTrie, char *posicao){
+	int intPosicao, i;
+	TrieNode *aux;
+	aux = arvTrie;
+	puts("Teste!");
+
+	if (arvTrie == NULL){
+		puts("Arvore Vazia!");
+		return;
+	}
+
+	for (i = 1; i < 11; i++){
+		if(posicao[i] == '0'){
+			intPosicao = 0;
+		}
+
+		if(posicao[i] == '1'){
+			intPosicao = 1;
+		}
+
+		if(posicao[i] == '2'){
+			intPosicao = 2;
+		}
+
+		if(posicao[i] == '3'){
+			intPosicao = 3;
+		}
+
+		if(posicao[i] == '4'){
+			intPosicao = 4;
+		}
+
+		if(posicao[i] == '5'){
+			intPosicao = 5;
+		}
+
+		if(posicao[i] == '6'){
+			intPosicao = 6;
+		}
+
+		if(posicao[i] == '7'){
+			intPosicao = 7;
+		}
+
+		if(posicao[i] == '8'){
+			intPosicao = 8;
+		}
+
+		if(posicao[i] == '9'){
+			intPosicao = 9;
+		}
+
+		if(aux->children[intPosicao] == NULL){
+			puts("Deu treta!");
+		}
+
+		aux = aux->children[intPosicao];
+	}
+
+	if (aux->no == 2){
+		printf("CPF -> %s\n",aux->data->cpf);
+		printf("NOME -> %s\n",aux->data->nome);
+		printf("ENDERECO -> %s\n",aux->data->endereco);
+		printf("TELEFONE -> %s\n",aux->data->telefone);
+		printf("OBSERVACOES -> %s\n",aux->data->observacoes);
+	}
+	
+}
+
+void printArvoreCom(TrieNode *arvTrie){
+	int i;
+
+	if( arvTrie->data != NULL ){
+		//achamos uma pessoa :)
+		printf("\n\n--- ACHEI\n");
+		printf("\nNome: %s", arvTrie->data->nome);
+		printf("\nCPF:  %s", arvTrie->data->cpf);
+		
+	}
+
+	for (i = 0; i < 10; i++){
+		if(arvTrie->children[i] != NULL){
+			printArvoreCom(arvTrie->children[i]);
+		}
+	}
+	
+	
 }
 
 int main(){
+	setlocale(LC_ALL,"Portuguese");
 	//Criando o ponteiro que carregarÃ¡ o arquivo
 	FILE *arquivo;
 	char linhaLida[250];
 	int numeroLinha;
 	int numeroPessoa = 1;
 	int i;
+	char lerCPF[12];
 
 	//VariÃ¡veis de exemplo
-	char cpf[11];
+	char cpf[12];
 	char nome[100];
 	char endereco[250];
 	char telefone[11];
@@ -158,7 +273,7 @@ int main(){
 		return 1;
 	}
 
-	TrieNode *ArTrie = criarTrie(0);
+	TrieNode *ArTrie;
 	//Esta variÃ¡vel contabiliza o nÃºmero da linha lida - Serve para controlarmos o que estamos lendo
 	numeroLinha = 1;
 	while( ! feof(arquivo) ) {//percorrendo o arquivo completo
@@ -204,39 +319,51 @@ int main(){
 		else if(numeroLinha == 7){
 			//fechamento da tag </pessoa>
 			//nada a fazer
+			int retorno;
+			Pessoa *pes;
+			pes = criarPessoa(nome, cpf, endereco, telefone, observacoes);
+			retorno = criarArvoreTrie(&ArTrie, cpf, pes);
 		}
 
 		if(numeroLinha >= 7){
-			int auxP;
-			auxP = cpf[0];
-			printf("\n%d\n", auxP);
-			Pessoa *pes;
-			TrieNode *aux;
-			pes = criarPessoa(nome, cpf, endereco, telefone, observacoes);
+			// if (retorno == 1) {
+			// 	puts("Deu Certo não existia este cpf");
+			// } else {
+			// 	puts("Deu erro ja existia este cpf");
+			// 	printf("\n\t* %d -> CPF -> %s", numeroPessoa, cpf);
+			// }
 
-			aux = ArTrie;
-			for(i = 0; i < 11;i++){
-				if(i = 10){
-					aux = criarArvoreTrie(aux, cpf[i], 2, pes);
-				}else{
-					aux = criarArvoreTrie(aux, cpf[i], 1, pes);
-				}
+
+			// aux = ArTrie;
+			// for(i = 0; i < 11;i++){
+			// 	if(i = 10){
+			// 		aux = criarArvoreTrie(aux, cpf[i], 2, pes);
+			// 	}else{
+			// 		aux = criarArvoreTrie(aux, cpf[i], 1, pes);
+			// 	}
 				
-			}
+			// }
 
-			printf("\n\t* %d -> CPF -> %s", numeroPessoa, aux->data->cpf);
-			printf("\n\t* %d -> NOME -> %s", numeroPessoa, aux->data->nome);
-			printf("\n\t* %d -> ENDERECO -> %s", numeroPessoa, aux->data->endereco);
-			printf("\n\t* %d -> TELEFONE -> %s", numeroPessoa, aux->data->telefone);
-			printf("\n\t* %d -> OBSERVACOES -> %s", numeroPessoa, aux->data->observacoes);
+			// printf("\n\t* %d -> CPF -> %s", numeroPessoa, aux->data->cpf);
+			// printf("\n\t* %d -> NOME -> %s", numeroPessoa, aux->data->nome);
+			// printf("\n\t* %d -> ENDERECO -> %s", numeroPessoa, aux->data->endereco);
+			// printf("\n\t* %d -> TELEFONE -> %s", numeroPessoa, aux->data->telefone);
+			// printf("\n\t* %d -> OBSERVACOES -> %s", numeroPessoa, aux->data->observacoes);
 			numeroLinha = 0;//zerando as linhas novamente
 			numeroPessoa++;//indo para a prÃ³xima pessoa
 		}
 		
 
 		numeroLinha++;
+		// puts("Arvore Vazia!");
 	}
+	fclose(arquivo);
 
+	// printArvoreCom(ArTrie);
+	// __fpurge(stdin);
+	fgets(lerCPF, 12, stdin);
+
+	// printArvore(ArTrie, lerCPF);
 	printf("\n\n\n\n\n");
 	
 }

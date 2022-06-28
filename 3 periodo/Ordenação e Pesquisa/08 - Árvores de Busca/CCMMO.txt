@@ -5585,13 +5585,6 @@
 ::observacoes::Pellentesque tristique massa eu mauris semper consectetur.
 </pessoa>
 <pessoa>
-::cpf::21351342543
-::nome::MISLENE CLAUDIANO HOTT
-::endereco::Rua Francisco Orlando
-::telefone::86548296
-::observacoes::Morbi malesuada dolor nec ante porttitor pellentesque.
-</pessoa>
-<pessoa>
 ::cpf::72636856561
 ::nome::GLEICIANE TASSIANA VACCARI
 ::endereco::Rua Otelina Maria
